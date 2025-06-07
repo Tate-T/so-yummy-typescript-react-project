@@ -1,0 +1,20 @@
+.addOwnRecipe *{
+    box-sizing: border-box;
+    transition: all .3s;
+}
+.addOwnRecipe{
+    padding: 100px 0;
+}
+.title{
+    color: var(--title-color);
+    font-size: var(--title-fs);
+    font-weight: 600;
+    line-height: 100%;
+    letter-spacing: -0.88px;
+    @media screen and (max-width: 1439px) {
+        font-size: 32px;
+    }
+    @media screen and (max-width: 767px) {
+        font-size: 28px;
+    }
+}
