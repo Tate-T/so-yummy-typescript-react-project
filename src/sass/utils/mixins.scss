@@ -1,0 +1,40 @@
+@mixin roundedBtn(
+  $px: 52px,
+  $py: 23px,
+  $bgc: var(--bg-secondary-color),
+  $fsz: 16px
+) {
+  padding: $py $px;
+  background-color: $bgc;
+
+  color: var(--bg-color);
+  font-size: $fsz;
+  font-weight: 400;
+  line-height: normal;
+
+  border-radius: 100px;
+  border-bottom-left-radius: 300px;
+  border-top-right-radius: 300px;
+}
+@mixin roundedInput(
+  $width: 349px,
+  $px: 48px,
+  $py: 23px,
+  $bgc: var(--bg-card-color)
+) {
+  width: $width;
+  padding: $py $px;
+  background-color: $bgc;
+  color: var(--text-secondary-color);
+  font-size: var(--text-lg-fs);
+
+  border-radius: 100px;
+  border-bottom-left-radius: 300px;
+  border-top-right-radius: 300px;
+  &::placeholder {
+    color: var(--subtext-color);
+    font-size: var(--text-lg-fs);
+    font-weight: 400;
+    line-height: normal;
+  }
+}

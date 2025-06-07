@@ -1,0 +1,207 @@
+.authPage {
+  background-image: url("../../../public/authImgs/authBg.svg");
+  height: 100vh;
+  background-repeat: no-repeat;
+  background-size: contain;
+  // position: relative;
+  background-position: bottom;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.test {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.authPhoto {
+  width: 532px;
+  height: 468px;
+}
+
+.authBox {
+  // position: absolute;
+  // right: 130px;
+  // bottom: 193px;
+}
+
+.authBlock {
+  padding: 44px 50px;
+  border-radius: 30px;
+  background: #2a2c36;
+  box-shadow: 0px 4px 48px 0px rgba(0, 0, 0, 0.1);
+  width: 400px;
+}
+
+.authTitle {
+  color: var(--bg-color);
+  font-size: 28px;
+  font-weight: 600;
+  line-height: 30px;
+  letter-spacing: -0.56px;
+}
+
+.authForm {
+  margin-top: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.authInput {
+  width: 100%;
+  padding: 16px 18px 16px 50px;
+  height: 25px;
+  background-color: transparent;
+  border: 1px solid var(--bg-color);
+  color: var(--bg-color);
+  font-size: 18px;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: -0.36px;
+  opacity: 0.8;
+  border-radius: 10px;
+  width: 330px;
+
+  &:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0px 1000px #2a2c36 inset;
+    -webkit-text-fill-color: var(--bg-color);
+  }
+
+  &::placeholder {
+    color: var(--bg-color);
+    font-size: 18px;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: -0.36px;
+    opacity: 0.8;
+  }
+}
+
+.authErrorInput {
+  border: 1px solid #e74a3b;
+}
+
+.authErrorAfter {
+  position: relative;
+  width: 100%;
+  // display: flex;
+  // align-items: center;
+  // justify-content: center;
+
+  &::after {
+    content: "";
+    position: absolute;
+    display: block;
+    background-image: url("../../../public/icons/error.svg");
+    background-repeat: no-repeat;
+    width: 20px;
+    height: 20px;
+    top: 20px;
+    right: 18px;
+  }
+}
+
+.authNameBefore {
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.8;
+
+  &::before {
+    content: "";
+    position: absolute;
+    display: block;
+    background-image: url("../../../public/icons/user.svg");
+    background-repeat: no-repeat;
+    width: 24px;
+    height: 24px;
+    top: 18px;
+    left: 18px;
+    // background-color: aqua;
+  }
+}
+
+.authEmailBefore {
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.8;
+
+  &::before {
+    content: "";
+    position: absolute;
+    display: block;
+    background-image: url("../../../public/icons/email.svg");
+    background-repeat: no-repeat;
+    width: 24px;
+    height: 24px;
+    top: 18px;
+    left: 18px;
+    // background-color: aqua;
+  }
+}
+
+.authPasswordBefore {
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.8;
+
+  &::before {
+    content: "";
+    position: absolute;
+    display: block;
+    background-image: url("../../../public/icons/lock.svg");
+    background-repeat: no-repeat;
+    width: 24px;
+    height: 24px;
+    top: 18px;
+    left: 18px;
+    // background-color: aqua;
+  }
+}
+
+.loginBtn {
+  width: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--accent-color);
+  padding: 21px 0;
+  border-radius: 6px;
+  color: var(--bg-color);
+  text-align: center;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 18px;
+  margin-top: 26px;
+}
+
+.authLink {
+  display: block;
+  margin-top: 18px;
+  color: var(--bg-color);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: normal;
+  text-align: center;
+  // text-decoration-line: underline;
+  // text-decoration-style: solid;
+  // text-decoration-skip-ink: none;
+  // text-decoration-thickness: auto;
+  // text-underline-offset: auto;
+  // text-underline-position: from-font;
+  text-decoration: underline;
+  text-decoration-skip-ink: none;
+}

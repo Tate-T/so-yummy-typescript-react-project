@@ -1,0 +1,164 @@
+@import "@/sass/utils/mixins.scss";
+
+.bigRecipeItem{
+    position: relative;
+    width: 1240px;
+    height: 404px;
+    border-radius: 8px;
+    background: var(--bg-card-color);
+    padding: 40px;
+    display: flex;
+    gap: 40px;
+    @media screen and (max-width: 1439px) {
+        width: 704px;
+        height: 288px;
+        gap: 24px;
+        padding: 28px 24px;
+    }
+    @media screen and (max-width: 767px) {
+        width: 343px;
+        height: 152px;
+        gap: 14px;
+        padding: 14px 9px;
+    }
+}
+.recipePhoto{
+    width: 318px;
+    height: 324px;
+    border-radius: 8px;
+    @media screen and (max-width: 1439px) {
+        width: 228px;
+        height: 232px;
+    }
+    @media screen and (max-width: 767px) {
+        width: 124px;
+        height: 124px;
+    }
+}
+.infoCont{
+    width: 679px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    @media screen and (max-width: 1439px) {
+        width: 298px;
+    }
+    @media screen and (max-width: 767px) {
+        width: 153px;
+    }
+}
+.recipeTitle{
+    color: var(--text-color);
+    font-size: var(--subtitle-md-fs);
+    font-weight: 500;
+    line-height: 100%;
+    letter-spacing: -0.24px;
+    @media screen and (max-width: 1439px) {
+        font-size: 24px;
+    }
+    @media screen and (max-width: 767px) {
+        font-size: 14px;
+    }
+}
+.recipeDescr{
+    margin-top: 50px;
+    color: var(--text-secondary-color);
+    font-size: var(--text-xl-fs);
+    font-weight: 400;
+    line-height: 133.333%;
+    letter-spacing: -0.36px;
+    @media screen and (max-width: 1439px) {
+        font-size: 14px;
+    }
+    @media screen and (max-width: 767px) {
+        font-size: 8px;
+        margin-top: 14px;
+    }
+}
+.recipeTime{
+    margin-top: auto;
+    color: var(--text-secondary-color);
+    font-size: var(--text-md-fs);
+    font-weight: 400;
+    line-height: 142.857%;
+    letter-spacing: -0.24px;
+    @media screen and (max-width: 767px) {
+        font-size: 10px;
+        font-weight: 500;
+    }
+}
+.delBut{
+    position: absolute;
+    right: 40px;
+    top: 40px;
+    width: 44px;
+    height: 44px;
+    border-radius: 4px;
+    background: var(--bg-del-but);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: url("../../../public/icons/trash.svg");
+    background-repeat: no-repeat;
+    background-position: center center;
+    @media screen and (max-width: 1439px) {
+        width: 38px;
+        height: 38px;
+        top: 28px;
+        right: 24px;
+    }
+    @media screen and (max-width: 767px) {
+        top: 14px;
+        right: 9px;
+        width: 24px;
+        height: 24px;
+        background-size: 14px;
+    }
+}
+html[data-theme="dark"] .delBut {
+    background-image: url("../../../public/icons/trash-dark.svg");
+}
+.seeButB{
+    width: 160px;
+    height: 54px;
+    position: absolute;
+    right: 40px;
+    bottom: 40px;
+    @include roundedBtn(32px, 12px, var(--bg-secondary-color), var(--text-lg-fs));
+    @media screen and (max-width: 1439px) {
+        width: 138px;
+        height: 45px;
+        bottom: 28px;
+        right: 24px;
+        font-size: 14px;
+    }
+    @media screen and (max-width: 767px) {
+        width: 87px;
+        height: 27px;
+        bottom: 14px;
+        right: 9px;
+        @include roundedBtn(14px, 6px, var(--bg-secondary-color), 10px);
+    }
+}
+.seeButG{
+    width: 160px;
+    height: 54px;
+    position: absolute;
+    right: 40px;
+    bottom: 40px;
+    @include roundedBtn(32px, 12px, var(--accent-color), var(--text-lg-fs));
+    @media screen and (max-width: 1439px) {
+        width: 138px;
+        height: 45px;
+        bottom: 28px;
+        right: 24px;
+        font-size: 14px;
+    }
+    @media screen and (max-width: 767px) {
+        width: 87px;
+        height: 27px;
+        bottom: 14px;
+        right: 9px;
+        @include roundedBtn(14px, 6px, var(--accent-color), 10px);
+    }
+}

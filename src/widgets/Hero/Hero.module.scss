@@ -1,0 +1,104 @@
+@import "../../sass/utils/mixins.scss";
+
+.hero {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-image: url("../../../public/hero/heroBackground.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding-top: 126px;
+}
+
+.heroMainBlock {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+} //? Senya
+
+.heroBox {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.heroTitle {
+  color: var(--bg-secondary-color);
+  font-size: 100px;
+  font-weight: 400;
+  line-height: 100px;
+  letter-spacing: -0.5px;
+}
+
+.heroTitleSpan {
+  color: var(--accent-color);
+}
+
+.heroText {
+  color: var(--text-secondary-color);
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 24px;
+  letter-spacing: -0.36px;
+  max-width: 465px;
+  margin-top: 14px;
+}
+
+.heroSearchBox {
+  margin-top: 50px;
+}
+
+.heroSearchInput {
+  @include roundedInput(254px);
+}
+
+.heroSearchBtn {
+  margin-left: -45px;
+  @include roundedBtn(52px, 23px, var(--bg-secondary-color), 16px);
+}
+
+.heroDishImg {
+  width: 578px;
+  height: 539px;
+}
+
+.heroCategoriesBox {
+  padding: 16px;
+  background-color: var(--bg-card-color);
+  width: 298px;
+  border-radius: 8px;
+  position: absolute;
+  right: -100px;
+  bottom: 89px;
+}
+
+.heroCategoriesText {
+  color: var(--text-color);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  letter-spacing: -0.24px;
+  max-width: 266px;
+}
+
+.heroCategoriesTextSpan {
+  color: var(--accent-color);
+}
+
+.heroCategoriesLink {
+  color: var(--text-color);
+  font-size: 10px;
+  font-weight: 400;
+  line-height: 12px;
+  letter-spacing: 0.2px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 4px;
+  margin-top: 7px;
+}
+.heroIcon {
+  width: 18px;
+  height: 18px;
+}

@@ -1,0 +1,13 @@
+%flexCenter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+%pageTitle {
+  color: var(--title-color);
+  font-size: var(--title-fs);
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: -0.88px;
+}
