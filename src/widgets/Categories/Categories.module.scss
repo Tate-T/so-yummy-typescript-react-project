@@ -21,11 +21,28 @@
 }
 .categoriesSublist {
   @extend %flexCenter;
+  width: 100em;
+  height: 100px;
+
   gap: 55px;
   margin-bottom: 68px;
   padding-bottom: 28px;
   overflow-x: scroll;
+  overflow-y: visible;
   scrollbar-width: none;
+  position: relative;
+  &::after {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 10px;
+    background-color: var(--accent-color);
+    position: absolute;
+    bottom: -200px;
+    right: 0;
+    left: 0;
+    z-index: 3;
+  }
   &::-webkit-scrollbar {
     display: none;
   }
@@ -44,12 +61,11 @@
   font-weight: 400;
   line-height: 1;
 }
-.recipesGrid {
-  width: 100%;
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  // min-height: 400px;
-}
+// .recipesGrid {
+//   width: 100%;
+//   display: grid;
+//   // min-height: 400px;
+// }
 .recipesList {
   display: flex;
   flex-wrap: wrap;
