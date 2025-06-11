@@ -1,0 +1,293 @@
+.addRecipe{
+
+}
+.basicInfoCont{
+    display: flex;
+    gap: 50px;
+}
+.photoInput{
+    width: 357px;
+    height: 344px;
+    border-radius: 8px;
+    position: relative;
+    background: #8BAA36 url("../../../public/icons/photoIcon.svg") no-repeat center center;
+}
+.fileInput{
+    opacity: 0;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    border-radius: 8px;
+}
+.basicInputs{
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+.basicInput{
+    width: 393px;
+    color: var(--text-color);
+    padding-bottom: 18px;
+    font-size: var(--text-lg-fs);
+    height: 43px;
+    background-color: transparent;
+    letter-spacing: -0.32px;
+    border-bottom: 1px solid var(--switch-color);
+    display: flex;
+    justify-content: space-between;
+    &::placeholder{
+        color: var(--input-color);
+        opacity: 0.5;
+    }
+    color: var(--text-color);
+    &[data-theme="dark"]{
+        opacity: 1;
+    }
+}
+.basicSelectInput{
+    width: 393px;
+    padding-bottom: 18px;
+    background-color: transparent;
+    border-bottom: 1px solid var(--switch-color);
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    height: 43px;
+    &>p{
+        opacity: .5;
+        font-size: var(--text-lg-fs);
+        letter-spacing: -0.32px;
+        color: var(--input-color);
+    }
+}
+.selectBut{
+    color: var(--input-color);
+    font-size: var(--text-md-fs);
+    height: 20px;
+    margin-top: 3.5px;
+    display: flex;
+    align-items: center;
+    padding-right: 28px;
+    background: url('../../../public/icons/arrowDown.svg') no-repeat right;
+}
+.selectorScr{
+    z-index: 999;
+    padding: 4px;
+    width: 132px;
+    height: 162px;
+    position: absolute;
+    right: 0;
+    overflow: hidden;
+    top: 31px;
+    border-radius: 6px;
+    background: var(--bg-switch-color);
+    box-shadow: 0px 6.519px 7.822px 0px rgba(0, 0, 0, 0.03);
+}
+.selectors{
+    overflow: hidden auto;
+    height: 162px;
+    padding: 4px 14px;
+    &::-webkit-scrollbar {
+        width: 4px;
+    }
+    &::-webkit-scrollbar-track {
+        background: transparent;
+    }
+    &::-webkit-scrollbar-thumb {
+        background-color: var(--scrollbar-color);
+        border-radius: 12px;
+    }
+}
+.selector{
+    font-size: var(--text-md-fs);
+    color: var(--input-color);
+    opacity: 0.5;
+    letter-spacing: -0.28px;
+    cursor: pointer;
+    &:hover{
+        color: var(--accent-color);
+        opacity: 1;
+    }
+}
+.ingredients{
+    margin-top: 100px;
+    width: 609px;
+}
+.titleCont{
+    height: 32px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.subTitle{
+    color: var(--text-color);
+    font-size: var(--subtitle-md-fs);
+    font-weight: 600;
+    line-height: 1;
+    letter-spacing: -0.24px;
+}
+.ingredientInputCont{
+    position: relative;
+}
+.ingredientInput{
+    padding: 16px 18px;
+    color: var(--text-secondary-color);
+    font-size: var(--text-xl-fs);
+    letter-spacing: -0.36px;
+    width: 398px;
+    height: 59px;
+    border-radius: 6px;
+    background-color: var(--bg-select-input);
+}
+.cluesWrap{
+    padding: 4px;
+    border-radius: 6px;
+    background: var(--bg-switch-color);
+    box-shadow: 0px 6.519px 7.822px 0px rgba(0, 0, 0, 0.03);
+    width: 398px;
+    position: absolute;
+    top: 59px;
+    overflow: hidden;
+    z-index: 999;
+}
+.clues{
+    padding: 4px 14px;
+    overflow: hidden auto;
+    max-height: 164px;
+    &::-webkit-scrollbar {
+        width: 4px;
+    }
+    &::-webkit-scrollbar-track {
+        background: transparent;
+    }
+    &::-webkit-scrollbar-thumb {
+        background-color: var(--scrollbar-color);
+        border-radius: 12px;
+    }
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+.clue{
+    color: var(--input-color);
+    font-size: var(--text-md-fs);
+    letter-spacing: -0.28px;
+    opacity: 0.5;
+    cursor: pointer;
+    &:hover{
+        color: var(--accent-color);
+        opacity: 1;
+    }
+}
+.openClues{
+    position: absolute;
+    background: url('../../../public/icons/arrowDown.svg');
+    width: 20px;
+    height: 20px;
+    right: 18px;
+    top: 20px;
+}
+.ingredientsCount{
+    width: 110px;
+    height: 32px;
+    border-radius: 18px;
+    border: 1px solid rgba(51, 51, 51, 0.30);
+    padding: 8px 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--text-color);
+    font-size: 16px;
+    line-height: 150%;
+}
+.changeCountBut{
+    width: 16px;
+    height: 16px;
+    &[data-evt="-"]{
+        background: url('../../../public//icons/minus.svg');
+    }
+    &[data-evt="+"]{
+        background: url('../../../public//icons/plus.svg');
+    }
+}
+.countCont{
+    margin-left: 32px;
+    width: 99px;
+    height: 59px;
+    border-radius: 6px;
+    background-color: var(--bg-select-input);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+}
+.countInput{
+    color: var(--text-secondary-color);
+    font-size: var(--text-xl-fs);
+    letter-spacing: -0.36px;
+    width: 44px;
+    height: 27px;
+    padding-left: 11px;
+    text-align: end;
+    background: transparent;
+    &::-webkit-inner-spin-button, &::-webkit-outer-spin-button{
+        -webkit-appearance: none;
+        margin: 0;
+    }
+}
+.selectType{
+    color: var(--text-secondary-color);
+    font-size: var(--text-xl-fs);
+    letter-spacing: -0.36px;
+    background: url('../../../public/icons/arrowDown.svg') no-repeat right;
+    width: inherit;
+    padding-right: 20px;
+}
+.types{
+    position: absolute;
+    z-index: 999;
+    width: 99px;
+    height: 128px;
+    border-radius: 6px;
+    background: var(--bg-switch-color);
+    box-shadow: 0px 6.519px 7.822px 0px rgba(0, 0, 0, 0.03);
+    top: 59px;
+    padding: 16px 35px;
+    right: 0;
+}
+.type{
+    font-size: var(--text-md-fs);
+    color: var(--input-color);
+    opacity: 0.5;
+    letter-spacing: -0.28px;
+    cursor: pointer;
+    &:hover{
+        color: var(--accent-color);
+        opacity: 1;
+    }
+}
+.ingredientsList{
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    margin-top: 32px;
+}
+.ingredientItem{
+    display: flex;
+    align-items: center;
+}
+.delIngredientBut{
+    margin-left: 60px;
+    display: flex;
+    width: 20px;
+    height: 20px;
+    justify-content: center;
+    align-items: center;    
+    background: url('../../../public/icons/delBut.svg');
+}
+.instructions{
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    margin-top: 100px;
+}

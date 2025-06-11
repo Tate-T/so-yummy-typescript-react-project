@@ -16,7 +16,7 @@ import storage from "redux-persist/lib/storage";
 import persistReducer from "redux-persist/es/persistReducer";
 import persistStore from "redux-persist/es/persistStore";
 import { ownRecipeApi } from "./apis/myRecipesApi";
-
+import { newRecipeReducer } from "./slices/newRecipe";
 
 const persistConfig = {
   key: "root",
@@ -24,11 +24,13 @@ const persistConfig = {
 };
 
 const persistedAuthReducer = persistReducer(persistConfig, authReducer)
+const persistedNewRecipeReducer = persistReducer(persistConfig, newRecipeReducer)
 
 export const store = configureStore({
   reducer: {
     pagination: paginationReducer,
     user: persistedAuthReducer,
+    newRecipe: persistedNewRecipeReducer,
     [authApi.reducerPath]: authApi.reducer,
     [categoriesApi.reducerPath]: categoriesApi.reducer,
     [favoriteApi.reducerPath]: favoriteApi.reducer,
