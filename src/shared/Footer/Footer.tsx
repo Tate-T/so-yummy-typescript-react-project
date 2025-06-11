@@ -1,6 +1,6 @@
 import Link from "next/link";
 import css from "./Footer.module.scss";
-import Logo from "../../../public/logo.svg";
+import Logo from "../../../public/footer/footerLogo.svg";
 import Image from "next/image";
 
 const Footer = () => {
@@ -10,7 +10,7 @@ const Footer = () => {
         <div className={css.footerContainer}>
           <div className={css.footerBoxInfo}>
             <Link href="./" className={css.footerLogo}>
-            <Image src={Logo} alt="logo" className={css.footergoImg} />
+              <Image src={Logo} alt="logo" className={css.footergoImg} />
             </Link>
             <h2 className={css.footerLogoText}>So Yummy</h2>
             <ul className={css.footerLogoList}>
@@ -82,30 +82,40 @@ const Footer = () => {
 
           <ul className={css.footerNetworksList}>
             <li className={css.footerNetworksItem}>
-              <Link href="" className={css.footerNetworksPage}></Link>
+              <Link href="" className={css.footerNetworksPage}>
+                1
+              </Link>
             </li>
             <li className={css.footerNetworksItem}>
-              <Link href="" className={css.footerNetworksPage}></Link>
+              <Link href="" className={css.footerNetworksPage}>
+                2
+              </Link>
             </li>
             <li className={css.footerNetworksItem}>
-              <Link href="" className={css.footerNetworksPage}></Link>
+              <Link href="" className={css.footerNetworksPage}>
+                3
+              </Link>
             </li>
             <li className={css.footerNetworksItem}>
-              <Link href="" className={css.footerNetworksPage}></Link>
+              <Link href="" className={css.footerNetworksPage}>
+                4
+              </Link>
             </li>
           </ul>
         </div>
       </footer>
 
       <div className={css.footerEndBox}>
-        <ul className={css.footerEndList}>
-          <li>
-            <p className={css.footerEndText}>© 2023 All Rights Reserved.</p>
-          </li>
-          <li>
-            <p className={css.footerEndText}>Terms of Service</p>
-          </li>
-        </ul>
+        <div className={css.footerContainer}>
+          <ul className={css.footerEndList}>
+            <li>
+              <p className={css.footerEndText}>© 2023 All Rights Reserved.</p>
+            </li>
+            <li>
+              <p className={css.footerEndText}>Terms of Service</p>
+            </li>
+          </ul>
+        </div>
       </div>
     </>
   );
