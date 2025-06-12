@@ -1,13 +1,12 @@
 'use client';
 import css from './addRecipeForm.module.scss';
-import { addIngredient, removeIngredient, selectNewRecipe, setCategory, setCookTime, setCount, setDescr, setIngredient, setTitle, setType, toggleCategoryOpen, setClueOpen, toggleCookTimeOpen, toggleTypeOpen, setInstructions } from '@/redux/slices/newRecipe';
+import { addIngredient, removeIngredient, selectNewRecipe, setCategory, setCookTime, setCount, setDescr, setIngredient, setTitle, setType, toggleCategoryOpen, setClueOpen, toggleCookTimeOpen, toggleTypeOpen, setInstructions, setImg } from '@/redux/slices/newRecipe';
 import { useMemo } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 export default () => {
     const categories: string[] = ['Breakfast', 'Beef', 'Dessert', 'Goat', 'Lamb', 'Miscellaneous', 'Pasta', 'Pork', 'Seafood', 'Vegan', 'Side', 'Starter'];
     const ingredientsClues: string[] = ["Bowtie Pasta", "Chicken", "Asparagus", "Cacao", "Beef Brisket", "Avocado", "Salmon", "Brandy", "Bicarbonate Of Soda", "Tomato", "Basil", "Mozzarella", "Garlic", "Olive Oil", "Lemon", "Onion", "Parmesan", "Mushroom", "Spinach", "Milk", "Egg", "Flour"];
-    // let times: number[] = []; for (let i=5; i<=240; i+=5) { times.push(i); }
     const times: number[] = Array.from({ length: 48 }, (_, i)=>(i+1)*5);
     const placeholderClue = useMemo(() => ingredientsClues[Math.floor(Math.random() * ingredientsClues.length)], []);
     const placeholderCount = useMemo(() => String(Math.floor(Math.random() * 10) + 1), []);
@@ -17,18 +16,11 @@ export default () => {
     return (<section className={css.addRecipe}>
         <div className={css.basicInfoCont}>
             <div className={css.photoInput}>
-                <input className={css.fileInput} type="file" accept="image/*" onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+                <img id="preview" className={css.preview} src={`data:image/png;base64,${recipe.img}`} />
+                <input className={css.fileInput} type="file" accept="image/*" onChange={(evt: React.ChangeEvent<HTMLInputElement>) => {
                     const reader = new FileReader();
-
-                    // reader.onload = function(e) {
-                    //     const dataUrl = e.target.result;
-                
-                    //     document.getElementById('preview').src = dataUrl;
-                
-                    //     console.log(dataUrl.split(',')[1]);
-                    // };
-                
-                    // reader.readAsDataURL(file);
+                    reader.onload = (e) => dispatch(setImg(e.target.result.split(',')[1]));
+                    reader.readAsDataURL(evt.target.files[0]);
                 }}/>
             </div>
             <div className={css.basicInputs}>

@@ -23,6 +23,7 @@ const newRecipeSlice = createSlice({
         instruction: '',
     },
     reducers: {
+        setImg(state, action) { state.img = action.payload; },
         setTitle(state, action) { state.title = action.payload; },
         setDescr(state, action) { state.descr = action.payload; },
         setCategory(state, action) { state.category = action.payload; },
@@ -47,5 +48,5 @@ const newRecipeSlice = createSlice({
 })
 
 export const newRecipeReducer = newRecipeSlice.reducer;
-export const { setInstructions, setTitle, setDescr, setCategory, setCookTime, addIngredient, removeIngredient, setIngredient, setCount, setType, toggleTypeOpen, toggleCategoryOpen, toggleCookTimeOpen, setClueOpen } = newRecipeSlice.actions;
+export const { setImg, setInstructions, setTitle, setDescr, setCategory, setCookTime, addIngredient, removeIngredient, setIngredient, setCount, setType, toggleTypeOpen, toggleCategoryOpen, toggleCookTimeOpen, setClueOpen } = newRecipeSlice.actions;
 export const selectNewRecipe = (state: RootState) => state.newRecipe;
