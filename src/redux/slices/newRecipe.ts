@@ -2,7 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 import { RootState } from "../store";
 
 const newRecipeSlice = createSlice({
-    name: 'auth',
+    name: 'newRecipe',
     initialState: {
         img: '',
         title: '',
@@ -42,9 +42,10 @@ const newRecipeSlice = createSlice({
         setClueOpen(state, action) { state.ingredients[action.payload.id].setCluesOpen = action.payload.data },
         toggleCategoryOpen(state) { state.setCategoryOpen = !(state.setCategoryOpen) },
         toggleCookTimeOpen(state) { state.setCookTimeOpen = !(state.setCookTimeOpen) },
+        setInstructions(state, action) { state.instruction = action.payload; }
     },
 })
 
 export const newRecipeReducer = newRecipeSlice.reducer;
-export const { setTitle, setDescr, setCategory, setCookTime, addIngredient, removeIngredient, setIngredient, setCount, setType, toggleTypeOpen, toggleCategoryOpen, toggleCookTimeOpen, setClueOpen } = newRecipeSlice.actions;
+export const { setInstructions, setTitle, setDescr, setCategory, setCookTime, addIngredient, removeIngredient, setIngredient, setCount, setType, toggleTypeOpen, toggleCategoryOpen, toggleCookTimeOpen, setClueOpen } = newRecipeSlice.actions;
 export const selectNewRecipe = (state: RootState) => state.newRecipe;

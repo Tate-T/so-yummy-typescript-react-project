@@ -1,3 +1,5 @@
+@import "@/sass/utils/mixins.scss";
+
 .addRecipe{
 
 }
@@ -39,7 +41,6 @@
         color: var(--input-color);
         opacity: 0.5;
     }
-    color: var(--text-color);
     &[data-theme="dark"]{
         opacity: 1;
     }
@@ -290,4 +291,23 @@
     flex-direction: column;
     gap: 32px;
     margin-top: 100px;
+}
+.textInput{
+    width: 505px;
+    height: 224px;
+    background-color: var(--bg-select-input);
+    border: 0;
+    padding: 16px 22px;
+    border-radius: 6px;
+    font-size: var(--text-xl-fs);
+    letter-spacing: -0.36px;
+    color: var(--text-color);
+    &::placeholder{
+        color: var(--input-color);
+        opacity: 0.5;
+    }
+}
+.addBut{
+    margin-top: 32px;
+    @include roundedBtn(64px, 14px, var(--bg-secondary-color), var(--text-lg-fs));
 }

@@ -1,0 +1,23 @@
+.folus{
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+.subtitle{
+    color: var(--text-color);
+    font-size: var(--subtitle-md-fs);
+    font-weight: 600;
+    letter-spacing: -0.24px;
+}
+.socs{
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+.soc{
+    width: 26px;
+    height: 26px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

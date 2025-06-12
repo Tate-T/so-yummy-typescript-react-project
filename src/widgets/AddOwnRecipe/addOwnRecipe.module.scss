@@ -19,3 +19,13 @@
         font-size: 28px;
     }
 }
+.mainCont{
+    margin-top: 100px;
+    display: flex;
+    gap: 121px;
+}
+.subCont{
+    display: flex;
+    flex-direction: column;
+    gap: 100px;
+}

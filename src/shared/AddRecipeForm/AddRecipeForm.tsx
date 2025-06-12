@@ -1,13 +1,14 @@
 'use client';
 import css from './addRecipeForm.module.scss';
-import { addIngredient, removeIngredient, selectNewRecipe, setCategory, setCookTime, setCount, setDescr, setIngredient, setTitle, setType, toggleCategoryOpen, setClueOpen, toggleCookTimeOpen, toggleTypeOpen } from '@/redux/slices/newRecipe';
+import { addIngredient, removeIngredient, selectNewRecipe, setCategory, setCookTime, setCount, setDescr, setIngredient, setTitle, setType, toggleCategoryOpen, setClueOpen, toggleCookTimeOpen, toggleTypeOpen, setInstructions } from '@/redux/slices/newRecipe';
 import { useMemo } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
-export default ({}) => {
+export default () => {
     const categories: string[] = ['Breakfast', 'Beef', 'Dessert', 'Goat', 'Lamb', 'Miscellaneous', 'Pasta', 'Pork', 'Seafood', 'Vegan', 'Side', 'Starter'];
     const ingredientsClues: string[] = ["Bowtie Pasta", "Chicken", "Asparagus", "Cacao", "Beef Brisket", "Avocado", "Salmon", "Brandy", "Bicarbonate Of Soda", "Tomato", "Basil", "Mozzarella", "Garlic", "Olive Oil", "Lemon", "Onion", "Parmesan", "Mushroom", "Spinach", "Milk", "Egg", "Flour"];
-    let times: number[] = []; for (let i=5; i<=240; i+=5) { times.push(i); }
+    // let times: number[] = []; for (let i=5; i<=240; i+=5) { times.push(i); }
+    const times: number[] = Array.from({ length: 48 }, (_, i)=>(i+1)*5);
     const placeholderClue = useMemo(() => ingredientsClues[Math.floor(Math.random() * ingredientsClues.length)], []);
     const placeholderCount = useMemo(() => String(Math.floor(Math.random() * 10) + 1), []);
     const recipe = useSelector(selectNewRecipe);
@@ -16,7 +17,19 @@ export default ({}) => {
     return (<section className={css.addRecipe}>
         <div className={css.basicInfoCont}>
             <div className={css.photoInput}>
-                <input className={css.fileInput} type="file" accept="image/*"/>
+                <input className={css.fileInput} type="file" accept="image/*" onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+                    const reader = new FileReader();
+
+                    // reader.onload = function(e) {
+                    //     const dataUrl = e.target.result;
+                
+                    //     document.getElementById('preview').src = dataUrl;
+                
+                    //     console.log(dataUrl.split(',')[1]);
+                    // };
+                
+                    // reader.readAsDataURL(file);
+                }}/>
             </div>
             <div className={css.basicInputs}>
                 <input className={css.basicInput} value={recipe.title} onChange={(e: React.ChangeEvent<HTMLInputElement>) => dispatch(setTitle(e.target.value))} required type="text" placeholder='Enter item title'/>
@@ -62,8 +75,8 @@ export default ({}) => {
         </div>
         <div className={css.instructions}>
             <h3 className={css.subTitle}>Recipe Preparation</h3>
-            <textarea className={css.textInput}>Enter recipe</textarea>
+            <textarea className={css.textInput} placeholder='Enter recipe' value={recipe.instruction} onChange={(e: React.ChangeEvent<HTMLTextAreaElement>) => dispatch(setInstructions(e.target.value))} />
         </div>
-        <button>Add</button>
+        <button className={css.addBut}>Add</button>
     </section>)
 }
