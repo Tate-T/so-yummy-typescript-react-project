@@ -3,22 +3,48 @@
 import css from "./Recipes.module.scss";
 import Container from "@/shared/Container/Container";
 import Dropdown from "./Dropdown/Dropdown";
-import { useState } from "react";
+import {
+  ChangeEvent,
+  FormEvent,
+  InputEvent,
+  MouseEvent,
+  useRef,
+  useState,
+} from "react";
+import { useGetRandomRecipes, useSearchRecipes } from "@/redux/apis/recipesApi";
+import { RecipeItem, RecipeSmall, SearchParams } from "@/entities/Recipe.type";
+import RecipeCard from "@/shared/RecipeCard/RecipeCard";
 
 const items = ["Title", "Ingredients"];
 
 const Recipes = () => {
-  const [selectedValue, setSelectedValue] = useState(items[0]);
+  const [selectedValue, setSelectedValue] = useState<"Title" | "Ingredients">(
+    "Title",
+  );
+  const [inputQuery, setInputQuery] = useState<string>("");
+  const inputRef = useRef<HTMLInputElement>(null);
+  const { data, error, isLoading } = inputQuery
+    ? useSearchRecipes({
+        p: SearchParams[selectedValue],
+        q: inputQuery,
+      })
+    : useGetRandomRecipes({ page: 1, limit: 12 });
+  const handleSubmit = (e: FormEvent) => {
+    e.preventDefault();
+    if (inputRef.current) setInputQuery(inputRef.current.value);
+  };
   return (
     <section className={css.search}>
       <Container>
         <h1 className={css.searchTitle}>Search</h1>
-        <form className={css.searchForm}>
+        <form className={css.searchForm} onSubmit={handleSubmit}>
           <div className={css.searchFormInputWrapper}>
             <input
               type="text"
+              name="query"
               className={css.searchInput}
               placeholder="Recipe name"
+              ref={inputRef}
             />
             <button type="submit" className={css.searchBtn}>
               Search
@@ -33,7 +59,13 @@ const Recipes = () => {
             />
           </div>
         </form>
-        <ul className={css.searchList}></ul>
+        {!error && !isLoading && data?.recipes && (
+          <ul className={css.searchList}>
+            {data.recipes.map(({ _id, preview, title }: RecipeSmall) => (
+              <RecipeCard key={_id} title={title} imgPath={preview} />
+            ))}
+          </ul>
+        )}
       </Container>
     </section>
   );

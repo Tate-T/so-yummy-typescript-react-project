@@ -1,6 +1,6 @@
-import Image from 'next/image'
-import img from "../../public/not-foundImg/not-found.png"
-import style from "./not-found.module.scss"
+import Image from "next/image";
+import img from "../../public/not-foundImg/not-found.png";
+import style from "./not-found.module.scss";
 
 export default function NotFound() {
   return (
