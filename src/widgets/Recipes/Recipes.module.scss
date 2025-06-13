@@ -36,3 +36,9 @@
   letter-spacing: -0.24px;
   margin-right: 18px;
 }
+.searchList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 100px 14px;
+  padding: 0;
+}

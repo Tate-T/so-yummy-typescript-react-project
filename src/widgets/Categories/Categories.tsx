@@ -26,7 +26,7 @@ const Categories = () => {
   const router = useRouter();
 
   const [selectedCategory, setSelectedCategory] = useState(
-    searchParams.get("q") || "breakfast"
+    searchParams.get("q") || "breakfast",
   );
 
   useEffect(() => {
@@ -66,7 +66,7 @@ const Categories = () => {
                 className={clsx(
                   css.categoriesSubitem,
                   category.title.toLowerCase() === selectedCategory &&
-                    css.categoriesSubitemActive
+                    css.categoriesSubitemActive,
                 )}
                 id={category._id}
                 onClick={() =>

@@ -40,7 +40,7 @@ const Dropdown = ({ items, selectedValue, setSelectedValue }: Props) => {
           <Image
             className={clsx(
               css.dropdownIcon,
-              isOpen && css.dropdownIconRotated
+              isOpen && css.dropdownIconRotated,
             )}
             src={Arrow}
             alt="dropdown arrow"
