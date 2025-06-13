@@ -1,3 +1,88 @@
+.recipeHeader {
+	// background-position: center;
+	// background-size: contain;
+	padding-top: 162px;
+	padding-bottom: 32px;
+
+	// height: 493px;
+	//   padding-top: 322px;
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+}
+
+.section {
+	flex-wrap: wrap-reverse;
+	background-image: url('../../../../public/recipe/flatlayassortment.png');
+	background-repeat: no-repeat;
+	display: flex;
+	align-items: center;
+	background-size: cover;
+	justify-content: center;
+}
+
+.title {
+	color: #8baa36;
+
+	font-feature-settings: 'liga' off;
+	font-family: Poppins;
+	font-size: 44px;
+	font-style: normal;
+	font-weight: 600;
+	line-height: 44px;
+	letter-spacing: -0.88px;
+}
+
+.pidTitle {
+	color: #23262a;
+	width: 656px;
+	text-align: center;
+	font-family: Poppins;
+	font-size: 18px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: 24px; /* 133.333% */
+	letter-spacing: -0.36px;
+	margin-top: 24px;
+}
+
+.titleButton {
+	flex-shrink: 0;
+	stroke-width: 2px;
+	stroke: #8baa36;
+	border: solid #8baa36;
+	border-radius: 20px;
+	padding: 18px 44px 18px 44px;
+
+	margin-top: 30px;
+	color: #23262a;
+
+	font-family: Poppins;
+	font-size: 16px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: normal;
+	transition: background-color 0.3s ease, transform 0.3s ease;
+	&:hover {
+		background-color: #8baa36;
+		color: #fafafa;
+
+		font-family: Poppins;
+		font-size: 16px;
+		font-style: normal;
+		font-weight: 400;
+		line-height: normal;
+	}
+}
+
+.timeBox {
+	gap: 8px;
+	margin-top: 48px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
 .greeBox {
 	margin-top: 50px;
 }
@@ -45,9 +130,9 @@
 }
 
 .preparationBox {
-	margin-top: 100px;
 	display: flex;
 	align-items: center;
+	justify-content: center;
 	gap: 50px;
 }
 
@@ -99,9 +184,8 @@
 }
 
 .itemIngr {
-	margin-top: 24px;
 	display: flex;
-	width: 1176px;
+	width: 1240px;
 	height: 182px;
 	padding: 0px 32px;
 	align-items: center;
@@ -111,20 +195,12 @@
 	border-radius: 8px;
 	background: #ebf3d4;
 }
-.listItem {
-	margin-top: 50px;
-}
+
 .photoItem {
 	width: 128px;
 	height: 128px;
 }
-.boxcheck {
-	margin-left: 572px;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	gap: 151px;
-}
+
 .boxGrama {
 	display: flex;
 	align-items: center;
@@ -142,24 +218,4 @@
 	font-style: normal;
 	font-weight: 600;
 	line-height: normal;
-}
-
-.wrapper {
-	display: flex;
-	align-items: center;
-	cursor: pointer;
-}
-
-.input {
-	position: absolute;
-	opacity: 0;
-	width: 0;
-	height: 0;
-}
-
-.box {
-	display: inline-block;
-	width: 37px;
-	height: 37px;
-	position: relative;
 }
