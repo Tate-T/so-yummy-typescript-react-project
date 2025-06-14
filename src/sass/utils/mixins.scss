@@ -29,3 +29,70 @@
     line-height: normal;
   }
 }
+@mixin customScrollbar {
+  &::-webkit-scrollbar {
+    width: 4px;
+  }
+  &::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  &::-webkit-scrollbar-thumb {
+    background-color: var(--scrollbar-color);
+    border-radius: 12px;
+  }
+}
+@mixin flexEl($gap: 0, $justify: flex-start, $align: stretch, $direct: row) {
+  display: flex;
+  flex-direction: $direct;
+  justify-content: $justify;
+  align-items: $align;
+  gap: $gap;
+}
+@mixin input($width, $height, $p, $bg, $border, $br: 0) {
+  width: $width;
+  height: $height;
+  background-color: $bg;
+  padding: $p;
+  border: 0;
+  border-bottom: $border;
+  border-radius: $br;
+}
+@mixin textStyle($fs, $clr, $ls: 0, $fw: 400){
+  font-size: $fs;
+  color: $clr;
+  letter-spacing: $ls;
+  font-weight: $fw;
+}
+@mixin posAbs($t: 0, $r: 0, $w: 100%, $h: 100%){
+  position: absolute;
+  z-index: 999;
+  top: $t;
+  right: $r;
+  width: $w;
+  height: $h;
+}
+@mixin selectWrap(){
+  padding: 4px;
+  border-radius: 6px;
+  background: var(--bg-select-color);
+  box-shadow: 0px 6.519px 7.822px 0px rgba(0, 0, 0, 0.03);
+  overflow: hidden;
+}
+@mixin svgIcon($src, $clr: 0){
+  background-color: $clr;
+  -webkit-mask-image: $src;
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-size: contain;
+  mask-image: $src;
+  mask-repeat: no-repeat;
+  mask-size: contain;
+}
+@mixin errBg($ps, $isAllBorder: true){
+  background: url('../../../public/icons/error.svg') no-repeat;
+  background-position: $ps;
+  @if $isAllBorder {
+    border: 1px solid var(--err-color);
+  } @else {
+    border-bottom: 1px solid var(--err-color);
+  }
+}

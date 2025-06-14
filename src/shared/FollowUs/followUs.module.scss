@@ -1,0 +1,23 @@
+@import "@/sass/utils/mixins.scss";
+
+.folus{
+    @include flexEl(40px, flex-start, stretch, column);
+    @media screen and (max-width: 1439px) {
+        display: none;
+    }
+}
+.subtitle{
+    @include textStyle(var(--subtitle-md-fs), var(--text-color), -0.24px);
+    font-weight: 600;
+}
+.socs{
+    @include flexEl(20px, flex-start, center);
+}
+.soc{
+    @include flexEl(0, center, center);
+    width: 26px;
+    height: 26px;
+}
+html[data-theme="dark"] .soc>svg>path{
+    fill: #fafafa;
+}
