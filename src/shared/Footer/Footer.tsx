@@ -2,12 +2,12 @@ import Link from "next/link";
 import css from "./Footer.module.scss";
 import Logo from "../../../public/footer/footerLogo.svg";
 import Image from "next/image";
-
+import Container from "../Container/Container";
 const Footer = () => {
   return (
     <>
       <footer className={css.footer}>
-        <div className={css.footerContainer}>
+        <Container>
           <div className={css.footerBoxInfo}>
             <Link href="./" className={css.footerLogo}>
               <Image src={Logo} alt="logo" className={css.footergoImg} />
@@ -102,11 +102,11 @@ const Footer = () => {
               </Link>
             </li>
           </ul>
-        </div>
+        </Container>
       </footer>
 
       <div className={css.footerEndBox}>
-        <div className={css.footerContainer}>
+        <Container>
           <ul className={css.footerEndList}>
             <li>
               <p className={css.footerEndText}>© 2023 All Rights Reserved.</p>
@@ -115,7 +115,7 @@ const Footer = () => {
               <p className={css.footerEndText}>Terms of Service</p>
             </li>
           </ul>
-        </div>
+        </Container>
       </div>
     </>
   );

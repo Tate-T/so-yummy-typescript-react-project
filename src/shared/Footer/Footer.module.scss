@@ -2,26 +2,11 @@
   padding-top: 64px;
   padding-bottom: 50px;
   background: rgb(34, 37, 42);
-}
 
-.footerContainer {
-  width: auto;
-
-  margin-right: auto;
-  margin-left: auto;
-
-  @media screen and (min-width: 375px) {
-    width: 353px;
+  & > div {
     display: flex;
     flex-wrap: wrap;
-    // flex-basis: calc((100% - 450px) / 3);
-    // align-items: center;
-  }
-  @media screen and (min-width: 768px) {
-    width: 724px;
-  }
-  @media screen and (min-width: 1440px) {
-    width: 1270px;
+
   }
 }
 
@@ -50,7 +35,7 @@
 .footerLogoItem {
   margin-top: 12px;
   list-style: disc;
-  //   color: rgb(250, 250, 250);
+    color: rgb(250, 250, 250);
 }
 
 .footerLogoItemText {
@@ -61,8 +46,8 @@
 }
 
 .footerNavigation {
-  margin-left: auto;
-  margin-right: auto;
+  margin-left: 120px;
+  margin-right: 220px;
 }
 
 .footerNavigationItem {
@@ -133,7 +118,7 @@
   margin-top: 40px;
   display: flex;
   margin-left: auto;
-  margin-right: 1440px;
+  margin-right: auto;
 }
 
 .footerNetworksItem {
@@ -151,10 +136,10 @@
 
 
 .footerEndList {
+  justify-content: center;
     display: flex;
     gap: 40px;
-    margin-left: auto;
-    margin-right: auto;
+
 }
 
 .footerEndText {
