@@ -9,6 +9,10 @@
   position: relative;
   width: 198px;
   padding: 14px;
+  :root[data-theme="dark"] & {
+    background-color: transparent;
+    outline: 1px solid #4a4b52;
+  }
 }
 .dropdownValueText {
   color: var(--title-color);
