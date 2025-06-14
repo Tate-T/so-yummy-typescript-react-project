@@ -4,6 +4,7 @@ import { categoriesApi } from "./apis/categoriesApi";
 import { authApi } from "./auth/authOperations";
 import { favoriteApi } from "./apis/favoriteApi";
 import { authReducer } from "./slices/authSlice";
+import { newRecipeReducer } from "./slices/newRecipe";
 import {
   FLUSH,
   REHYDRATE,
@@ -16,7 +17,6 @@ import storage from "redux-persist/lib/storage";
 import persistReducer from "redux-persist/es/persistReducer";
 import persistStore from "redux-persist/es/persistStore";
 import { ownRecipeApi } from "./apis/myRecipesApi";
-import { newRecipeReducer } from "./slices/newRecipe";
 import { recipesApi } from "./apis/recipesApi";
 import { ingredientsApi } from "./apis/ingridientsApi";
 
@@ -25,8 +25,8 @@ const persistConfig = {
   storage,
 };
 
-const persistedAuthReducer = persistReducer(persistConfig, authReducer)
-const persistedNewRecipeReducer = persistReducer(persistConfig, newRecipeReducer)
+const persistedAuthReducer = persistReducer(persistConfig, authReducer);
+const persistedNewRecipeReducer = persistReducer(persistConfig, newRecipeReducer);
 
 export const store = configureStore({
   reducer: {
@@ -40,13 +40,20 @@ export const store = configureStore({
     [recipesApi.reducerPath]: recipesApi.reducer,
     [ingredientsApi.reducerPath]: ingredientsApi.reducer,
   },
-  middleware: (getDefaultMiddleware) => getDefaultMiddleware({
-    serializableCheck: {
-      ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
-    },
-  }).concat(authApi.middleware).concat(categoriesApi.middleware).concat(favoriteApi.middleware).concat(ownRecipeApi.middleware).concat(recipesApi.middleware).concat(ingredientsApi.middleware)
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware({
+      serializableCheck: {
+        ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
+      },
+    })
+      .concat(authApi.middleware)
+      .concat(categoriesApi.middleware)
+      .concat(favoriteApi.middleware)
+      .concat(ownRecipeApi.middleware)
+      .concat(recipesApi.middleware)
+      .concat(ingredientsApi.middleware),
 });
 
 export type RootState = ReturnType<typeof store.getState>;
 export type AppDispatch = typeof store.dispatch;
-export const persistor = persistStore(store)
+export const persistor = persistStore(store);
