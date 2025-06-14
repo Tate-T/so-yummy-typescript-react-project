@@ -4,10 +4,7 @@ import css from "./Categories.module.scss";
 import { useRef, useEffect, useState } from "react";
 import { useSearchParams, usePathname, useRouter } from "next/navigation";
 import Container from "@/shared/Container/Container";
-import {
-  useGetAllCategories,
-  useGetCategoryRecipes,
-} from "@/redux/apis/categoriesApi";
+import { useGetAllCategories, useGetCategoryRecipes } from "@/redux/apis/categoriesApi";
 import { Category } from "@/entities/Category.type";
 import useDraggableScroll from "use-draggable-scroll";
 import clsx from "clsx";
@@ -25,9 +22,7 @@ const Categories = () => {
   const pathname = usePathname();
   const router = useRouter();
 
-  const [selectedCategory, setSelectedCategory] = useState(
-    searchParams.get("q") || "breakfast"
-  );
+  const [selectedCategory, setSelectedCategory] = useState(searchParams.get("q") || "breakfast");
 
   useEffect(() => {
     const params = new URLSearchParams(searchParams);
@@ -56,22 +51,15 @@ const Categories = () => {
         <h1 className={css.categoriesTitle}>Categories</h1>
         {isLoading && <p>Loading...</p>}
         {data && !error && !isLoading && (
-          <ul
-            className={css.categoriesSublist}
-            ref={categoriesListRef}
-            onMouseDown={onMouseDown}
-          >
+          <ul className={css.categoriesSublist} ref={categoriesListRef} onMouseDown={onMouseDown}>
             {data.map((category: Category) => (
               <li
                 className={clsx(
                   css.categoriesSubitem,
-                  category.title.toLowerCase() === selectedCategory &&
-                    css.categoriesSubitemActive
+                  category.title.toLowerCase() === selectedCategory && css.categoriesSubitemActive,
                 )}
                 id={category._id}
-                onClick={() =>
-                  setSelectedCategory(category.title.toLowerCase())
-                }
+                onClick={() => setSelectedCategory(category.title.toLowerCase())}
                 key={category._id}
               >
                 <p className={css.categoriesName}>{category.title}</p>
@@ -86,6 +74,7 @@ const Categories = () => {
             <ul className={css.recipesList}>
               {recipeData.recipes.map((recipe: RecipeSmall) => (
                 <RecipeCard
+                  id={recipe._id}
                   title={recipe.title}
                   imgPath={recipe.preview}
                   key={recipe._id}

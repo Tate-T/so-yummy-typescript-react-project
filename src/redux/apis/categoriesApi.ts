@@ -12,9 +12,7 @@ export const categoriesApi = createApi({
     }),
     getCategoryRecipes: builder.query<Recipes, { categoryName: string }>({
       query: ({ categoryName }): string =>
-        `recipes/category/${
-          categoryName.charAt(0).toUpperCase() + categoryName.slice(1)
-        }`,
+        `recipes/category/${categoryName.charAt(0).toUpperCase() + categoryName.slice(1)}`,
     }),
   }),
 });

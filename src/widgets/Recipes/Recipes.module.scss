@@ -1,0 +1,67 @@
+@use "../../sass/utils/placeholders.scss";
+@import "../../sass/utils/mixins.scss";
+
+.search {
+  padding-top: 106px;
+  padding-bottom: 200px;
+}
+
+.searchTitle {
+  @extend %pageTitle;
+  margin-bottom: 50px;
+}
+.searchForm {
+  margin-bottom: 165px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 27px;
+}
+.searchInput {
+  @include roundedInput;
+}
+.searchBtn {
+  @include roundedBtn(52px, 23px, var(--accent-color));
+  margin-left: -50px;
+}
+.searchDropdownWrapper {
+  display: flex;
+  align-items: center;
+}
+.searchSubtext {
+  color: var(--title-color);
+  font-size: var(--text-xl-fs);
+  font-weight: 500;
+  line-height: 1.33;
+  letter-spacing: -0.24px;
+  margin-right: 18px;
+}
+.searchList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 100px 14px;
+  padding: 0;
+}
+.empty {
+  margin-top: -115px;
+  margin-right: auto;
+  margin-left: auto;
+  text-align: center;
+}
+.emptyImg {
+  width: auto;
+  margin-right: auto;
+  margin-left: auto;
+}
+.emptyText {
+  margin-top: 32px;
+  color: #000;
+  font-size: var(--subtitle-md-fs);
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: -0.48px;
+  opacity: 0.5;
+  :root[data-theme="dark"] & {
+    color: #fafafa;
+  }
+}

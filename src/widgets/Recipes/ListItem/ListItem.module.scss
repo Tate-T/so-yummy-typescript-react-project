@@ -1,0 +1,200 @@
+@import "../../../sass/utils/mixins.scss";
+.section {
+  // margin-bottom: 200px;
+  padding-bottom: 200px;
+}
+
+.greeBox {
+  margin-top: 50px;
+}
+
+.greeTxt {
+  display: flex;
+  width: 115px;
+  height: 18px;
+  flex-direction: column;
+  justify-content: center;
+  flex-shrink: 0;
+
+  color: var(--text-but);
+
+  font-family: Poppins;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  letter-spacing: 0.54px;
+}
+
+.greeBoxList {
+  width: 1240px;
+  height: 60px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  background: var(--accent-color);
+}
+.secondTxtGree {
+  display: flex;
+  margin-left: 721px;
+  gap: 109px;
+}
+
+.salatImg {
+  width: 433px;
+  height: 332px;
+  flex-shrink: 0;
+
+  border-radius: 8px;
+}
+
+.preparationBox {
+  margin-top: 100px;
+  display: flex;
+  // align-items: end;
+  gap: 50px;
+}
+
+.preparation {
+  .title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--text-color);
+    margin-bottom: 32px;
+  }
+
+  .list {
+    counter-reset: step;
+    list-style: none;
+    padding-left: 0;
+
+    li {
+      position: relative;
+      padding-left: 2.5rem;
+      margin-bottom: 1rem;
+      color: var(--Background-Overlay-on-Media, var(--text-secondary-color));
+      font-family: Poppins;
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 18px;
+      letter-spacing: -0.28px;
+
+      &::before {
+        counter-increment: step;
+        content: counter(step);
+        position: absolute;
+        left: 0;
+        top: 0.1rem;
+        width: 1.5rem;
+        height: 1.5rem;
+        color: white;
+        border-radius: 100px;
+        background: #8baa36;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 600;
+      }
+    }
+  }
+}
+.recipes {
+  margin-top: 24px;
+}
+.itemIngr {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: var(--bg-accent-color);
+  padding: 16px;
+  border-radius: 8px;
+  min-height: 80px;
+  gap: 16px;
+  margin-bottom: 24px;
+
+  .itemInfo {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    min-width: 200px;
+    flex: 1;
+  }
+}
+
+.listItem {
+  margin-top: 50px;
+}
+.photoItem {
+  width: 128px;
+  height: 128px;
+  object-fit: contain;
+}
+.boxcheck {
+  margin-right: 70px;
+  // margin-left: 572px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 151px;
+  // position: absolute;
+  // right: 457px;
+}
+.boxGrama {
+  padding-left: 2px;
+  padding-right: 2px;
+  min-width: 60px;
+  width: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  // width: 68px;
+  height: 35px;
+  flex-shrink: 0;
+  border-radius: 4px;
+  background: var(--accent-color);
+
+  color: var(--text-but);
+
+  font-family: Poppins;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+
+.wrapper {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.input {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.box {
+  display: inline-block;
+  width: 37px;
+  height: 37px;
+  position: relative;
+}
+
+.textIngr {
+  width: 100px;
+  color: var(--text-color);
+}
+.txtGrama {
+  color: var(--text-but);
+
+  // font-family: Poppins;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}

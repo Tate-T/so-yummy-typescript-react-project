@@ -1,5 +1,5 @@
-import Cookies from "js-cookie"
+import Cookies from "js-cookie";
 
-const getRefreshToken = () => Cookies.get('refreshToken')
+const getRefreshToken = () => Cookies.get("refreshToken");
 
-export default getRefreshToken
+export default getRefreshToken;

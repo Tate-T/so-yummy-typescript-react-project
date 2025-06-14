@@ -35,6 +35,8 @@
 
   --accent-color: #8baa36;
 
+  --bg-color-btn: #8baa36;
+  --text-color-hover-btn: rgb(34, 37, 42);
   //* Breakpoints
 
   --desktop-bp: 1440px;
@@ -82,14 +84,17 @@
   --switch-color: #e8eaea;
 
   --title-color: #fafafa;
-  --page-color: rgba(250, 250, 250, 0.60);
+  --page-color: rgba(250, 250, 250, 0.6);
   --text-color: #fafafa;
   --text-secondary-color: #fafafa;
   --subtext-color: #fafafa99;
   --social-icon-color: #fafafa;
 
   --accent-color: #8baa36;
+  --bg-color-btn: rgb(30, 31, 40);
+  --text-color-hover-btn: #8baa36;
 }
+
 
 html {
   scroll-behavior: smooth;

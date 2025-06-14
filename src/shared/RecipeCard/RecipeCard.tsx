@@ -4,25 +4,17 @@ import css from "./RecipeCard.module.scss";
 import { FC } from "react";
 
 interface Props {
+  id: string;
   title: string;
   imgPath: string;
 }
 
-const RecipeCard: FC<Props> = ({ title, imgPath }) => {
+const RecipeCard: FC<Props> = ({ id, title, imgPath }) => {
   return (
     <li className={css.card}>
-      <Link
-        href={`/recipes/${title.replace(" ", "-")}`}
-        className={css.cardLink}
-      >
+      <Link href={`/recipes/${id}}`} className={css.cardLink}>
         <figure className={css.cardFigure}>
-          <Image
-            width={"100"}
-            height={"100"}
-            className={css.cardImg}
-            src={imgPath}
-            alt={title}
-          />
+          <Image width={"100"} height={"100"} className={css.cardImg} src={imgPath} alt={title} />
           <figcaption className={css.cardText}>{title}</figcaption>
           {/* <div className={css.cardWrapper}>
             <h3 className={css.cardTitle}>{title}</h3>
