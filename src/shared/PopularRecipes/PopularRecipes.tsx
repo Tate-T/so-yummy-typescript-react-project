@@ -16,4 +16,4 @@ export default () => {
             </div>
         </Link></li>)}</ul>}
     </section>);
-}
+} 

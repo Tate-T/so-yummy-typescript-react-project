@@ -49,7 +49,7 @@ const Header = () => {
             </Link>
           </li>
           <li className={css.headerNavItem}>
-            <Link href="/favorite" className={css.headerNavItemPage}>
+            <Link href="/favorites" className={css.headerNavItemPage}>
               Favorites
             </Link>
           </li>

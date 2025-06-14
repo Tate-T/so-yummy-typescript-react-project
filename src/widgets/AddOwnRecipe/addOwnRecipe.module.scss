@@ -7,7 +7,13 @@
     transition: all .3s;
 }
 .addOwnRecipe{
-    padding: 100px 0;
+    padding: 164px 0 200px;
+    @media screen and (max-width: 1439px) {
+        padding-top: 136px;
+    }
+    @media screen and (max-width: 767px) {
+        padding: 114px 0 100px;
+    }
 }
 .title{
     @extend %pageTitle;
@@ -15,6 +21,13 @@
 .mainCont{
     margin-top: 100px;
     @include flexEl(121px);
+    @media screen and (max-width: 1439px) {
+        gap: 100px;
+        flex-wrap: wrap;
+    }
+    @media screen and (max-width: 767px) {
+        gap: 72px;
+    }
 }
 .subCont{
     @include flexEl(100px, flex-start, stretch, column);
