@@ -42,3 +42,26 @@
   gap: 100px 14px;
   padding: 0;
 }
+.empty {
+  margin-top: -115px;
+  margin-right: auto;
+  margin-left: auto;
+  text-align: center;
+}
+.emptyImg {
+  width: auto;
+  margin-right: auto;
+  margin-left: auto;
+}
+.emptyText {
+  margin-top: 32px;
+  color: #000;
+  font-size: var(--subtitle-md-fs);
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: -0.48px;
+  opacity: 0.5;
+  :root[data-theme="dark"] & {
+    color: #fafafa;
+  }
+}

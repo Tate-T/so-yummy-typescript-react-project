@@ -3,24 +3,17 @@
 import css from "./Recipes.module.scss";
 import Container from "@/shared/Container/Container";
 import Dropdown from "./Dropdown/Dropdown";
-import {
-  ChangeEvent,
-  FormEvent,
-  InputEvent,
-  MouseEvent,
-  useRef,
-  useState,
-} from "react";
+import { useRef, useState, FormEvent } from "react";
 import { useGetRandomRecipes, useSearchRecipes } from "@/redux/apis/recipesApi";
-import { RecipeItem, RecipeSmall, SearchParams } from "@/entities/Recipe.type";
+import { RecipeSmall, SearchParams } from "@/entities/Recipe.type";
 import RecipeCard from "@/shared/RecipeCard/RecipeCard";
+import BasketImg from "@/../public/recipes/basket.webp";
+import Image from "next/image";
 
 const items = ["Title", "Ingredients"];
 
 const Recipes = () => {
-  const [selectedValue, setSelectedValue] = useState<"Title" | "Ingredients">(
-    "Title",
-  );
+  const [selectedValue, setSelectedValue] = useState<"Title" | "Ingredients">("Title");
   const [inputQuery, setInputQuery] = useState<string>("");
   const inputRef = useRef<HTMLInputElement>(null);
   const { data, error, isLoading } = inputQuery
@@ -62,9 +55,15 @@ const Recipes = () => {
         {!error && !isLoading && data?.recipes && (
           <ul className={css.searchList}>
             {data.recipes.map(({ _id, preview, title }: RecipeSmall) => (
-              <RecipeCard key={_id} title={title} imgPath={preview} />
+              <RecipeCard key={_id} id={_id} title={title} imgPath={preview} />
             ))}
           </ul>
+        )}
+        {!error && !isLoading && data?.recipes && data.recipes.length === 0 && (
+          <div className={css.empty}>
+            <Image className={css.emptyImg} src={BasketImg} alt="basket" />
+            <p className={css.emptyText}>Try looking for something else..</p>
+          </div>
         )}
       </Container>
     </section>
