@@ -16,10 +16,13 @@ export const recipesApi = createApi({
     searchRecipes: builder.query<Recipes, { p: SearchParams; q: string }>({
       query: ({ p, q }): string => `/recipes/${p}/${q}`,
     }),
+    getPopularRecipes: builder.query<Recipes, void>({
+      query: (): string => `/recipes?page=1&limit=4&sort=popular`,
+    }),
   }),
 });
 
 export const useGetRecipe = recipesApi.endpoints.getRecipe.useQuery;
 export const useSearchRecipes = recipesApi.endpoints.searchRecipes.useQuery;
-export const useGetRandomRecipes =
-  recipesApi.endpoints.getRandomRecipes.useQuery;
+export const useGetRandomRecipes = recipesApi.endpoints.getRandomRecipes.useQuery;
+export const useGetPopularRecipes = recipesApi.endpoints.getPopularRecipes.useQuery;
