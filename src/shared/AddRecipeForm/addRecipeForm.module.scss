@@ -1,118 +1,72 @@
 @import "@/sass/utils/mixins.scss";
 
-.addRecipe{
-
+.subTitle{
+    @include textStyle(var(--subtitle-md-fs), var(--text-color), -0.24px, 600);
 }
 .basicInfoCont{
-    display: flex;
-    gap: 50px;
+    @include flexEl(50px);
 }
 .photoInput{
     width: 357px;
     height: 344px;
-    border-radius: 8px;
     position: relative;
-    background: #8BAA36 url("../../../public/icons/photoIcon.svg") no-repeat center center;
+    border-radius: 8px;
 }
 .preview{
+    border-radius: 8px;
     width: 100%;
     height: 100%;
 }
 .fileInput{
+    cursor: pointer;
+    @include posAbs();
     opacity: 0;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    position: absolute;
-    z-index: 999;
     border-radius: 8px;
 }
 .basicInputs{
-    display: flex;
-    flex-direction: column;
-    gap: 40px;
+    @include flexEl(40px, flex-start, stretch, column)
 }
 .basicInput{
-    width: 393px;
-    color: var(--text-color);
-    padding-bottom: 18px;
-    font-size: var(--text-lg-fs);
-    height: 43px;
-    background-color: transparent;
-    letter-spacing: -0.32px;
-    border-bottom: 1px solid var(--switch-color);
-    display: flex;
-    justify-content: space-between;
+    @include input(393px, 43px, 0 0 18px 0, transparent, 1px solid var(--border-input-color));
+    @include textStyle(var(--text-lg-fs), var(--text-secondary-color), -0.32px);
+    @include flexEl(0px, space-between);
     &::placeholder{
         color: var(--input-color);
         opacity: 0.5;
     }
-    &[data-theme="dark"]{
-        opacity: 1;
-    }
 }
 .basicSelectInput{
-    width: 393px;
-    padding-bottom: 18px;
-    background-color: transparent;
-    border-bottom: 1px solid var(--switch-color);
-    display: flex;
-    justify-content: space-between;
+    @include input(393px, 43px, 0 0 18px 0, transparent, 1px solid var(--border-input-color));
+    @include textStyle(var(--text-lg-fs), var(--input-color), -0.32px);
+    @include flexEl(0px, space-between);
     position: relative;
-    height: 43px;
     &>p{
-        opacity: .5;
-        font-size: var(--text-lg-fs);
-        letter-spacing: -0.32px;
-        color: var(--input-color);
+        opacity: 0.5;
     }
 }
 .selectBut{
-    color: var(--input-color);
-    font-size: var(--text-md-fs);
+    @include textStyle(var(--text-md-fs), var(--input-color));
+    @include flexEl(0px, flex-start, center);
     height: 20px;
     margin-top: 3.5px;
-    display: flex;
-    align-items: center;
     padding-right: 28px;
     background: url('../../../public/icons/arrowDown.svg') no-repeat right;
 }
 .selectorScr{
-    z-index: 999;
-    padding: 4px;
-    width: 132px;
-    height: 162px;
-    position: absolute;
-    right: 0;
-    overflow: hidden;
-    top: 31px;
-    border-radius: 6px;
-    background: var(--bg-switch-color);
-    box-shadow: 0px 6.519px 7.822px 0px rgba(0, 0, 0, 0.03);
+    @include posAbs(31px, 0, 132px, 162px);
+    @include selectWrap();
 }
 .selectors{
+    @include customScrollbar;
     overflow: hidden auto;
     height: 162px;
     padding: 4px 14px;
-    &::-webkit-scrollbar {
-        width: 4px;
-    }
-    &::-webkit-scrollbar-track {
-        background: transparent;
-    }
-    &::-webkit-scrollbar-thumb {
-        background-color: var(--scrollbar-color);
-        border-radius: 12px;
-    }
 }
 .selector{
-    font-size: var(--text-md-fs);
-    color: var(--input-color);
+    @include textStyle(var(--text-md-fs), var(--input-color), -0.28px);
     opacity: 0.5;
-    letter-spacing: -0.28px;
     cursor: pointer;
     &:hover{
-        color: var(--accent-color);
         opacity: 1;
     }
 }
@@ -121,88 +75,52 @@
     width: 609px;
 }
 .titleCont{
+    @include flexEl(0px, space-between, center);
     height: 32px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-.subTitle{
-    color: var(--text-color);
-    font-size: var(--subtitle-md-fs);
-    font-weight: 600;
-    line-height: 1;
-    letter-spacing: -0.24px;
 }
 .ingredientInputCont{
     position: relative;
 }
 .ingredientInput{
-    padding: 16px 18px;
-    color: var(--text-secondary-color);
-    font-size: var(--text-xl-fs);
-    letter-spacing: -0.36px;
-    width: 398px;
-    height: 59px;
-    border-radius: 6px;
-    background-color: var(--bg-select-input);
+    @include input(398px, 59px, 16px 18px, var(--bg-select-input), 0, 6px);
+    @include textStyle(var(--text-xl-fs), var(--text-secondary-color), -0.36px);
+    border: 1px solid var(--border-big-input-color);
+    &::placeholder{
+        color: var(--input-color);
+        opacity: 0.5;
+    }
 }
 .cluesWrap{
-    padding: 4px;
-    border-radius: 6px;
-    background: var(--bg-switch-color);
-    box-shadow: 0px 6.519px 7.822px 0px rgba(0, 0, 0, 0.03);
-    width: 398px;
-    position: absolute;
-    top: 59px;
-    overflow: hidden;
-    z-index: 999;
+    @include posAbs(59px, 0, 398px, auto);
+    max-height: 172px;
+    @include selectWrap();
 }
 .clues{
+    @include customScrollbar;
+    @include flexEl(6px, flex-start, stretch, column);
     padding: 4px 14px;
     overflow: hidden auto;
     max-height: 164px;
-    &::-webkit-scrollbar {
-        width: 4px;
-    }
-    &::-webkit-scrollbar-track {
-        background: transparent;
-    }
-    &::-webkit-scrollbar-thumb {
-        background-color: var(--scrollbar-color);
-        border-radius: 12px;
-    }
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
 }
 .clue{
-    color: var(--input-color);
-    font-size: var(--text-md-fs);
-    letter-spacing: -0.28px;
+    @include textStyle(var(--text-md-fs), var(--input-color), -0.28px);
     opacity: 0.5;
     cursor: pointer;
     &:hover{
-        color: var(--accent-color);
         opacity: 1;
     }
 }
 .openClues{
-    position: absolute;
+    @include posAbs(20px, 18px, 20px, 20px);
     background: url('../../../public/icons/arrowDown.svg');
-    width: 20px;
-    height: 20px;
-    right: 18px;
-    top: 20px;
 }
 .ingredientsCount{
+    @include flexEl(0px, space-between, center);
     width: 110px;
     height: 32px;
     border-radius: 18px;
-    border: 1px solid rgba(51, 51, 51, 0.30);
+    border: 1px solid var(--border-count-color);
     padding: 8px 15px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
     color: var(--text-color);
     font-size: 16px;
     line-height: 150%;
@@ -211,109 +129,94 @@
     width: 16px;
     height: 16px;
     &[data-evt="-"]{
-        background: url('../../../public//icons/minus.svg');
+        @include svgIcon(url('../../../public/icons/minus.svg'), var(--border-count-color));
     }
     &[data-evt="+"]{
-        background: url('../../../public//icons/plus.svg');
+        @include svgIcon(url('../../../public/icons/plus.svg'), var(--accent-color));
     }
 }
 .countCont{
+    @include flexEl(0px, space-between, center);
+    @include input(99px, 59px, 0, var(--bg-select-input), 0, 6px);
+    border: 1px solid var(--border-big-input-color);
     margin-left: 32px;
-    width: 99px;
-    height: 59px;
-    border-radius: 6px;
-    background-color: var(--bg-select-input);
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
     position: relative;
 }
 .countInput{
-    color: var(--text-secondary-color);
-    font-size: var(--text-xl-fs);
-    letter-spacing: -0.36px;
-    width: 44px;
-    height: 27px;
-    padding-left: 11px;
+    @include input(44px, 27px, 0 0 0 11px, transparent, 0);
+    @include textStyle(var(--text-xl-fs), var(--text-secondary-color), -0.36px);
     text-align: end;
-    background: transparent;
+    &::placeholder{
+        color: var(--input-color);
+        opacity: 0.5;
+    }
     &::-webkit-inner-spin-button, &::-webkit-outer-spin-button{
         -webkit-appearance: none;
         margin: 0;
     }
 }
 .selectType{
-    color: var(--text-secondary-color);
-    font-size: var(--text-xl-fs);
-    letter-spacing: -0.36px;
+    @include textStyle(var(--text-xl-fs), var(--text-secondary-color), -0.36px);
     background: url('../../../public/icons/arrowDown.svg') no-repeat right;
     width: inherit;
     padding-right: 20px;
 }
 .types{
-    position: absolute;
-    z-index: 999;
-    width: 99px;
-    height: 128px;
-    border-radius: 6px;
-    background: var(--bg-switch-color);
-    box-shadow: 0px 6.519px 7.822px 0px rgba(0, 0, 0, 0.03);
-    top: 59px;
+    @include posAbs(59px, 0, 99px, 128px);
+    @include selectWrap();
     padding: 16px 35px;
-    right: 0;
 }
 .type{
-    font-size: var(--text-md-fs);
-    color: var(--input-color);
+    @include textStyle(var(--text-md-fs), var(--input-color), -0.28px);
     opacity: 0.5;
-    letter-spacing: -0.28px;
     cursor: pointer;
     &:hover{
-        color: var(--accent-color);
         opacity: 1;
     }
 }
 .ingredientsList{
-    display: flex;
-    flex-direction: column;
-    gap: 24px;
+    @include flexEl(24px, flex-start, stretch, column);
     margin-top: 32px;
 }
 .ingredientItem{
-    display: flex;
-    align-items: center;
+    @include flexEl(0px, flex-start, center);
 }
 .delIngredientBut{
+    @include flexEl(0px, center, center);
     margin-left: 60px;
-    display: flex;
     width: 20px;
     height: 20px;
-    justify-content: center;
-    align-items: center;    
-    background: url('../../../public/icons/delBut.svg');
+    @include svgIcon(url('../../../public/icons/delBut.svg'), var(--count-color));
 }
 .instructions{
-    display: flex;
-    flex-direction: column;
-    gap: 32px;
+    @include flexEl(32px, flex-start, stretch, column);
     margin-top: 100px;
 }
 .textInput{
-    width: 505px;
-    height: 224px;
-    background-color: var(--bg-select-input);
-    border: 0;
-    padding: 16px 22px;
-    border-radius: 6px;
-    font-size: var(--text-xl-fs);
-    letter-spacing: -0.36px;
-    color: var(--text-color);
+    @include input(505px, 224px, 16px 22px, var(--bg-select-input), 0, 6px);
+    @include textStyle(var(--text-xl-fs), var(--text-secondary-color), -0.36px);
+    border: 1px solid var(--border-big-input-color);
     &::placeholder{
         color: var(--input-color);
         opacity: 0.5;
     }
 }
 .addBut{
-    margin-top: 32px;
     @include roundedBtn(64px, 14px, var(--bg-secondary-color), var(--text-lg-fs));
+    margin-top: 32px;
+}
+.errBottom{
+    @include errBg(top 3px right, false);
+}
+.errInp{
+    @include errBg(center right 40px);
+}
+.errCount{
+    @include errBg(center left 5px);
+}
+.errImg{
+    border: 1px solid var(--err-color);
+}
+.errTextarea{
+    @include errBg(top 18px right 22px);
 }

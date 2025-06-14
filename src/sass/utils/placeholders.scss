@@ -10,4 +10,10 @@
   font-weight: 600;
   line-height: 1;
   letter-spacing: -0.88px;
+  @media screen and (max-width: 1439px) {
+    font-size: 32px;
+  }
+  @media screen and (max-width: 767px) {
+    font-size: 28px;
+  }
 }

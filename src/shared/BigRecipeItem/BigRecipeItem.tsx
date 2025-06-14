@@ -1,9 +1,12 @@
+import Image from 'next/image';
 import css from './BigRecipeItem.module.scss';
 
 
 export default ({src, title, descr, time, id, setPage, toggleFunc, moreBlack}: {src: string, title: string, descr: string, time: number, id: string, setPage: (page: number) => void, toggleFunc: (id: string) => void, moreBlack: boolean}) => {
     return (<li className={css.bigRecipeItem}>
-        <img className={css.recipePhoto} src={src} alt='Recipe photo' />
+        <div className={css.recipePhoto}>
+            <Image fill className={css.image} src={src} alt="Recipe photo" />
+        </div>
         <div className={css.infoCont}>
             <h4 className={css.recipeTitle}>{title}</h4>
             <p className={css.recipeDescr}>{descr}</p>

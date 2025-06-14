@@ -1,23 +1,23 @@
+@import "@/sass/utils/mixins.scss";
+
 .folus{
-    display: flex;
-    flex-direction: column;
-    gap: 40px;
+    @include flexEl(40px, flex-start, stretch, column);
+    @media screen and (max-width: 1439px) {
+        display: none;
+    }
 }
 .subtitle{
-    color: var(--text-color);
-    font-size: var(--subtitle-md-fs);
+    @include textStyle(var(--subtitle-md-fs), var(--text-color), -0.24px);
     font-weight: 600;
-    letter-spacing: -0.24px;
 }
 .socs{
-    display: flex;
-    gap: 20px;
-    align-items: center;
+    @include flexEl(20px, flex-start, center);
 }
 .soc{
+    @include flexEl(0, center, center);
     width: 26px;
     height: 26px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+}
+html[data-theme="dark"] .soc>svg>path{
+    fill: #fafafa;
 }

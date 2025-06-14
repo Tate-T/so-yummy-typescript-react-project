@@ -17,6 +17,8 @@ import persistReducer from "redux-persist/es/persistReducer";
 import persistStore from "redux-persist/es/persistStore";
 import { ownRecipeApi } from "./apis/myRecipesApi";
 import { newRecipeReducer } from "./slices/newRecipe";
+import { recipesApi } from "./apis/recipesApi";
+import { ingredientsApi } from "./apis/ingridientsApi";
 
 const persistConfig = {
   key: "root",
@@ -35,12 +37,14 @@ export const store = configureStore({
     [categoriesApi.reducerPath]: categoriesApi.reducer,
     [favoriteApi.reducerPath]: favoriteApi.reducer,
     [ownRecipeApi.reducerPath]: ownRecipeApi.reducer,
+    [recipesApi.reducerPath]: recipesApi.reducer,
+    [ingredientsApi.reducerPath]: ingredientsApi.reducer,
   },
   middleware: (getDefaultMiddleware) => getDefaultMiddleware({
     serializableCheck: {
       ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
     },
-  }).concat(authApi.middleware).concat(categoriesApi.middleware).concat(favoriteApi.middleware).concat(ownRecipeApi.middleware)
+  }).concat(authApi.middleware).concat(categoriesApi.middleware).concat(favoriteApi.middleware).concat(ownRecipeApi.middleware).concat(recipesApi.middleware).concat(ingredientsApi.middleware)
 });
 
 export type RootState = ReturnType<typeof store.getState>;

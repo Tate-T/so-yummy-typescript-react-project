@@ -23,9 +23,11 @@
     }
 }
 .recipePhoto{
+    position: relative;
     width: 318px;
     height: 324px;
     border-radius: 8px;
+    overflow: hidden;
     @media screen and (max-width: 1439px) {
         width: 228px;
         height: 232px;
@@ -34,6 +36,9 @@
         width: 124px;
         height: 124px;
     }
+}
+.image{
+    object-fit: cover;
 }
 .infoCont{
     width: 679px;
