@@ -1,0 +1,53 @@
+@use "../../sass/utils/placeholders.scss";
+@import "../../sass/utils/mixins.scss";
+
+.recs {
+  padding-bottom: 118px;
+}
+
+.recsItem {
+  margin-bottom: 100px;
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.recsSubtitle {
+  @extend %pageTitle;
+}
+
+.recsSublist {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: nowrap;
+  gap: 14px;
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+.recsBtn {
+  display: block;
+  margin-left: auto;
+  background-color: var(--accent-color);
+
+  border-radius: 6px;
+  padding: 10px 24px;
+
+  color: #fafafa;
+  font-size: var(--text-md-fs);
+  font-weight: 400;
+  line-height: 1.28;
+}
+.recsBrowseBtn {
+  @include roundedBtn(52px, 20px, transparent);
+  color: var(--bg-secondary-color);
+  border: 2.2px solid var(--accent-color);
+
+  display: block;
+  margin-top: 14px;
+  margin-right: auto;
+  margin-left: auto;
+  :root[data-theme="dark"] & {
+    color: #fafafa;
+  }
+}

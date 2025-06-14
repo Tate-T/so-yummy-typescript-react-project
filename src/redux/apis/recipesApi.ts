@@ -1,4 +1,4 @@
-import { RecipeItem, Recipes, SearchParams } from "@/entities/Recipe.type";
+import { CategoriesMainResponse, RecipeItem, Recipes, SearchParams } from "@/entities/Recipe.type";
 import { baseQueryWithAuth } from "@/features/auth/auth";
 import { createApi } from "@reduxjs/toolkit/query/react";
 
@@ -8,6 +8,9 @@ export const recipesApi = createApi({
   endpoints: (builder) => ({
     getRecipe: builder.query<RecipeItem, string>({
       query: (id): string => `/recipes/id/${id}`,
+    }),
+    getMainRecipes: builder.query<CategoriesMainResponse, void>({
+      query: (): string => `/recipes/main-page`,
     }),
     getRandomRecipes: builder.query<Recipes, { page: number; limit: number }>({
       query: ({ page, limit } = { page: 1, limit: 12 }): string =>
@@ -26,3 +29,4 @@ export const useGetRecipe = recipesApi.endpoints.getRecipe.useQuery;
 export const useSearchRecipes = recipesApi.endpoints.searchRecipes.useQuery;
 export const useGetRandomRecipes = recipesApi.endpoints.getRandomRecipes.useQuery;
 export const useGetPopularRecipes = recipesApi.endpoints.getPopularRecipes.useQuery;
+export const useGetMainRecipes = recipesApi.endpoints.getMainRecipes.useQuery;
