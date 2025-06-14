@@ -42,3 +42,7 @@ export enum SearchParams {
   Title = "title",
   Ingredients = "ingredient",
 }
+
+export type CategoriesMainResponse = {
+  [key: string]: RecipeSmall[];
+};
