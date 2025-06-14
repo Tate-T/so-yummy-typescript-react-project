@@ -28,6 +28,7 @@ export type RecipeItem = {
   instructions: string;
   ingridients: ingredient[];
   time: string;
+  preview: string;
   popularity: number;
   favorite: boolean;
   like: boolean;
