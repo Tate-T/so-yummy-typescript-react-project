@@ -1,0 +1,55 @@
+.motivationContainer {
+    width: 500px;
+    height: 500px;
+    border-radius: 30px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.motivationContent {
+  position: absolute;
+  bottom: 40px; 
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #D9D9D923;
+  backdrop-filter: blur(40px);
+  color: white;
+  padding: 20px;
+  border-radius: 20px;
+  width: 80%;
+  width: 268px;
+  height: 220px;
+  top: 218px;
+}
+
+.motivationContent p {
+    font-family: Poppins;
+    font-weight: 600;
+    font-size: 28px;
+    line-height: 30px;
+    letter-spacing: 0.3px;
+  span {
+    color: #9ACD32;
+    font-weight: bold;
+    font-family: Poppins;
+    font-weight: 600;
+    font-size: 28px;
+    line-height: 30px;
+  }
+}
+
+.motivationContent button {
+   margin: 50px auto 24px;
+  display: block;
+  background-color: #8BC34A;
+  border: none;
+  color: white;
+  border-radius: 50%;
+  width: 48px;
+  height: 48px;
+  font-size: 16px;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+}
