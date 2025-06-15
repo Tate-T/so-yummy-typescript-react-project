@@ -8,6 +8,7 @@ import { useGetIngredients } from '@/redux/apis/ingridientsApi';
 import { usePostOwnRecipe } from '@/redux/apis/myRecipesApi';
 import Image from 'next/image';
 import { z } from "zod/v4";
+import { addNewOwnRecipe } from '@/redux/slices/ownRecipesSave';
 
 const base64ToFile = (base64: string, filename: string, mime: string): File => {
   const arr = base64.split(',');
@@ -81,6 +82,20 @@ export default () => {
                 fullimage: imgBin,
             }).unwrap();
             alert('Recipe was created successfully!');
+            const customIngreds = recipe.ingredients.map((ingre: { ingredient: string, ingredientId: string, count: number, type: string, setTypeOpen: boolean, setCluesOpen: boolean }) => ({
+                title: ingre.ingredient,
+                measure: `${ingre.count}${ingre.type}`
+            }));
+            dispatch(addNewOwnRecipe({
+                img: recipe.img,
+                title: recipe.title,
+                description: recipe.descr,
+                category: recipe.category,
+                cookTime: recipe.cookTime, 
+                ingredients: customIngreds,
+                instructions: recipe.instruction,
+                id: res.id,
+            }));
         } catch(err: any){
             alert(`ERROR: ${err.data.message}`);
         }
