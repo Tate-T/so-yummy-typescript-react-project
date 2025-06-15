@@ -57,7 +57,7 @@
   border-bottom: $border;
   border-radius: $br;
 }
-@mixin textStyle($fs, $clr, $ls: 0, $fw: 400){
+@mixin textStyle($fs, $clr, $ls: auto, $fw: 400){
   font-size: $fs;
   color: $clr;
   letter-spacing: $ls;
@@ -95,4 +95,11 @@
   } @else {
     border-bottom: 1px solid var(--err-color);
   }
+}
+@mixin errClue($top, $left: auto, $fs: var(--text-md-fs), $bottom: auto){
+  position: absolute;
+  @include textStyle($fs, var(--err-color));
+  top: $top;
+  left: $left;
+  bottom: $bottom;
 }
