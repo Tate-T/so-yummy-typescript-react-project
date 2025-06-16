@@ -4,7 +4,7 @@ import { RootState } from "../store";
 const authSlice = createSlice({
   name: "auth",
   initialState: {
-    user: { name: "", email: "", avatarUrl: "", accessToken: "" },
+    user: { name: "", email: "", avatarURL: "", accessToken: "" },
   },
   reducers: {
     setUser(state, action) {

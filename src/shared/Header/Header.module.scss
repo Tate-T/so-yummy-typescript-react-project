@@ -1,13 +1,14 @@
 .header {
-  padding-top: 18px;
   border: 1px solid green;
   position: absolute;
-  width: 1270px;
   left: 50%;
-  top: 0;
+  top: 18px;
   transform: translate(-50%);
-  display: flex;
-  align-items: center;
+
+  & > div {
+    display: flex;
+    align-items: center;
+  }
 }
 
 .headerLogo {
@@ -27,6 +28,7 @@
 .headerNavList {
   display: flex;
   gap: 30px;
+  align-items: center;
 }
 
 .headerNavItemPage {
@@ -59,18 +61,24 @@
 
 .user {
   display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+}
+
+.test {
+  position: relative;
+  height: 44px;
+  width: 44px;
 }
 
 .userImg {
-  width: 44px;
-  height: 44px;
   border-radius: 50%;
+  object-fit: cover;
 }
 
 .userName {
-  margin-left: 14px;
   color: rgb(34, 37, 42);
-
   font-size: var(--text-md-fs);
   font-weight: 600;
   line-height: 170%;
@@ -78,7 +86,8 @@
 
 .boxTemeColor {
   display: flex;
-  margin-left: 50px;
+  // margin-left: 50px;
+  margin-left: auto;
   width: 61px;
   height: 27px;
   border-radius: 50px;

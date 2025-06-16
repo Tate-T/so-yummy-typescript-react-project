@@ -1,4 +1,16 @@
 .startPage {
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-image: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0.6) 58.58%,
+    rgba(0, 0, 0, 0.35) 78.98%,
+    rgba(0, 0, 0, 0) 100%
+  );
   background-image: linear-gradient(
       180deg,
       rgba(0, 0, 0, 0.6) 58.58%,
@@ -6,12 +18,19 @@
       rgba(0, 0, 0, 0) 100%
     ),
     url("../../../public/start/startBgMobile@1x.jpg");
-  background-repeat: no-repeat;
-  background-size: cover;
-  height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+
+  @media (min-device-pixel-ratio: 2),
+    (-webkit-min-device-pixel-ratio: 2),
+    (min-resolution: 192dpi),
+    (min-resolution: 2dppx) {
+    background-image: linear-gradient(
+        180deg,
+        rgba(0, 0, 0, 0.6) 58.58%,
+        rgba(0, 0, 0, 0.35) 78.98%,
+        rgba(0, 0, 0, 0) 100%
+      ),
+      url("../../../public/start/startBgMobile@2x.jpg");
+  }
 
   @media screen and (min-width: 375px) {
     background-image: linear-gradient(
@@ -36,19 +55,6 @@
     }
   }
 
-  @media (min-device-pixel-ratio: 2),
-    (-webkit-min-device-pixel-ratio: 2),
-    (min-resolution: 192dpi),
-    (min-resolution: 2dppx) {
-    background-image: linear-gradient(
-        180deg,
-        rgba(0, 0, 0, 0.6) 58.58%,
-        rgba(0, 0, 0, 0.35) 78.98%,
-        rgba(0, 0, 0, 0) 100%
-      ),
-      url("../../../public/start/startBgMobile@2x.jpg");
-  }
-
   @media screen and (min-width: 768px) {
     background-image: linear-gradient(
         180deg,
@@ -71,29 +77,6 @@
         url("../../../public/start/startBgDesctop@2x.jpg");
     }
   }
-
-  // @media screen and (min-width: 1440px) {
-  //   background-image: linear-gradient(
-  //       180deg,
-  //       rgba(0, 0, 0, 0.6) 58.58%,
-  //       rgba(0, 0, 0, 0.35) 78.98%,
-  //       rgba(0, 0, 0, 0) 100%
-  //     ),
-  //     url("../../../public/start/startBgDesctop@1x.jpg");
-
-  //   @media (min-device-pixel-ratio: 2),
-  //     (-webkit-min-device-pixel-ratio: 2),
-  //     (min-resolution: 192dpi),
-  //     (min-resolution: 2dppx) {
-  //     background-image: linear-gradient(
-  //         180deg,
-  //         rgba(0, 0, 0, 0.6) 58.58%,
-  //         rgba(0, 0, 0, 0.35) 78.98%,
-  //         rgba(0, 0, 0, 0) 100%
-  //       ),
-  //       url("../../../public/start/startBgDesctop@2x.jpg");
-  //   }
-  // }
 }
 
 .startPageLogo {
@@ -115,14 +98,14 @@
 
 .startPageTitle {
   color: var(--bg-color);
-  font-size: 24px;
+  font-size: var(--subtitle-md-fs);
   font-weight: 600;
   line-height: 24px;
   letter-spacing: -0.48px;
   margin-top: 28px;
 
   @media screen and (min-width: 768px) {
-    font-size: 28px;
+    font-size: var(--subtitle-lg-fs);
     line-height: 28px;
     letter-spacing: -0.56px;
     margin-top: 44px;
@@ -132,7 +115,7 @@
 .startPageText {
   color: var(--bg-color);
   text-align: center;
-  font-size: 14px;
+  font-size: var(--text-md-fs);
   font-weight: 400;
   line-height: 18px;
   letter-spacing: -0.28px;
@@ -140,7 +123,7 @@
   max-width: 305px;
 
   @media screen and (min-width: 768px) {
-    font-size: 18px;
+    font-size: var(--text-xl-fs);
     line-height: 24px;
     letter-spacing: -0.36px;
     max-width: 505px;
@@ -169,7 +152,7 @@
   align-items: center;
   justify-content: center;
   color: var(--bg-color);
-  font-size: 14px;
+  font-size: var(--text-md-fs);
   font-weight: 400;
   line-height: normal;
   border-radius: 100px;
@@ -177,7 +160,7 @@
   border-top-right-radius: 300px;
 
   @media screen and (min-width: 768px) {
-    font-size: 16px;
+    font-size: var(--text-lg-fs);
   }
 }
 

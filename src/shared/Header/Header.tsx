@@ -8,9 +8,8 @@ import Image from "next/image";
 // import Search from "../../../public/header/header.svg";
 // import sprite from "../../../public/symbol-defs.svg";
 import { selectUser } from "@/redux/slices/authSlice";
+import Container from "../Container/Container";
 import { LuSearch } from "react-icons/lu";
-
-console.log(css);
 
 const Header = () => {
   const user = useSelector(selectUser);
@@ -32,13 +31,10 @@ const Header = () => {
 
   return (
     <header className={css.header}>
-      <Link href="/" className={css.headerLogo}>
-        {/* <svg>
-        <use xlinkHref={`${sprite}#iconLogo`} />
-      </svg> */}
-        <Image src={Logo} alt="logo" className={css.headerLogoImg} />
-      </Link>
-
+      <Container>
+        <Link href="/" className={css.headerLogo}>
+          <Image src={Logo} alt="logo" className={css.headerLogoImg} />
+        </Link>
       <nav className={css.headerNav}>
         <ul className={css.headerNavList}>
           <li className={css.headerNavItem}>
@@ -68,27 +64,34 @@ const Header = () => {
           </li>
           <li className={css.headerNavItem}>
             <Link href="/recipes" className={css.headerNavItemPage}>
-              {/* <svg className={css.headerSearchImg}>
-                <use href={Search} className={css.headerSearchImg}/>
-              </svg> */}
               <LuSearch className={css.headerSearchImg} />
             </Link>
           </li>
         </ul>
       </nav>
 
-      <div className={css.userBoxRegist}>
-        {user.name && (
-          <div className={css.user}>
-            <Image src={user.avatarUrl} alt={user.name} className={css.userImg} />
-            <p className={css.userName}>{user.name}</p>
-          </div>
-        )}
-      </div>
+        <div className={css.userBoxRegist}>
+          {user.name && (
+            <div className={css.user}>
+              <div className={css.test}>
+                <Image
+                  src={user.avatarURL}
+                  alt={user.name}
+                  className={css.userImg}
+                  fill
+                  // width={44}
+                  // height={44}
+                />
+              </div>
+              <p className={css.userName}>{user.name}</p>
+            </div>
+          )}
+        </div>
 
-      <div className={css.boxTemeColor}>
-        <button type="button" className={css.boxBtnSun} onClick={changeTheme} />
-      </div>
+        <div className={css.boxTemeColor}>
+          <button type="button" className={css.boxBtnSun} onClick={changeTheme} />
+        </div>
+      </Container>
     </header>
   );
 };
