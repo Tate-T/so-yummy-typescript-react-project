@@ -5,9 +5,11 @@ import Link from "next/link";
 import css from "./Header.module.scss";
 import Logo from "../../../public/logo.svg";
 import Image from "next/image";
-import Search from "../../../public/header/header.svg";
-// import sprite from "../../../public/symbol-defs.svg"
+// import Search from "../../../public/header/header.svg";
+// import sprite from "../../../public/symbol-defs.svg";
 import { selectUser } from "@/redux/slices/authSlice";
+import { LuSearch } from "react-icons/lu";
+
 console.log(css);
 
 const Header = () => {
@@ -15,17 +17,23 @@ const Header = () => {
 
   const changeTheme = () => {
     const html = document.querySelector("html")! as HTMLHtmlElement;
+    const btn = document.querySelector("button")! as HTMLButtonElement;
+    // const div = document.querySelector(".boxTemeColor")! as HTMLDivElement;
     if (html.getAttribute("data-theme") !== "dark") {
       html.setAttribute("data-theme", "dark");
+      btn.setAttribute("data-theme", "dark");
+      // div.setAttribute("data-theme", "dark");
     } else {
       html.setAttribute("data-theme", "light");
+      btn.setAttribute("data-theme", "light");
+      // div.setAttribute("data-theme", "light");
     }
   };
 
   return (
     <header className={css.header}>
       <Link href="/" className={css.headerLogo}>
-      {/* <svg>
+        {/* <svg>
         <use xlinkHref={`${sprite}#iconLogo`} />
       </svg> */}
         <Image src={Logo} alt="logo" className={css.headerLogoImg} />
@@ -60,7 +68,10 @@ const Header = () => {
           </li>
           <li className={css.headerNavItem}>
             <Link href="/recipes" className={css.headerNavItemPage}>
-            <Image src={Search} alt="search" className={css.headerSearchImg} />
+              {/* <svg className={css.headerSearchImg}>
+                <use href={Search} className={css.headerSearchImg}/>
+              </svg> */}
+              <LuSearch className={css.headerSearchImg} />
             </Link>
           </li>
         </ul>

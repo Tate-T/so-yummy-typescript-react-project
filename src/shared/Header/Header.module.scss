@@ -44,10 +44,12 @@
 .headerSearchImg {
   width: 24px;
   height: 24px;
+  color: var(--text-color);
+  // background-color: black;
 }
 
 .headerSearchImg:hover {
-  fill: var(--accent-color);
+  color: var(--accent-color);
 }
 
 .userBoxRegist {
