@@ -239,6 +239,7 @@
         -webkit-appearance: none;
         margin: 0;
     }
+    -moz-appearance: textfield;
 }
 .selectType{
     @include textStyle(var(--text-xl-fs), var(--text-secondary-color), -0.36px);

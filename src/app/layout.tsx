@@ -3,6 +3,7 @@ import { Poppins } from "next/font/google";
 import StoreProvider from "@/redux/StoreProvider";
 import "../sass/base/reset.scss";
 import "../sass/base/common.scss";
+import { ToastContainer, Bounce } from 'react-toastify';
 
 const poppinsSans = Poppins({
   variable: "--font-poppins-sans",
@@ -25,6 +26,19 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${poppinsSans.variable}`}>
         <StoreProvider>{children}</StoreProvider>
+        <ToastContainer
+          position="top-right"
+          autoClose={5000}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick={false}
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+          theme="dark"
+          transition={Bounce}
+        />
       </body>
     </html>
     // {/* </StoreProvider> */}

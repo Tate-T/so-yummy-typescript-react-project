@@ -7,6 +7,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useGetIngredients } from '@/redux/apis/ingridientsApi';
 import { usePostOwnRecipe } from '@/redux/apis/myRecipesApi';
 import Image from 'next/image';
+import { toast } from 'react-toastify';
 import { z } from "zod/v4";
 import { addNewOwnRecipe } from '@/redux/slices/ownRecipesSave';
 
@@ -72,6 +73,7 @@ export default () => {
             measure: `${ingre.count}${ingre.type}`
         }));
         try{
+            toast.info('Recipe was sent');
             const res = await postRecipe({
                 title: recipe.title,
                 category: recipe.category,
@@ -81,7 +83,7 @@ export default () => {
                 time: recipe.cookTime,
                 fullimage: imgBin,
             }).unwrap();
-            alert('Recipe was created successfully!');
+            toast.success('Recipe was created successfully!');
             const customIngreds = recipe.ingredients.map((ingre: { ingredient: string, ingredientId: string, count: number, type: string, setTypeOpen: boolean, setCluesOpen: boolean }) => ({
                 title: ingre.ingredient,
                 measure: `${ingre.count}${ingre.type}`
@@ -97,7 +99,7 @@ export default () => {
                 id: res.id,
             }));
         } catch(err: any){
-            alert(`ERROR: ${err.data.message}`);
+            toast.error(`Error recipe sending: ${err.data.message}`);
         }
     }
     const dispatch = useDispatch();
@@ -181,7 +183,7 @@ export default () => {
                 submitRecipe();
                 dispatch(delAll());
             } else {
-                alert('CHECK ALL FIELDS!');
+                toast.error('Check all fields!');
             }
         }}>Add</button>
     </section>)
