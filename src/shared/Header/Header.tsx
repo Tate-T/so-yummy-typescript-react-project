@@ -8,6 +8,7 @@ import Image from "next/image";
 import Search from "../../../public/header/header.svg";
 // import sprite from "../../../public/symbol-defs.svg"
 import { selectUser } from "@/redux/slices/authSlice";
+import Container from "../Container/Container";
 console.log(css);
 
 const Header = () => {
@@ -24,60 +25,71 @@ const Header = () => {
 
   return (
     <header className={css.header}>
-      <Link href="/" className={css.headerLogo}>
-      {/* <svg>
+      <Container>
+        <Link href="/" className={css.headerLogo}>
+          {/* <svg>
         <use xlinkHref={`${sprite}#iconLogo`} />
       </svg> */}
-        <Image src={Logo} alt="logo" className={css.headerLogoImg} />
-      </Link>
+          <Image src={Logo} alt="logo" className={css.headerLogoImg} />
+        </Link>
 
-      <nav className={css.headerNav}>
-        <ul className={css.headerNavList}>
-          <li className={css.headerNavItem}>
-            <Link href="/categories" className={css.headerNavItemPage}>
-              Categories
-            </Link>
-          </li>
-          <li className={css.headerNavItem}>
-            <Link href="/add" className={css.headerNavItemPage}>
-              Add recipes
-            </Link>
-          </li>
-          <li className={css.headerNavItem}>
-            <Link href="/my" className={css.headerNavItemPage}>
-              My recipes
-            </Link>
-          </li>
-          <li className={css.headerNavItem}>
-            <Link href="/favorites" className={css.headerNavItemPage}>
-              Favorites
-            </Link>
-          </li>
-          <li className={css.headerNavItem}>
-            <Link href="" className={css.headerNavItemPage}>
-              Shopping list
-            </Link>
-          </li>
-          <li className={css.headerNavItem}>
-            <Link href="/recipes" className={css.headerNavItemPage}>
-            <Image src={Search} alt="search" className={css.headerSearchImg} />
-            </Link>
-          </li>
-        </ul>
-      </nav>
+        <nav className={css.headerNav}>
+          <ul className={css.headerNavList}>
+            <li className={css.headerNavItem}>
+              <Link href="/categories" className={css.headerNavItemPage}>
+                Categories
+              </Link>
+            </li>
+            <li className={css.headerNavItem}>
+              <Link href="/add" className={css.headerNavItemPage}>
+                Add recipes
+              </Link>
+            </li>
+            <li className={css.headerNavItem}>
+              <Link href="/my" className={css.headerNavItemPage}>
+                My recipes
+              </Link>
+            </li>
+            <li className={css.headerNavItem}>
+              <Link href="/favorites" className={css.headerNavItemPage}>
+                Favorites
+              </Link>
+            </li>
+            <li className={css.headerNavItem}>
+              <Link href="" className={css.headerNavItemPage}>
+                Shopping list
+              </Link>
+            </li>
+            <li className={css.headerNavItem}>
+              <Link href="/recipes" className={css.headerNavItemPage}>
+                <Image src={Search} alt="search" className={css.headerSearchImg} />
+              </Link>
+            </li>
+          </ul>
+        </nav>
 
-      <div className={css.userBoxRegist}>
-        {user.name && (
-          <div className={css.user}>
-            <Image src={user.avatarUrl} alt={user.name} className={css.userImg} />
-            <p className={css.userName}>{user.name}</p>
-          </div>
-        )}
-      </div>
+        <div className={css.userBoxRegist}>
+          {user.name && (
+            <div className={css.user}>
+              <div className={css.test}>
+                <Image
+                  src={user.avatarURL}
+                  alt={user.name}
+                  className={css.userImg}
+                  fill
+                  // width={44}
+                  // height={44}
+                />
+              </div>
+              <p className={css.userName}>{user.name}</p>
+            </div>
+          )}
+        </div>
 
-      <div className={css.boxTemeColor}>
-        <button type="button" className={css.boxBtnSun} onClick={changeTheme} />
-      </div>
+        <div className={css.boxTemeColor}>
+          <button type="button" className={css.boxBtnSun} onClick={changeTheme} />
+        </div>
+      </Container>
     </header>
   );
 };

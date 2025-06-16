@@ -3,25 +3,39 @@
 import css from "./Recipes.module.scss";
 import Container from "@/shared/Container/Container";
 import Dropdown from "./Dropdown/Dropdown";
-import { useRef, useState, FormEvent } from "react";
+import { useRef, useState, FormEvent, useEffect } from "react";
 import { useGetRandomRecipes, useSearchRecipes } from "@/redux/apis/recipesApi";
 import { RecipeSmall, SearchParams } from "@/entities/Recipe.type";
 import RecipeCard from "@/shared/RecipeCard/RecipeCard";
 import BasketImg from "@/../public/recipes/basket.webp";
 import Image from "next/image";
+import { useSearchParams, usePathname, useRouter } from "next/navigation";
 
 const items = ["Title", "Ingredients"];
 
 const Recipes = () => {
   const [selectedValue, setSelectedValue] = useState<"Title" | "Ingredients">("Title");
-  const [inputQuery, setInputQuery] = useState<string>("");
+  const searchParams = useSearchParams();
+  const [inputQuery, setInputQuery] = useState<string>(searchParams.get("q") || "");
   const inputRef = useRef<HTMLInputElement>(null);
+  const pathname = usePathname();
+  const router = useRouter();
   const { data, error, isLoading } = inputQuery
     ? useSearchRecipes({
         p: SearchParams[selectedValue],
         q: inputQuery,
       })
     : useGetRandomRecipes({ page: 1, limit: 12 });
+
+  useEffect(() => {
+    const params = new URLSearchParams(searchParams);
+    params.set("q", inputQuery);
+    router.push(`${pathname}?${params.toString()}`, { scroll: false });
+    if (inputRef.current) {
+      inputRef.current.value = inputQuery;
+    }
+  }, [inputQuery]);
+
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
     if (inputRef.current) setInputQuery(inputRef.current.value);

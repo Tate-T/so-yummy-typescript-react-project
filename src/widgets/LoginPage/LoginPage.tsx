@@ -10,10 +10,7 @@ import AuthPage from "@/shared/AuthPage/AuthPage";
 
 const FormSchema = z.object({
   email: z.string().email(),
-  password: z
-    .string()
-    .min(5, "Password too short")
-    .max(21, "Password too long"),
+  password: z.string().min(5, "Password too short").max(21, "Password too long"),
 });
 
 type FormFields = z.infer<typeof FormSchema>;
@@ -22,9 +19,7 @@ const LoginPage = () => {
   const router = useRouter();
   const dispatch = useDispatch();
   const [login] = useSigninMutation();
-  const [errors, setErrors] = useState<
-    Partial<Record<keyof FormFields, string>>
-  >({});
+  const [errors, setErrors] = useState<Partial<Record<keyof FormFields, string>>>({});
 
   const handleSumbit = async (evt: FormEvent<HTMLFormElement>) => {
     evt.preventDefault();
@@ -54,29 +49,23 @@ const LoginPage = () => {
           password: data.password,
         }).unwrap();
         console.log(response);
-        router.push("/");
+        saveRefreshToken(response.refreshToken);
         dispatch(
           setUser({
             user: {
               ...response.user,
               accessToken: response.accessToken,
             },
-          })
+          }),
         );
-        saveRefreshToken(response.refreshToken);
+        router.push("/");
       } catch (err) {
         console.log(err);
       }
     }
   };
 
-  return (
-    <AuthPage
-      isRegistration={false}
-      handleSubmit={handleSumbit}
-      errors={errors}
-    />
-  );
+  return <AuthPage isRegistration={false} handleSubmit={handleSumbit} errors={errors} />;
 };
 
 export default LoginPage;
