@@ -13,18 +13,30 @@
 }
 
 .section {
-  flex-wrap: wrap-reverse;
   background-image: url("../../../../public/recipe/flatlayassortment.png");
   background-repeat: no-repeat;
   display: flex;
   align-items: center;
-  background-size: cover;
   justify-content: center;
+
+  background-position: center;
+
+  @media screen and (max-width: 1439px) {
+    background-image: url("../../../../public/recipe/flatsortTablet.png");
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-items: center;
+    background-position: center;
+  }
+  @media screen and (max-width: 767px) {
+    background-image: url("../../../../public/recipe/flatsortfonmobile.png");
+  }
 }
 
 .title {
   color: var(--accent-color);
-
   font-feature-settings: "liga" off;
   font-family: Poppins;
   font-size: 44px;
@@ -32,6 +44,25 @@
   font-weight: 600;
   line-height: 44px;
   letter-spacing: -0.88px;
+  @media screen and (max-width: 1439px) {
+    color: var(--accent-color);
+    font-feature-settings: "liga" off;
+    font-family: Poppins;
+    font-size: 44px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 44px;
+    letter-spacing: -0.88px;
+  }
+  @media screen and (max-width: 767px) {
+    font-feature-settings: "liga" off;
+    font-family: Poppins;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 24px; /* 100% */
+    letter-spacing: -0.48px;
+  }
 }
 
 .pidTitle {
@@ -42,9 +73,32 @@
   font-size: 18px;
   font-style: normal;
   font-weight: 400;
-  line-height: 24px; /* 133.333% */
+  line-height: 24px;
   letter-spacing: -0.36px;
   margin-top: 24px;
+
+  @media screen and (max-width: 1439px) {
+    color: var(--text-secondary-color);
+    text-align: center;
+    font-family: Poppins;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px;
+    letter-spacing: -0.36px;
+    width: 506px;
+  }
+  @media screen and (max-width: 767px) {
+    color: #22252a;
+    text-align: center;
+    font-family: Poppins;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 16px;
+    letter-spacing: -0.24px;
+    width: 299px;
+  }
 }
 .txtTime {
   color: var(--text-secondary-color);
@@ -56,6 +110,25 @@
   font-weight: 500;
   line-height: 20px;
   letter-spacing: -0.24px;
+  @media screen and (max-width: 1439px) {
+    color: var(--text-secondary-color);
+    font-feature-settings: "liga" off, "clig" off;
+    font-family: Poppins;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 20px;
+    letter-spacing: -0.24px;
+  }
+  @media screen and (max-width: 767px) {
+    font-feature-settings: "liga" off, "clig" off;
+    font-family: Poppins;
+    font-size: 10px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 14px;
+    letter-spacing: -0.24px;
+  }
 }
 .titleButton {
   @include roundedBtn(44px, 18px, transparent);
@@ -131,6 +204,14 @@
 .svgTime {
   width: 20px;
   height: 20px;
+  @media screen and (max-width: 1439px) {
+    width: 20px;
+    height: 20px;
+  }
+  @media screen and (max-width: 767px) {
+    width: 14px;
+    height: 14px;
+  }
 }
 .itemIngr {
   display: flex;
