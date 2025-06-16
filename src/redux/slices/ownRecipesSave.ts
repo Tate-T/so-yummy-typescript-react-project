@@ -1,19 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { RootState } from "../store";
-
-type typeOwnRecipeFull = {
-    img: string,
-    title: string,
-    description: string,
-    category: string,
-    cookTime: string, 
-    ingredients: {
-        title: string,
-        measure: string,
-    }[],
-    instructions: string,
-    id: string,
-};
+import { typeOwnRecipeFull } from '../../entities/OwnRecipe.type';
 
 const init: {
     list: typeOwnRecipeFull[]
