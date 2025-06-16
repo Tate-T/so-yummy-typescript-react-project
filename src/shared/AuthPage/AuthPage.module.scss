@@ -1,61 +1,131 @@
 .authPage {
-  background-image: url("../../../public/authImgs/authBg.svg");
+  background-image: url("../../../public/authImgs/authBgMobile.svg");
   height: 100vh;
   background-repeat: no-repeat;
   background-size: contain;
   // position: relative;
   background-position: bottom;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+  padding-top: 87px;
+  padding-bottom: 30px;
+  // display: flex;
+  // align-items: center;
+  // justify-content: space-between;
+
+  @media screen and (max-height: 1000px) {
+    overflow: scroll;
+  }
+
+  @media screen and (min-width: 768px) {
+    background-image: url("../../../public/authImgs/authBgTablet.svg");
+  }
+
+  // @media screen and (min-width: 890px) {
+  //   background-image: url("../../../public/authImgs/authBgDesctop.svg");
+    
+  // }
+
+  @media screen and (min-width: 1440px) {
+    background-image: url("../../../public/authImgs/authBgDesctop.svg");
+    // height: 100vh;
+    // background-repeat: no-repeat;
+    // background-size: contain;
+    // position: relative;
+    // background-position: bottom;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 0;
+  }
 }
 
 .test {
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: space-between;
+  // padding-top: 87px;
+  // position: fixed;
+  // top: 87px;
+
+  @media screen and (min-width: 1440px) {
+    // display: flex;
+    // align-items: center;
+    flex-direction: row;
+    justify-content: space-between;
+    padding-top: 0;
+  }
 }
 
 .authPhoto {
-  width: 532px;
-  height: 468px;
+  width: 285px;
+  height: 250px;
+  // margin-top: 87px;
+
+  @media screen and (min-width: 768px) {
+    width: 409px;
+    height: 359px;
+  }
+
+  @media screen and (min-width: 1440px) {
+    width: 532px;
+    height: 468px;
+  }
 }
 
 .authBox {
-  // position: absolute;
-  // right: 130px;
-  // bottom: 193px;
 }
 
 .authBlock {
-  padding: 44px 50px;
+  padding: 32px 28px 40px 28px;
   border-radius: 30px;
   background: #2a2c36;
   box-shadow: 0px 4px 48px 0px rgba(0, 0, 0, 0.1);
-  width: 400px;
+  width: 335px;
+
+  @media screen and (min-width: 768px) {
+    padding: 44px 50px;
+    border-radius: 30px;
+    background: #2a2c36;
+    box-shadow: 0px 4px 48px 0px rgba(0, 0, 0, 0.1);
+    width: 500px;
+  }
 }
 
 .authTitle {
   color: var(--bg-color);
-  font-size: 28px;
+  font-size: 24px;
   font-weight: 600;
-  line-height: 30px;
-  letter-spacing: -0.56px;
+  line-height: 28px;
+  letter-spacing: -0.48px;
+
+  @media screen and (min-width: 768px) {
+    font-size: 28px;
+    font-weight: 600;
+    line-height: 30px;
+    letter-spacing: -0.56px;
+  }
 }
 
 .authForm {
-  margin-top: 50px;
+  margin-top: 18px;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  gap: 24px;
+  gap: 12px;
+
+  @media screen and (min-width: 768px) {
+    margin-top: 32px;
+    gap: 24px;
+  }
+
+  @media screen and (min-width: 1440px) {
+    margin-top: 50px;
+  }
 }
 
 .authInput {
-  width: 100%;
-  padding: 16px 18px 16px 50px;
-  height: 25px;
+  padding: 12px 14px 12px 40px;
+  height: 45px;
   background-color: transparent;
   border: 1px solid var(--bg-color);
   color: var(--bg-color);
@@ -63,9 +133,24 @@
   font-weight: 400;
   line-height: normal;
   letter-spacing: -0.36px;
-  opacity: 0.8;
+  // opacity: 0.8;
   border-radius: 10px;
-  width: 330px;
+  width: 279px;
+
+  @media screen and (min-width: 768px) {
+    padding: 16px 18px 16px 50px;
+    height: 59px;
+    background-color: transparent;
+    border: 1px solid var(--bg-color);
+    color: var(--bg-color);
+    font-size: 18px;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: -0.36px;
+    // opacity: 0.8;
+    border-radius: 10px;
+    width: 400px;
+  }
 
   &:-webkit-autofill {
     -webkit-box-shadow: 0 0 0px 1000px #2a2c36 inset;
@@ -74,11 +159,19 @@
 
   &::placeholder {
     color: var(--bg-color);
-    font-size: 18px;
+    font-size: 14px;
     font-weight: 400;
     line-height: normal;
-    letter-spacing: -0.36px;
+    letter-spacing: -0.28px;
     opacity: 0.8;
+
+    @media screen and (min-width: 768px) {
+      font-size: 18px;
+      font-weight: 400;
+      line-height: normal;
+      letter-spacing: -0.36px;
+      opacity: 0.8;
+    }
   }
 }
 
@@ -120,10 +213,20 @@
     display: block;
     background-image: url("../../../public/icons/user.svg");
     background-repeat: no-repeat;
-    width: 24px;
-    height: 24px;
-    top: 18px;
-    left: 18px;
+    background-size: contain;
+    width: 18px;
+    height: 18px;
+    top: 14px;
+    left: 14px;
+    align-items: center;
+    justify-content: center;
+
+    @media screen and (min-width: 768px) {
+      width: 24px;
+      height: 24px;
+      top: 18px;
+      left: 18px;
+    }
     // background-color: aqua;
   }
 }
@@ -142,10 +245,18 @@
     display: block;
     background-image: url("../../../public/icons/email.svg");
     background-repeat: no-repeat;
-    width: 24px;
-    height: 24px;
-    top: 18px;
-    left: 18px;
+    background-size: contain;
+    width: 18px;
+    height: 18px;
+    top: 14px;
+    left: 14px;
+
+    @media screen and (min-width: 768px) {
+      width: 24px;
+      height: 24px;
+      top: 18px;
+      left: 18px;
+    }
     // background-color: aqua;
   }
 }
@@ -164,44 +275,66 @@
     display: block;
     background-image: url("../../../public/icons/lock.svg");
     background-repeat: no-repeat;
-    width: 24px;
-    height: 24px;
-    top: 18px;
-    left: 18px;
+    background-size: contain;
+    width: 18px;
+    height: 18px;
+    top: 14px;
+    left: 14px;
+
+    @media screen and (min-width: 768px) {
+      width: 24px;
+      height: 24px;
+      top: 18px;
+      left: 18px;
+    }
     // background-color: aqua;
   }
 }
 
 .loginBtn {
-  width: 400px;
+  width: 279px;
   display: flex;
   align-items: center;
   justify-content: center;
   background-color: var(--accent-color);
-  padding: 21px 0;
+  padding: 14px 0;
   border-radius: 6px;
   color: var(--bg-color);
   text-align: center;
   font-size: 16px;
   font-weight: 400;
   line-height: 18px;
-  margin-top: 26px;
+  margin-top: 28px;
+
+  @media screen and (min-width: 768px) {
+    width: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--accent-color);
+    padding: 21px 0;
+    border-radius: 6px;
+    color: var(--bg-color);
+    text-align: center;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 18px;
+    margin-top: 26px;
+  }
 }
 
 .authLink {
   display: block;
   margin-top: 18px;
   color: var(--bg-color);
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 400;
   line-height: normal;
   text-align: center;
-  // text-decoration-line: underline;
-  // text-decoration-style: solid;
-  // text-decoration-skip-ink: none;
-  // text-decoration-thickness: auto;
-  // text-underline-offset: auto;
-  // text-underline-position: from-font;
   text-decoration: underline;
   text-decoration-skip-ink: none;
+
+  @media screen and (min-width: 768px) {
+    font-size: 16px;
+  }
 }
