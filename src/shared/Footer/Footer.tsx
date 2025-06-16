@@ -3,10 +3,12 @@ import css from "./Footer.module.scss";
 import Logo from "../../../public/footer/footerLogo.svg";
 import Image from "next/image";
 import Container from "../Container/Container";
+import Socials from "../Socials/Socials";
+import { RxEnvelopeClosed } from "react-icons/rx";
 const Footer = () => {
   return (
     <>
-      <footer className={css.footer} >
+      <footer className={css.footer}>
         <Container>
           <div className={css.footerBoxInfo}>
             <Link href="/" className={css.footerLogo}>
@@ -30,9 +32,7 @@ const Footer = () => {
                 </p>
               </li>
               <li className={css.footerLogoItem}>
-                <p className={css.footerLogoItemText}>
-                  Convenient and easy to use
-                </p>
+                <p className={css.footerLogoItemText}>Convenient and easy to use</p>
               </li>
             </ul>
           </div>
@@ -65,43 +65,23 @@ const Footer = () => {
             </li>
           </ul>
 
-          <form className={css.footerForm} >
+          <form className={css.footerForm}>
             <h2 className={css.footerFormTitle}>Subscribe to our Newsletter</h2>
             <p className={css.footerFormText}>
-              Subscribe up to our newsletter. Be in touch with latest news and
-              special offers, etc.
+              Subscribe up to our newsletter. Be in touch with latest news and special offers, etc.
             </p>
-            <input
-              placeholder="Enter your email address"
-              className={css.footerFormInput}
-            ></input>
+            <div className={css.inputBox}>
+              <RxEnvelopeClosed className={css.inputIcon} />
+              <input placeholder={` Enter your email address`} className={css.footerFormInput} />
+            </div>
             <button type="submit" className={css.footerFormBtn} data-theme="dark">
               Subscribe
             </button>
           </form>
 
-          <ul className={css.footerNetworksList}>
-            <li className={css.footerNetworksItem}>
-              <Link href="" className={css.footerNetworksPage}>
-                1
-              </Link>
-            </li>
-            <li className={css.footerNetworksItem}>
-              <Link href="" className={css.footerNetworksPage}>
-                2
-              </Link>
-            </li>
-            <li className={css.footerNetworksItem}>
-              <Link href="" className={css.footerNetworksPage}>
-                3
-              </Link>
-            </li>
-            <li className={css.footerNetworksItem}>
-              <Link href="" className={css.footerNetworksPage}>
-                4
-              </Link>
-            </li>
-          </ul>
+          <div className={css.footerNetworksList}>
+            <Socials size={20} />
+          </div>
         </Container>
       </footer>
 
