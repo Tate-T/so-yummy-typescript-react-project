@@ -1,0 +1,17 @@
+.socialsList {
+  display: flex;
+  gap: 18px;
+}
+
+// .socialsPage {
+
+// }
+
+.socialsIcon {
+  color: var(--accent-color);
+  // color: transparent;
+
+  :root[data-theme="dark"] & {
+    color: var(--title-color);
+  }
+}
