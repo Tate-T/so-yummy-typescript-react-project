@@ -21,7 +21,7 @@ export default function RecipeHero() {
           <p className={css.pidTitle}>{data.description}</p>
           <button className={css.titleButton}>Add to favorite recipes</button>
           <div className={css.timeBox}>
-            <Image className={css.svgTime} src={clock} />
+            <Image alt="awd" className={css.svgTime} src={clock} />
             <p className={css.txtTime}>{data.time} min</p>
           </div>
         </div>
