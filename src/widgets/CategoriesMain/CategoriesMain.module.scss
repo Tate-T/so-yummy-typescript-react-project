@@ -1,5 +1,5 @@
 @use "../../sass/utils/placeholders.scss";
-@import "../../sass/utils/mixins.scss";
+@use "../../sass/utils/mixins.scss" as *;
 
 .recs {
   padding-bottom: 118px;
@@ -17,14 +17,39 @@
 }
 
 .recsSublist {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-wrap: nowrap;
+  display: grid;
   gap: 14px;
+  grid-template-columns: 1fr;
+
   margin-top: 50px;
   margin-bottom: 50px;
+
+  @media screen and (min-width: 768px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  @media screen and (min-width: 1440px) {
+    grid-template-columns: repeat(4, 1fr);
+  }
 }
+
+.recsSublist > li {
+  display: none;
+  &:first-child {
+    display: list-item;
+  }
+  @media screen and (min-width: 768px) {
+    &:nth-child(2) {
+      display: list-item;
+    }
+  }
+  @media screen and (min-width: 1440px) {
+    &:nth-child(3),
+    &:last-child {
+      display: list-item;
+    }
+  }
+}
+
 .recsBtn {
   display: block;
   margin-left: auto;
@@ -43,6 +68,7 @@
   color: var(--bg-secondary-color);
   border: 2.2px solid var(--accent-color);
 
+  font-family: var(--font-poppins-sans);
   display: block;
   margin-top: 14px;
   margin-right: auto;
