@@ -1,0 +1,116 @@
+.motivationContainer {
+  width: 500px;
+  height: 500px;
+  border-radius: 30px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@media (max-width: 768px) {
+  .motivationContainer {
+    height: 400px;
+    width: 400px;
+  }
+}
+
+@media (max-width: 480px) {
+  .motivationContainer {
+    height: 300px;
+    width: 300px;
+  }
+}
+
+.motivationContent {
+  position: absolute;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: white;
+  padding: 20px;
+  border-radius: 20px;
+  width: 268px;
+  height: 242px;
+  top: 218px;
+}
+
+@media (max-width: 768px) {
+  .motivationContent {
+    top: 140px;
+  }
+}
+
+@media (max-width: 480px) {
+  .motivationContent {
+    top: 100px;
+    width: 200px;
+    height: 180px;
+  }
+}
+
+.motivationContent p {
+  font-family: Poppins;
+  font-weight: 600;
+  font-size: 28px;
+  line-height: 30px;
+  letter-spacing: 0.3px;
+  padding-top: 15px;
+}
+
+@media (max-width: 480px) {
+  .motivationContent p {
+    font-size: 20px;
+    line-height: 24px;
+    padding-top: 5px;
+  }
+}
+
+.motivationContent p span {
+  color: #8BAA36;
+  font-weight: 600;
+  font-family: Poppins;
+  font-size: 28px;
+  line-height: 30px;
+}
+
+@media (max-width: 480px) {
+  .motivationContent p span {
+    font-size: 20px;
+    line-height: 24px;
+  }
+}
+
+.motivationContent button {
+  margin: 25px auto 24px;
+  display: block;
+  background-color: #8BC34A;
+  border: none;
+  color: white;
+  border-radius: 50%;
+  width: 48px;
+  height: 48px;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+}
+
+@media (max-width: 480px) {
+  .motivationContent button {
+    width: 40px;
+    height: 40px;
+    margin: 7px auto 24px;
+  }
+}
+
+.closeSvg {
+  width: 20px;
+  height: 20px;
+  padding-top: 3px;
+}
+
+@media (max-width: 480px) {
+  .closeSvg {
+    width: 16px;
+    height: 16px;
+  }
+}
