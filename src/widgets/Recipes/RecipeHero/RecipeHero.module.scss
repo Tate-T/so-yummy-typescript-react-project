@@ -1,18 +1,14 @@
 @import "../../../sass/utils/mixins.scss";
 .recipeHeader {
-  // background-position: center;
-  // background-size: contain;
   padding-top: 162px;
   padding-bottom: 32px;
-
-  // height: 493px;
-  //   padding-top: 322px;
   display: flex;
   align-items: center;
   flex-direction: column;
 }
 
 .section {
+  background-size: cover;
   background-image: url("../../../../public/recipe/flatlayassortment.png");
   background-repeat: no-repeat;
   display: flex;
@@ -22,6 +18,7 @@
   background-position: center;
 
   @media screen and (max-width: 1439px) {
+     background-size: cover;
     background-image: url("../../../../public/recipe/flatsortTablet.png");
     background-repeat: no-repeat;
     display: flex;
@@ -31,6 +28,7 @@
     background-position: center;
   }
   @media screen and (max-width: 767px) {
+     background-size: cover;
     background-image: url("../../../../public/recipe/flatsortfonmobile.png");
   }
 }

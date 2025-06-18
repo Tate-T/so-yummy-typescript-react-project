@@ -12,7 +12,7 @@ interface Props {
 const RecipeCard: FC<Props> = ({ id, title, imgPath }) => {
   return (
     <li className={css.card}>
-      <Link href={`/recipes/${id}}`} className={css.cardLink}>
+      <Link href={`/recipes/${id}`} className={css.cardLink}>
         <figure className={css.cardFigure}>
           <Image width={"100"} height={"100"} className={css.cardImg} src={imgPath} alt={title} />
           <figcaption className={css.cardText}>{title}</figcaption>
