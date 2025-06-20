@@ -9,7 +9,7 @@ import clock from "../../../../public/recipe/clock.svg";
 export default function RecipeHero() {
   const { id } = useParams();
   const data = useSelector((state: RootState) => state.recipes.queries[`getRecipe("${id}")`]?.data);
-  console.log(data);
+  // console.log(data);
   if (!data) {
     return <></>;
   }
