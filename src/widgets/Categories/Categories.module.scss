@@ -47,6 +47,10 @@
   &::-webkit-scrollbar {
     display: none;
   }
+
+  @media screen and (max-width: 1439px) {
+    overflow-x: scroll;
+  }
 }
 .categoriesSubitem {
   cursor: pointer;
