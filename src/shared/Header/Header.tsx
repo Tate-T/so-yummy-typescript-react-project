@@ -35,40 +35,40 @@ const Header = () => {
         <Link href="/" className={css.headerLogo}>
           <Image src={Logo} alt="logo" className={css.headerLogoImg} />
         </Link>
-      <nav className={css.headerNav}>
-        <ul className={css.headerNavList}>
-          <li className={css.headerNavItem}>
-            <Link href="/categories" className={css.headerNavItemPage}>
-              Categories
-            </Link>
-          </li>
-          <li className={css.headerNavItem}>
-            <Link href="/add" className={css.headerNavItemPage}>
-              Add recipes
-            </Link>
-          </li>
-          <li className={css.headerNavItem}>
-            <Link href="/my" className={css.headerNavItemPage}>
-              My recipes
-            </Link>
-          </li>
-          <li className={css.headerNavItem}>
-            <Link href="/favorites" className={css.headerNavItemPage}>
-              Favorites
-            </Link>
-          </li>
-          <li className={css.headerNavItem}>
-            <Link href="" className={css.headerNavItemPage}>
-              Shopping list
-            </Link>
-          </li>
-          <li className={css.headerNavItem}>
-            <Link href="/recipes" className={css.headerNavItemPage}>
-              <LuSearch className={css.headerSearchImg} />
-            </Link>
-          </li>
-        </ul>
-      </nav>
+        <nav className={css.headerNav}>
+          <ul className={css.headerNavList}>
+            <li className={css.headerNavItem}>
+              <Link href="/categories" className={css.headerNavItemPage}>
+                Categories
+              </Link>
+            </li>
+            <li className={css.headerNavItem}>
+              <Link href="/add" className={css.headerNavItemPage}>
+                Add recipes
+              </Link>
+            </li>
+            <li className={css.headerNavItem}>
+              <Link href="/my" className={css.headerNavItemPage}>
+                My recipes
+              </Link>
+            </li>
+            <li className={css.headerNavItem}>
+              <Link href="/favorites" className={css.headerNavItemPage}>
+                Favorites
+              </Link>
+            </li>
+            <li className={css.headerNavItem}>
+              <Link href="" className={css.headerNavItemPage}>
+                Shopping list
+              </Link>
+            </li>
+            <li className={css.headerNavItem}>
+              <Link href="/recipes" className={css.headerNavItemPage}>
+                <LuSearch className={css.headerSearchImg} />
+              </Link>
+            </li>
+          </ul>
+        </nav>
 
         <div className={css.userBoxRegist}>
           {user.name && (
@@ -88,8 +88,8 @@ const Header = () => {
           )}
         </div>
 
-        <div className={css.boxTemeColor}>
-          <button type="button" className={css.boxBtnSun} onClick={changeTheme} />
+        <div className={css.boxTemeColor} onClick={changeTheme}>
+          <button type="button" className={css.boxBtnSun} />
         </div>
       </Container>
     </header>
