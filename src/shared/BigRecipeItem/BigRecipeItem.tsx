@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import Link from "next/link";
 import css from './BigRecipeItem.module.scss';
 import { delNewOwnRecipe, selectMyRecipsById } from '@/redux/slices/ownRecipesSave';
 import { useDispatch, useSelector } from 'react-redux';
@@ -17,6 +18,6 @@ export default ({src, title, descr, time, id, setPage, toggleFunc, moreBlack}: {
             <p className={css.recipeTime}>{Math.floor(time/60)>0 ? `${Math.floor(time/60)} hour` : ''} {time-Math.floor(time/60)*60>0 ? `${time-Math.floor(time/60)*60} min` : ''}</p>
         </div>
         <button type='button' className={css.delBut} onClick={() => (toggleFunc(id), setPage(1), dispatch(delNewOwnRecipe(id)))}></button>
-        <button onClick={() => console.log(recipe)} type='button' className={moreBlack ? css.seeButB : css.seeButG}>See recipe</button>
+        <Link href={`/recipes/${id}`}><button onClick={() => console.log(recipe)} type='button' className={moreBlack ? css.seeButB : css.seeButG}>See recipe</button></Link>
     </li>);
 } 
