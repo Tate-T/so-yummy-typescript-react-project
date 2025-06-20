@@ -1,10 +1,26 @@
 import { CategoriesMainResponse, RecipeItem, Recipes, SearchParams } from "@/entities/Recipe.type";
 import { baseQueryWithAuth } from "@/features/auth/auth";
 import { createApi } from "@reduxjs/toolkit/query/react";
+import type { BaseQueryFn, FetchArgs, FetchBaseQueryError } from "@reduxjs/toolkit/query";
+
+const baseQueryWithStorage: BaseQueryFn<string | FetchArgs, unknown, FetchBaseQueryError> = async (
+  args,
+  api,
+  extraOptions,
+) => {
+  let result = await baseQueryWithAuth(args, api, extraOptions);
+
+  if (result.error && result.error.status === 404) {
+    // api.getState("ownRecipes").filter((recipe) => recipe._id === args.)
+
+    console.log(api.getState());
+  }
+  return result;
+};
 
 export const recipesApi = createApi({
   reducerPath: "recipes",
-  baseQuery: baseQueryWithAuth,
+  baseQuery: baseQueryWithStorage,
   endpoints: (builder) => ({
     getRecipe: builder.query<RecipeItem, string>({
       query: (id): string => `/recipes/id/${id}`,

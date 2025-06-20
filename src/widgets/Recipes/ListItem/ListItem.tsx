@@ -57,12 +57,12 @@ const CustomCheckbox = () => {
 export default function RecipeList() {
   const params = useParams();
   const id = params.id;
-  console.log(id);
+  // console.log(id);
   const { data, error, isLoading } = useGetRecipe(id);
   const recipes: RecipeItem[] = data?.ingredients ?? [];
   const instructions = data?.instructions.split("\r\n");
   console.log(instructions);
-  console.log(data);
+  // console.log(data);
   return (
     <section className={css.section}>
       <Container>
@@ -113,7 +113,7 @@ export default function RecipeList() {
             <h2 className={css.title}>Recipe Preparation</h2>
             <ol className={css.list}>
               {instructions?.map((data) => {
-                return <li>{data}</li>;
+                return <li >{data}</li>;
               })}
             </ol>
           </div>
