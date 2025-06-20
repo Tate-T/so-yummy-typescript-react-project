@@ -1,0 +1,114 @@
+.burgerMenu {
+  position: absolute;
+  left: 50%;
+  top: 0px;
+  transform: translate(-50%);
+  z-index: 999;
+  padding-bottom: 18px;
+  width: 375px;
+  background-color: rgb(235, 243, 212);
+
+  background-image: url("../../../../public/burger/burgerImgMobile.png");
+  background-repeat: no-repeat;
+  background-position: left;
+
+  :root[data-theme="dark"] & {
+    background-color: var(--bg-color);
+  }
+
+  @media screen and (min-width: 768px) {
+    background-image: url("../../../../public/burger/burgertabletImg.png");
+    width: 768px;
+  }
+  @media screen and (min-width: 1440px) {
+    display: none;
+  }
+}
+
+.headerLogoImg {
+  width: 44px;
+  height: 44px;
+}
+
+.boxIcon {
+  display: flex;
+  margin-top: 18px;
+}
+
+.closeIcon {
+  margin-left: auto;
+  font-size: 30px;
+}
+
+.headerNav {
+  margin-top: 124px;
+
+  margin-bottom: 203;
+}
+
+.headerNavList {
+    
+    width: 124px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.headerNavItem {
+  align-items: center;
+  margin-bottom: 32px;
+}
+
+.headerNavItemPage {
+  color: var(--text-color);
+  
+  font-size: var(--text-xl-fs);
+  font-weight: 500;
+  line-height: 22.4px;
+}
+
+.headerNavItemPage:hover {
+  color: var(--accent-color);
+}
+
+.headerSearchImg {
+  width: 20px;
+  height: 20px;
+  color: var(--text-color);
+  margin-right: 8px;
+  // background-color: black;
+}
+
+.headerSearchImg:hover {
+  color: var(--accent-color);
+}
+
+.boxTemeColor {
+  display: flex;
+  // margin-left: 50px;
+  margin-right: auto;
+  width: 61px;
+  height: 27px;
+  border-radius: 50px;
+  /* Switch - in shadow */
+  box-shadow: inset 0px 6px 8px 3px rgba(0, 0, 0, 0.1);
+  background: rgb(239, 239, 239);
+
+  :root[data-theme="dark"] & {
+    background-color: rgb(139, 170, 54);
+  }
+}
+
+.boxBtnSun {
+  margin-left: 3px;
+  margin-top: 3px;
+  width: 21px;
+  height: 21px;
+  border-radius: 50%;
+  background: linear-gradient(180deg, rgb(255, 255, 255), rgb(232, 234, 234) 100%);
+
+  :root[data-theme="dark"] & {
+    transition-timing-function: linear;
+    margin-right: 3px;
+    margin-left: auto;
+  }
+}
