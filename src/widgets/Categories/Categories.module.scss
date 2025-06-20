@@ -3,6 +3,9 @@
 .categories {
   padding-top: 50px;
   padding-bottom: 100px;
+  & > div {
+    position: relative;
+  }
   @media screen and (min-width: 768px) {
     padding-top: 72px;
     padding-bottom: 200px;
@@ -18,6 +21,21 @@
   @media screen and (min-width: 1440px) {
     margin-bottom: 100px;
   }
+}
+.categoriesArrowWrapper {
+  display: block;
+  margin-left: auto;
+  overflow: hidden;
+  width: 100px;
+  height: 50px;
+  position: absolute;
+  top: 80px;
+  right: 0px;
+}
+.categoriesArrow {
+  display: block;
+
+  margin-left: auto;
 }
 .categoriesSublist {
   @extend %flexCenter;

@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@lottiefiles/dotlottie-react": "^0.14.1",
     "@reduxjs/toolkit": "^2.8.2",
     "@types/js-cookie": "^3.0.6",
     "axios": "^1.9.0",

@@ -42,7 +42,6 @@ const openBurgerFunction = () : void => {
         <Link href="/" className={css.headerLogo}>
           <Image src={Logo} alt="logo" className={css.headerLogoImg} />
         </Link>
-
         {openBurger ? (
           <Burger openBurger={openBurgerFunction}/>
         ) : (
@@ -81,7 +80,6 @@ const openBurgerFunction = () : void => {
             </ul>
           </nav>
         )}
-
         <div className={css.userBoxRegist}>
           {user.name && (
             <div className={css.user}>
@@ -99,7 +97,6 @@ const openBurgerFunction = () : void => {
             </div>
           )}
         </div>
-
         {!openBurger && (
           <div className={css.boxTemeColor}>
             <button type="button" className={css.boxBtnSun} onClick={changeTheme} />

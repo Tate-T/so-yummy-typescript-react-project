@@ -10,14 +10,9 @@ import useDraggableScroll from "use-draggable-scroll";
 import clsx from "clsx";
 import RecipeCard from "@/shared/RecipeCard/RecipeCard";
 import { RecipeSmall } from "@/entities/Recipe.type";
+import { DotLottieReact } from "@lottiefiles/dotlottie-react";
 
 const Categories = () => {
-  // const param = useSearchParams().get("q");
-  // const [selectedCategory, setSelectedCategory] = useState(
-  //   param ? param : "breakfast"
-  // );
-  // useEffect(() => {}, [selectedCategory]);
-
   const searchParams = useSearchParams();
   const pathname = usePathname();
   const router = useRouter();
@@ -49,6 +44,9 @@ const Categories = () => {
     <section className={css.categories}>
       <Container>
         <h1 className={css.categoriesTitle}>Categories</h1>
+        <div className={css.categoriesArrowWrapper}>
+          <DotLottieReact className={css.categoriesArrow} src="/arrow.lottie" loop autoplay />
+        </div>
         {isLoading && <p>Loading...</p>}
         {data && !error && !isLoading && (
           <ul className={css.categoriesSublist} ref={categoriesListRef} onMouseDown={onMouseDown}>
