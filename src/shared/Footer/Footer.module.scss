@@ -1,7 +1,22 @@
+// @media screen and (min-width: 768px) {
+
+// }
+// @media screen and (min-width: 1440px) {
+
+// }
+
 .footer {
-  padding-top: 64px;
-  padding-bottom: 50px;
+  padding-top: 29px;
+  padding-bottom: 20px;
   background-color: var(--bg-secondary-color);
+  @media screen and (min-width: 768px) {
+    padding-top: 50px;
+    padding-bottom: 24px;
+  }
+  @media screen and (min-width: 1440px) {
+    padding-top: 64px;
+    padding-bottom: 50px;
+  }
 
   & > div {
     display: flex;
@@ -11,10 +26,22 @@
 
 .footerBoxInfo {
   //   border: 1px solid green;
-  width: 458px;
+  justify-content: center;
+  width: 100%;
+
   display: flex;
-  flex-wrap: wrap;
   align-items: center;
+  margin-bottom: 32px;
+  @media screen and (min-width: 768px) {
+    justify-content: start;
+    margin: 0px;
+    width: 380px;
+
+    flex-wrap: wrap;
+  }
+  @media screen and (min-width: 1440px) {
+    width: 458px;
+  }
 }
 
 .footerLogoText {
@@ -23,34 +50,67 @@
 
   font-size: var(--subtitle-lg-fs);
   font-weight: 700;
-  line-height: 28px;
 }
 
 .footerLogoList {
-  margin-top: 48px;
-  margin-left: 24px;
+  display: none;
+  @media screen and (min-width: 768px) {
+    display: block;
+    margin-top: 24px;
+    margin-left: 24px;
+  }
+  @media screen and (min-width: 1440px) {
+    margin-top: 48px;
+  }
 }
 
 .footerLogoItem {
-  margin-top: 12px;
   list-style: disc;
   color: var(--text-but);
+  @media screen and (min-width: 768px) {
+    margin-top: 8px;
+  }
+  @media screen and (min-width: 1440px) {
+    margin-top: 12px;
+  }
 }
 
 .footerLogoItemText {
   color: var(--text-but);
-  font-size: var(--text-xl-fs);
+
   font-weight: 400;
-  line-height: 24px;
+
+  @media screen and (min-width: 768px) {
+    font-size: var(--text-md-fs);
+    line-height: 18px;
+  }
+  @media screen and (min-width: 1440px) {
+    font-size: var(--text-xl-fs);
+    line-height: 24px;
+  }
 }
 
 .footerNavigation {
-  margin-left: 120px;
-  margin-right: 220px;
+  margin-left: 130px;
+  width: 100px;
+
+  @media screen and (min-width: 768px) {
+    margin-left: 175px;
+  }
+  @media screen and (min-width: 1440px) {
+    margin-left: 120px;
+    margin-right: 220px;
+  }
 }
 
 .footerNavigationItem {
-  margin-bottom: 24px;
+  margin-bottom: 14px;
+  @media screen and (min-width: 768px) {
+    margin-bottom: 20px;
+  }
+  @media screen and (min-width: 1440px) {
+    margin-bottom: 24px;
+  }
 }
 
 .footerNavigationPage {
@@ -62,56 +122,98 @@
 }
 
 .footerForm {
-  width: 339px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 204px;
+  margin-top: 32px;
+  @media screen and (min-width: 768px) {
+    width: 458px;
+    margin-left: 123px;
+    margin-top: 72px;
+    display: flex;
+  }
+  @media screen and (min-width: 1440px) {
+    display: block;
+    width: 339px;
+    margin: 0;
+  }
 }
 
 .footerFormTitle {
-  color: var(--text-but);
-  margin-bottom: 14px;
-  font-size: var(--text-xl-fs);
-  font-weight: 700;
-  line-height: 27px;
+  display: none;
+
+  @media screen and (min-width: 1440px) {
+    display: block;
+    color: var(--text-but);
+    margin-bottom: 14px;
+    font-size: var(--text-xl-fs);
+    font-weight: 700;
+    line-height: 27px;
+  }
 }
 
 .footerFormText {
-  color: var(--text-but);
-  margin-bottom: 28px;
-  font-size: var(--text-md-fs);
-  font-weight: 400;
-  line-height: 18px;
+  display: none;
+
+  @media screen and (min-width: 1440px) {
+    display: block;
+    color: var(--text-but);
+    margin-bottom: 28px;
+    font-size: var(--text-md-fs);
+    font-weight: 400;
+    line-height: 18px;
+  }
 }
 
 .footerFormInput {
-  
-  font-size: var(--text-xl-fs);
+  font-size: 10px;
   font-weight: 400;
   line-height: 27px;
   background: transparent;
   color: rgb(250, 250, 250);
   padding-left: 45px;
-  width: 338px;
-  height: 59px;
+  width: 204px;
+  height: 38px;
   border: 1px solid rgba(250, 250, 250, 0.5);
   border-radius: 6px;
-  margin-bottom: 16px;
+  margin-bottom: 8px;
+  @media screen and (min-width: 768px) {
+    font-size: var(--text-md-fs);
+    width: 259px;
+    height: 50px;
+    margin-right: 12px;
+    padding-left: 51px;
+  }
+  @media screen and (min-width: 1440px) {
+    font-size: var(--text-xl-fs);
+    width: 338px;
+    height: 59px;
+    margin-bottom: 16px;
+    padding-left: 45px;
+  }
 }
 
 .inputBox {
-  
   position: relative;
 }
 
 .inputIcon {
-  top: 21.5px;
+  top: 11.5px;
   left: 15.5px;
-  color: #FAFAFA;
+  color: #fafafa;
   font-size: 20px;
   position: absolute;
+  @media screen and (min-width: 768px) {
+    top: 15px;
+  }
+  @media screen and (min-width: 1440px) {
+    top: 21.5px;
+  }
 }
 
 .footerFormBtn {
-  width: 339px;
-  height: 60px;
+  width: 204px;
+height: 38px;
   border-radius: 6px;
   background-color: var(--bg-color-btn);
 
@@ -120,6 +222,14 @@
   font-size: var(--text-lg-fs);
   font-weight: 400;
   line-height: 18px;
+  @media screen and (min-width: 768px) {
+    width: 187px;
+    height: 50px;
+  }
+  @media screen and (min-width: 1440px) {
+    width: 339px;
+  height: 60px;
+  }
 }
 
 .footerFormBtn:hover {
@@ -127,34 +237,53 @@
 }
 
 .footerNetworksList {
-  gap: 18px;
-  margin-top: 40px;
-  display: flex;
+  margin-top: 44px;
   margin-left: auto;
   margin-right: auto;
-}
-
-.footerNetworksItem {
-  background: rgb(139, 170, 54);
-  width: 20px;
-  height: 20px;
+  @media screen and (min-width: 768px) {
+    margin-left: 285px;
+    // margin-right: auto;
+  }
+  @media screen and (min-width: 1440px) {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 40px;
+  }
 }
 
 .footerEndBox {
-
+  max-width: 100%;
   background: transparent;
-  background-image: url("../../../public/footer/footerImage.png");
+  background-image: url("../../../public/footer/footerModileImage.png");
+
   background-repeat: no-repeat;
   background-position: right;
+  padding-top: 28px;
+  padding-bottom: 28px;
 
-  padding-top: 50px;
-  padding-bottom: 50px;
+  @media screen and (min-width: 768px) {
+    padding-top: 32px;
+    padding-bottom: 32px;
+    background-image: url("../../../public/footer/footerTabletImg.png");
+  }
+
+  @media screen and (min-width: 1440px) {
+    background-image: url("../../../public/footer/footerImage.png");
+    padding-top: 50px;
+    padding-bottom: 50px;
+  }
 }
 
 .footerEndList {
   justify-content: center;
   display: flex;
-  gap: 40px;
+  gap: 14px;
+  @media screen and (min-width: 768px) {
+    gap: 28px;
+  }
+  @media screen and (min-width: 1440px) {
+    gap: 40px;
+  }
 }
 
 .footerEndText {
