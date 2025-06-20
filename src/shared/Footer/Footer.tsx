@@ -40,7 +40,7 @@ const Footer = () => {
           <ul className={css.footerNavigation}>
             <li className={css.footerNavigationItem}>
               <Link href="/categories" className={css.footerNavigationPage}>
-                Categories
+              Ingredients
               </Link>
             </li>
             <li className={css.footerNavigationItem}>
@@ -80,7 +80,7 @@ const Footer = () => {
           </form>
 
           <div className={css.footerNetworksList}>
-            <Socials size={20} />
+            <Socials size={25} />
           </div>
         </Container>
       </footer>
