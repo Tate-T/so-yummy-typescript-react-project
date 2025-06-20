@@ -1,5 +1,12 @@
+// @media screen and (min-width: 768px) {
+
+// }
+// @media screen and (min-width: 1440px) {
+
+// }
+
 .header {
-  border: 1px solid green;
+  // border: 1px solid green;
   position: absolute;
   left: 50%;
   top: 18px;
@@ -12,7 +19,9 @@
 }
 
 .headerLogo {
-  margin-right: 187px;
+  @media screen and (min-width: 1440px) {
+    margin-right: 187px;
+  }
 }
 
 .headerLogoImg {
@@ -21,19 +30,22 @@
 }
 
 .headerNav {
-  align-items: center;
-  display: flex;
+  display: none;
+  @media screen and (min-width: 1440px) {
+    display: flex;
+    align-items: center;
+  }
 }
 
 .headerNavList {
+  // align-items: center;
   display: flex;
   gap: 30px;
-  align-items: center;
 }
 
 .headerNavItemPage {
   color: var(--text-color);
-
+// align-items: center;
   font-size: var(--text-md-fs);
   font-weight: 500;
   line-height: 22.4px;
@@ -44,8 +56,7 @@
 }
 
 .headerSearchImg {
-  width: 24px;
-  height: 24px;
+font-size: 22px;
   color: var(--text-color);
   // background-color: black;
 }
@@ -55,10 +66,19 @@
 }
 
 .userBoxRegist {
+  margin-left: 126px;
+  margin-right: 24px;
   align-items: center;
-  margin-left: 227px;
-}
+  @media screen and (min-width: 768px) {
+    margin-left: 457px;
+    margin-right: 54px;
+  }
 
+  @media screen and (min-width: 1440px) {
+    margin-left: 227px;
+    margin-right: 0;
+  }
+}
 .user {
   display: flex;
   align-items: center;
@@ -78,39 +98,62 @@
 }
 
 .userName {
-  color: rgb(34, 37, 42);
+  color: var(--title-color);
   font-size: var(--text-md-fs);
   font-weight: 600;
   line-height: 170%;
 }
 
 .boxTemeColor {
-  display: flex;
-  // margin-left: 50px;
-  margin-left: auto;
-  width: 61px;
-  height: 27px;
-  border-radius: 50px;
-  /* Switch - in shadow */
-  box-shadow: inset 0px 6px 8px 3px rgba(0, 0, 0, 0.1);
-  background: rgb(239, 239, 239);
+  display: none;
+  @media screen and (min-width: 1440px) {
+    display: flex;
+    // margin-left: 50px;
+    margin-left: auto;
+    width: 61px;
+    height: 27px;
+    border-radius: 50px;
+    /* Switch - in shadow */
+    box-shadow: inset 0px 6px 8px 3px rgba(0, 0, 0, 0.1);
+    background: rgb(239, 239, 239);
+
+    :root[data-theme="dark"] & {
+      background-color: rgb(139, 170, 54);
+    }
+  }
 }
 
 .boxBtnSun {
+  animation: 3s ease-in 1s infinite reverse both running slidein;
+  animation-delay: 1s;
   margin-left: 3px;
   margin-top: 3px;
   width: 21px;
   height: 21px;
   border-radius: 50%;
   background: linear-gradient(180deg, rgb(255, 255, 255), rgb(232, 234, 234) 100%);
+
+  :root[data-theme="dark"] & {
+    animation: 30s linear 10s infinite running slidein;
+    animation-delay: 1s;
+    margin-right: 3px;
+    margin-left: auto;
+  }
 }
 
-.boxTemeColor[data-theme="dark"] {
-  background-color: rgb(139, 170, 54);
-}
-
-.boxBtnSun[data-theme="dark"] {
-  transition-timing-function: linear;
-  margin-right: 3px;
+.burgerBox {
   margin-left: auto;
+  margin-right: 20px;
+  @media screen and (min-width: 768px) {
+    margin-right: 32px;
+  }
+  @media screen and (min-width: 1440px) {
+    display: none;
+  }
+}
+
+.burgerBtn {
+  font-size: 30px;
+
+  color: var(--text-color);
 }
