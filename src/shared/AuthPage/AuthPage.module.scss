@@ -2,8 +2,8 @@
   background-image: url("../../../public/authImgs/authBgMobile.svg");
   height: 100vh;
   background-repeat: no-repeat;
-  background-size: contain;
-  background-position: bottom;
+  background-size: cover;
+  background-position: center 50vh;
   padding-top: 87px;
   padding-bottom: 30px;
 
@@ -15,12 +15,18 @@
     background-image: url("../../../public/authImgs/authBgTablet.svg");
   }
 
+  // @media screen and (min-width: 895px) {
+  //   background-position: -100%;
+  // }
+
   @media screen and (min-width: 1440px) {
     background-image: url("../../../public/authImgs/authBgDesctop.svg");
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding-top: 0;
+    background-size: contain;
+    background-position: bottom;
   }
 }
 
