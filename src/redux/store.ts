@@ -4,14 +4,7 @@ import { categoriesApi } from "./apis/categoriesApi";
 import { authApi } from "./auth/authOperations";
 import { favoriteApi } from "./apis/favoriteApi";
 import { authReducer } from "./slices/authSlice";
-import {
-  FLUSH,
-  REHYDRATE,
-  PAUSE,
-  PERSIST,
-  PURGE,
-  REGISTER,
-} from "redux-persist";
+import { FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER } from "redux-persist";
 import storage from "redux-persist/lib/storage";
 import persistReducer from "redux-persist/es/persistReducer";
 import persistStore from "redux-persist/es/persistStore";
@@ -20,7 +13,7 @@ import { recipesApi } from "./apis/recipesApi";
 import { newRecipeReducer } from "./slices/newRecipe";
 import { ownRecipesReducer } from "./slices/ownRecipesSave";
 import { ingredientsApi } from "./apis/ingridientsApi";
-
+import { shopingLists } from "./apis/shipingListApi";
 const persistConfig = {
   key: "root",
   storage,
@@ -42,6 +35,7 @@ export const store = configureStore({
     [ownRecipeApi.reducerPath]: ownRecipeApi.reducer,
     [recipesApi.reducerPath]: recipesApi.reducer,
     [ingredientsApi.reducerPath]: ingredientsApi.reducer,
+    [shopingLists.reducerPath]: shopingLists.reducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({
@@ -54,7 +48,8 @@ export const store = configureStore({
       .concat(favoriteApi.middleware)
       .concat(ownRecipeApi.middleware)
       .concat(recipesApi.middleware)
-      .concat(ingredientsApi.middleware),
+      .concat(ingredientsApi.middleware)
+      .concat(shopingLists.middleware)
 });
 
 export type RootState = ReturnType<typeof store.getState>;
