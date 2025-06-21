@@ -17,3 +17,7 @@
     font-size: var(--title-fs);
   }
 }
+
+%transitionColor {
+  transition: color 0.3s ease-in-out;
+}

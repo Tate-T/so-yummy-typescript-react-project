@@ -1,9 +1,4 @@
-// @media screen and (min-width: 768px) {
-
-// }
-// @media screen and (min-width: 1440px) {
-
-// }
+@import "../../sass/utils/placeholders.scss";
 
 .footer {
   padding-top: 29px;
@@ -115,10 +110,34 @@
 
 .footerNavigationPage {
   color: var(--text-but);
-
   font-size: var(--text-md-fs);
   font-weight: 500;
   line-height: 18px;
+  position: relative;
+  @extend %transitionColor;
+
+  &:hover {
+    color: var(--accent-color);
+  }
+
+  &::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    border-radius: 4px;
+    background-color: var(--accent-color);
+    bottom: 0;
+    left: 0;
+    transform-origin: right;
+    transform: scaleX(0);
+    transition: transform 0.3s ease-in-out;
+  }
+
+  &:hover::before {
+    transform-origin: left;
+    transform: scaleX(1);
+  }
 }
 
 .footerForm {
@@ -213,22 +232,26 @@
 
 .footerFormBtn {
   width: 204px;
-height: 38px;
+  height: 38px;
   border-radius: 6px;
   background-color: var(--bg-color-btn);
-
   color: rgb(250, 250, 250);
-
   font-size: var(--text-lg-fs);
   font-weight: 400;
   line-height: 18px;
+  @extend %transitionColor;
+
+  &:hover {
+    color: var(--svg-ico);
+  }
+
   @media screen and (min-width: 768px) {
     width: 187px;
     height: 50px;
   }
   @media screen and (min-width: 1440px) {
     width: 339px;
-  height: 60px;
+    height: 60px;
   }
 }
 
