@@ -16,7 +16,7 @@ export type OwnRecipe = {
     instructions: string[],
     ingredients: Ingredient[],
     time: string,
-    fullimage: File | null,
+    fullImage: File | null,
 }
 
 export type typeOwnRecipeFull = {
