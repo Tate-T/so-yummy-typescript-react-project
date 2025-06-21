@@ -11,6 +11,8 @@ import { useParams } from "next/navigation";
 import { useAddShopingLIst } from "@/redux/apis/shipingListApi";
 import { useRemoveShopingLIst } from "@/redux/apis/shipingListApi";
 import { nanoid } from "@reduxjs/toolkit";
+import { ingredient } from "@/entities/Ingridient.type";
+
 const CustomCheckbox = ({ id, measure }: { id: string; measure: string }) => {
   const [checked, setChecked] = useState(false);
   const [addShopingList] = useAddShopingLIst();
@@ -65,10 +67,10 @@ const CustomCheckbox = ({ id, measure }: { id: string; measure: string }) => {
 
 export default function RecipeList() {
   const params = useParams();
-  const id = params.id;
+  const id: string = params.id!.toString();
   // console.log(id);
   const { data, error, isLoading } = useGetRecipe(id);
-  const recipes: RecipeItem[] = data?.ingredients ?? [];
+  const recipes: ingredient[] = data?.ingridients ?? [];
   const instructions = data?.instructions.split("\r\n");
   // console.log(instructions);
   // console.log(data);
@@ -93,7 +95,7 @@ export default function RecipeList() {
           ) : (
             <ul className={css.recipes}>
               {recipes.map((recipe) => (
-                <li className={css.itemIngr} key={recipe._id}>
+                <li className={css.itemIngr} key={recipe.id}>
                   <div className={css.itemInfo}>
                     <Image
                       alt={recipe.title}
@@ -109,7 +111,7 @@ export default function RecipeList() {
                     <div className={css.boxGrama}>
                       <p className={css.txtGrama}>{recipe.measure}</p>
                     </div>
-                    <CustomCheckbox id={recipe._id} measure={recipe.measure} />
+                    <CustomCheckbox id={recipe.id} measure={recipe.measure} />
                   </div>
                 </li>
               ))}

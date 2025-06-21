@@ -7,7 +7,7 @@ import Link from "next/link";
 import { LuSearch } from "react-icons/lu";
 import { TfiClose } from "react-icons/tfi";
 
-const Burger = ({openBurger} ) => {
+const Burger = ({ openBurger }: { openBurger: () => void }) => {
   const changeTheme = () => {
     const html = document.querySelector("html")! as HTMLHtmlElement;
 
@@ -24,7 +24,7 @@ const Burger = ({openBurger} ) => {
           <Link href="/" className={css.headerLogo}>
             <Image src={Logo} alt="logo" className={css.headerLogoImg} />
           </Link>
-          <TfiClose className={css.closeIcon} type="button" onClick={openBurger}/>
+          <TfiClose className={css.closeIcon} type="button" onClick={openBurger} />
         </div>
 
         <nav className={css.headerNav}>
