@@ -2,8 +2,18 @@
 @import "../../sass/utils/mixins.scss";
 
 .search {
-  padding-top: 106px;
-  padding-bottom: 200px;
+  padding-top: 114px;
+  padding-bottom: 100px;
+  & > div {
+    position: relative;
+  }
+  @media screen and (min-width: 768px) {
+    padding-top: 136px;
+    padding-bottom: 200px;
+  }
+  @media screen and (min-width: 1440px) {
+    padding-top: 164px;
+  }
 }
 
 .searchTitle {
@@ -11,18 +21,45 @@
   margin-bottom: 50px;
 }
 .searchForm {
-  margin-bottom: 165px;
+  margin-bottom: 42px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 27px;
+  gap: 24px;
+  @media screen and (min-width: 768px) {
+    margin-bottom: 40px;
+    gap: 28px;
+  }
+  @media screen and (min-width: 1440px) {
+    margin-bottom: 90px;
+    gap: 27px;
+  }
 }
 .searchInput {
-  @include roundedInput;
+  @include roundedInput(295px, 32px, 16px);
+  font-size: var(--text-sm-fs);
+  padding-right: calc(113px + 5px);
+  @media screen and (min-width: 768px) {
+    @include roundedInput(362px, 38px, 18px);
+    font-size: var(--text-md-fs);
+    padding-right: calc(161px + 5px);
+  }
+  @media screen and (min-width: 1440px) {
+    @include roundedInput(510px);
+    font-size: var(--text-lg-fs);
+    padding-right: calc(161px + 5px);
+  }
 }
 .searchBtn {
-  @include roundedBtn(52px, 23px, var(--accent-color));
-  margin-left: -50px;
+  @include roundedBtn(31.72px, 16px, var(--accent-color), var(--text-md-fs));
+  margin-left: -113px;
+  @media screen and (min-width: 768px) {
+    @include roundedBtn(52px, 16px, var(--accent-color), var(--text-lg-fs));
+    margin-left: -161px;
+  }
+  @media screen and (min-width: 1440px) {
+    @include roundedBtn(52px, 23px, var(--accent-color));
+  }
 }
 .searchDropdownWrapper {
   display: flex;
@@ -30,38 +67,72 @@
 }
 .searchSubtext {
   color: var(--title-color);
-  font-size: var(--text-xl-fs);
+  font-size: var(--text-sm-fs);
   font-weight: 500;
   line-height: 1.33;
   letter-spacing: -0.24px;
-  margin-right: 18px;
+  margin-right: 15px;
+  @media screen and (min-width: 768px) {
+    font-size: var(--text-md-fs);
+    margin-right: 18px;
+  }
+  @media screen and (min-width: 1440px) {
+    font-size: var(--text-xl-fs);
+  }
 }
 .searchList {
   display: flex;
   flex-wrap: wrap;
-  gap: 100px 14px;
   padding: 0;
+  gap: 28px;
+  flex-direction: column;
+  & > li {
+    flex-basis: auto;
+  }
+  @media screen and (min-width: 768px) {
+    gap: 32px;
+    flex-direction: row;
+    & > li {
+      flex-basis: calc((100% - 32px * 1) / 2);
+    }
+  }
+  @media screen and (min-width: 1440px) {
+    gap: 100px 14px;
+    & > li {
+      flex-basis: calc((100% - 14px * 3) / 4);
+    }
+  }
 }
 .empty {
-  margin-top: -115px;
   margin-right: auto;
   margin-left: auto;
   text-align: center;
+  @media screen and (min-width: 1440px) {
+    margin-top: -50px;
+  }
 }
 .emptyImg {
-  width: auto;
+  width: 208px;
+  height: auto;
   margin-right: auto;
   margin-left: auto;
+  @media screen and (min-width: 768px) {
+    width: 350px;
+  }
 }
 .emptyText {
-  margin-top: 32px;
+  margin-top: 24px;
   color: #000;
-  font-size: var(--subtitle-md-fs);
+  font-size: var(--text-md-fs);
   font-weight: 500;
   line-height: 1;
   letter-spacing: -0.48px;
   opacity: 0.5;
   :root[data-theme="dark"] & {
     color: #fafafa;
+  }
+  @media screen and (min-width: 768px) {
+    margin-top: 32px;
+    font-size: var(--subtitle-md-fs);
   }
 }

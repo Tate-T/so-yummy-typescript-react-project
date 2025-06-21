@@ -2,11 +2,20 @@
 @use "../../sass/utils/mixins.scss" as *;
 
 .recs {
-  padding-bottom: 118px;
+  padding-bottom: 100px;
+  @media screen and (min-width: 1440px) {
+    padding-bottom: 118px;
+  }
 }
 
 .recsItem {
-  margin-bottom: 100px;
+  margin-bottom: 32px;
+  @media screen and (min-width: 768px) {
+    margin-bottom: 50px;
+  }
+  @media screen and (min-width: 1440px) {
+    margin-bottom: 100px;
+  }
   &:last-child {
     margin-bottom: 0;
   }
@@ -18,17 +27,20 @@
 
 .recsSublist {
   display: grid;
-  gap: 14px;
   grid-template-columns: 1fr;
-
-  margin-top: 50px;
-  margin-bottom: 50px;
-
+  margin-top: 32px;
+  margin-bottom: 24px;
   @media screen and (min-width: 768px) {
     grid-template-columns: repeat(2, 1fr);
+    gap: 32px;
+    margin-top: 40px;
+    margin-bottom: 40px;
   }
   @media screen and (min-width: 1440px) {
     grid-template-columns: repeat(4, 1fr);
+    margin-top: 50px;
+    margin-bottom: 50px;
+    gap: 14px;
   }
 }
 
@@ -67,12 +79,12 @@
   }
 }
 .recsBrowseBtn {
-  @include roundedBtn(52px, 20px, transparent);
+  @include roundedBtn(32px, 14px, transparent, var(--text-md-fs));
   color: var(--bg-secondary-color);
   border: 2.2px solid var(--accent-color);
   font-family: var(--font-poppins-sans);
   display: block;
-  margin-top: 14px;
+  margin-top: 40px;
   margin-right: auto;
   margin-left: auto;
   background-image: linear-gradient(to right, var(--accent-color) 50%, transparent 50%);
@@ -87,5 +99,13 @@
 
   :root[data-theme="dark"] & {
     color: #fafafa;
+  }
+  @media screen and (min-width: 768px) {
+    @include roundedBtn(52px, 20px, transparent, var(--text-lg-fs));
+    color: var(--bg-secondary-color);
+    margin-top: 32px;
+  }
+  @media screen and (min-width: 1440px) {
+    margin-top: 14px;
   }
 }

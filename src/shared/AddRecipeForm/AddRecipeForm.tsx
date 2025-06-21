@@ -86,7 +86,8 @@ export default () => {
             toast.success('Recipe was created successfully!');
             const customIngreds = recipe.ingredients.map((ingre: { ingredient: string, ingredientId: string, count: number, type: string, setTypeOpen: boolean, setCluesOpen: boolean }) => ({
                 title: ingre.ingredient,
-                measure: `${ingre.count}${ingre.type}`
+                measure: `${ingre.count}${ingre.type}`,
+                id: ingre.ingredientId,
             }));
             dispatch(addNewOwnRecipe({
                 img: recipe.img,

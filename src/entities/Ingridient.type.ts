@@ -1,7 +1,8 @@
 export type ingredient = {
-	title: string
-	desc: string
-	type: string
-	thumb: string
-	measure: string
-}
+  title: string;
+  desc: string;
+  type: string;
+  thumb: string;
+  measure: string;
+  id: string;
+};
