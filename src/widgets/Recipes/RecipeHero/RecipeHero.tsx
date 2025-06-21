@@ -6,9 +6,13 @@ import Container from "@/shared/Container/Container";
 import { RootState } from "@/redux/store";
 import { useParams } from "next/navigation";
 import clock from "../../../../public/recipe/clock.svg";
+import { RecipeItem } from "@/entities/Recipe.type";
 export default function RecipeHero() {
   const { id } = useParams();
-  const data = useSelector((state: RootState) => state.recipes.queries[`getRecipe("${id}")`]?.data);
+  const data = useSelector(
+    (state: RootState) =>
+      state.recipes.queries[`getRecipe("${id}")`]?.data as RecipeItem | undefined,
+  );
   // console.log(data);
   if (!data) {
     return <></>;
@@ -17,12 +21,12 @@ export default function RecipeHero() {
     <section className={css.section}>
       <Container>
         <div className={css.recipeHeader}>
-          <h1 className={css.title}>{data.title}</h1>
-          <p className={css.pidTitle}>{data.description}</p>
+          <h1 className={css.title}>{data.title ? data.title : "yuy"}</h1>
+          <p className={css.pidTitle}>{data!.description}</p>
           <button className={css.titleButton}>Add to favorite recipes</button>
           <div className={css.timeBox}>
             <Image alt="awd" className={css.svgTime} src={clock} />
-            <p className={css.txtTime}>{data.time} min</p>
+            <p className={css.txtTime}>{data!.time} min</p>
           </div>
         </div>
       </Container>

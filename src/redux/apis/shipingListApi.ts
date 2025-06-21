@@ -23,8 +23,20 @@ export const shopingLists = createApi({
   baseQuery: baseQueryWithStorage,
   tagTypes: ["Shopinglist"],
   endpoints: (builder) => ({
-    getShopopingList: builder.query<RecipeItem, string>({
-      query: (id): string => `/users/shopping-list/`,
+    getShopopingList: builder.query<
+      {
+        shoppingList: [
+          {
+            productId: string;
+            title: string;
+            thumb: string;
+            measure: string[];
+          },
+        ];
+      },
+      void
+    >({
+      query: (): string => `/users/shopping-list/`,
       providesTags: [{ type: "Shopinglist", id: "LIST" }],
     }),
     addShopingLIst: builder.mutation<RecipeItem, { productId: string; measure: string }>({
@@ -48,6 +60,6 @@ export const shopingLists = createApi({
     }),
   }),
 });
-export const usegetShopopingList = shopingLists.endpoints.getShopopingList.useQuery;
+export const useGetShopopingList = shopingLists.endpoints.getShopopingList.useQuery;
 export const useAddShopingLIst = shopingLists.endpoints.addShopingLIst.useMutation;
 export const useRemoveShopingLIst = shopingLists.endpoints.removeShopingLIst.useMutation;

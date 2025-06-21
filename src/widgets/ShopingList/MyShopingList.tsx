@@ -5,12 +5,12 @@ import Image from "next/image";
 import Container from "@/shared/Container/Container";
 import img from "../../../public/recipe/KAWAI.gif";
 import iks from "../../../public/recipe/X.png";
-import { usegetShopopingList } from "@/redux/apis/shipingListApi";
+import { useGetShopopingList } from "@/redux/apis/shipingListApi";
 import { useRemoveShopingLIst } from "@/redux/apis/shipingListApi";
 
 export default function ShopingList() {
   const [removeShopingList] = useRemoveShopingLIst();
-  const { data, error } = usegetShopopingList();
+  const { data, error } = useGetShopopingList();
   return (
     <section className={style.section}>
       <Container>
