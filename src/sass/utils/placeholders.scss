@@ -6,14 +6,14 @@
 
 %pageTitle {
   color: var(--title-color);
-  font-size: var(--title-fs);
+  font-size: 28px;
   font-weight: 600;
   line-height: 1;
   letter-spacing: -0.88px;
-  @media screen and (max-width: 1439px) {
+  @media screen and (min-width: 768px) {
     font-size: 32px;
   }
-  @media screen and (max-width: 767px) {
-    font-size: 28px;
+  @media screen and (min-width: 1440px) {
+    font-size: var(--title-fs);
   }
 }

@@ -7,26 +7,51 @@
   background-color: var(--bg-button-color);
   border-radius: 8px;
   position: relative;
-  width: 198px;
-  padding: 14px;
+  width: 146px;
+  padding: 8px 14px;
   :root[data-theme="dark"] & {
     background-color: transparent;
     outline: 1px solid #4a4b52;
   }
+  @media screen and (min-width: 768px) {
+    width: 175px;
+    padding: 10px 14px;
+  }
+  @media screen and (min-width: 1440px) {
+    width: 198px;
+    padding: 14px;
+  }
 }
 .dropdownValueText {
   color: var(--title-color);
-  font-size: var(--text-md-fs);
+  font-size: var(--text-sm-fs);
   font-weight: 400;
   letter-spacing: -0.28px;
   opacity: 0.5;
+  @media screen and (min-width: 768px) {
+    font-size: var(--text-md-fs);
+  }
 }
 .dropdownBtn {
   @extend %flexCenter;
   position: absolute;
-  top: 9px;
-  right: 9px;
-  padding: 5px;
+  top: 10px;
+  right: 14px;
+  width: 14px;
+  height: 14px;
+  & > img {
+    height: 100%;
+  }
+  @media screen and (min-width: 768px) {
+    top: 10px;
+    right: 14px;
+    width: 20px;
+    height: 20px;
+  }
+  @media screen and (min-width: 1440px) {
+    top: 14px;
+    right: 14px;
+  }
 }
 .dropdownIcon {
   transition-duration: 250ms;
@@ -38,25 +63,56 @@
 }
 .dropdownList {
   position: absolute;
-  top: 49px;
   right: 0;
   left: 0;
+  z-index: 2;
   border-radius: 8px;
+  top: 34px;
+  background-color: var(--bg-color);
+  border-radius: 0px 0px 6px 6px;
+  @media screen and (min-width: 768px) {
+    top: 41px;
+  }
+  @media screen and (min-width: 1440px) {
+    top: 49px;
+  }
 }
 .dropdownItem {
-  padding: 8px 14px;
   cursor: pointer;
+
+  padding: 8px 14px;
   &:first-child {
-    padding-top: 14px;
+    padding-top: 8px;
   }
   &:last-child {
-    padding-bottom: 14px;
+    padding-bottom: 10px;
+  }
+
+  @media screen and (min-width: 768px) {
+    &:first-child {
+      padding-top: 10px;
+    }
+    &:last-child {
+      padding-bottom: 14px;
+    }
+  }
+
+  @media screen and (min-width: 1440px) {
+    &:first-child {
+      padding-top: 14px;
+    }
+    &:last-child {
+      padding-bottom: 14px;
+    }
   }
 }
 .dropdownText {
   opacity: 0.5;
   color: var(--title-color);
-  font-size: var(--text-md-fs);
+  font-size: var(--text-sm-fs);
   font-weight: 400;
   letter-spacing: -0.28px;
+  @media screen and (min-width: 768px) {
+    font-size: var(--text-md-fs);
+  }
 }

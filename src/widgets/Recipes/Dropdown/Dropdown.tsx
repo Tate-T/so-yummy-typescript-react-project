@@ -18,11 +18,7 @@ const Dropdown = ({ items, selectedValue, setSelectedValue }: Props) => {
   const selectValue = (e: MouseEvent) => {
     e.stopPropagation();
     console.log(e.target);
-    if (
-      !(e.target instanceof HTMLLIElement) &&
-      !(e.target instanceof HTMLParagraphElement)
-    )
-      return;
+    if (!(e.target instanceof HTMLLIElement) && !(e.target instanceof HTMLParagraphElement)) return;
     e.target instanceof HTMLLIElement
       ? setSelectedValue(e.target.children[0].textContent!)
       : setSelectedValue(e.target.textContent!);
@@ -30,18 +26,11 @@ const Dropdown = ({ items, selectedValue, setSelectedValue }: Props) => {
   };
   return (
     <div className={css.dropdown}>
-      <div className={css.dropdownValue}>
+      <div className={css.dropdownValue} onClick={toggleDropdown}>
         <p className={css.dropdownValueText}>{selectedValue}</p>
-        <button
-          type="button"
-          className={css.dropdownBtn}
-          onClick={toggleDropdown}
-        >
+        <button type="button" className={css.dropdownBtn}>
           <Image
-            className={clsx(
-              css.dropdownIcon,
-              isOpen && css.dropdownIconRotated,
-            )}
+            className={clsx(css.dropdownIcon, isOpen && css.dropdownIconRotated)}
             src={Arrow}
             alt="dropdown arrow"
           />

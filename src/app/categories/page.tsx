@@ -7,9 +7,9 @@ import Footer from "@/shared/Footer/Footer";
 const CategoriesPage = () => {
   return (
     <>
-      {/* <Header /> */}
+      <Header />
       <Categories />
-      {/* <Footer /> */}
+      <Footer />
     </>
   );
 };

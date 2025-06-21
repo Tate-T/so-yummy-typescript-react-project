@@ -28,88 +28,92 @@ const Header = () => {
     }
   };
 
-const openBurgerFunction = () : void => {
-  if (!openBurger) {
-    setOpenBurger(true);
-  } else {
-    setOpenBurger(false);
-  }
-}
+  const openBurgerFunction = (): void => {
+    if (!openBurger) {
+      setOpenBurger(true);
+    } else {
+      setOpenBurger(false);
+    }
+  };
 
   return (
-    <header className={css.header}>
-      <Container>
-        <Link href="/" className={css.headerLogo}>
-          <Image src={Logo} alt="logo" className={css.headerLogoImg} />
-        </Link>
-        {openBurger ? (
-          <Burger openBurger={openBurgerFunction}/>
-        ) : (
-          <nav className={css.headerNav}>
-            <ul className={css.headerNavList}>
-              <li className={css.headerNavItem}>
-                <Link href="/categories" className={css.headerNavItemPage}>
-                  Categories
-                </Link>
-              </li>
-              <li className={css.headerNavItem}>
-                <Link href="/add" className={css.headerNavItemPage}>
-                  Add recipes
-                </Link>
-              </li>
-              <li className={css.headerNavItem}>
-                <Link href="/my" className={css.headerNavItemPage}>
-                  My recipes
-                </Link>
-              </li>
-              <li className={css.headerNavItem}>
-                <Link href="/favorites" className={css.headerNavItemPage}>
-                  Favorites
-                </Link>
-              </li>
-              <li className={css.headerNavItem}>
-                <Link href="" className={css.headerNavItemPage}>
-                  Shopping list
-                </Link>
-              </li>
-              <li className={css.headerNavItem}>
-                <Link href="/recipes" className={css.headerNavItemPage}>
-                  <LuSearch className={css.headerSearchImg} />
-                </Link>
-              </li>
-            </ul>
-          </nav>
-        )}
-        <div className={css.userBoxRegist}>
-          {user.name && (
-            <div className={css.user}>
-              <div className={css.test}>
-                <Image
-                  src={user.avatarURL}
-                  alt={user.name}
-                  className={css.userImg}
-                  fill
-                  // width={44}
-                  // height={44}
-                />
+    <>
+      {openBurger && <Burger openBurger={openBurgerFunction} />}
+      <header className={css.header}>
+        <Container>
+          <Link href="/" className={css.headerLogo}>
+            <Image src={Logo} alt="logo" className={css.headerLogoImg} />
+          </Link>
+          {openBurger ? (
+            // <Burger openBurger={openBurgerFunction}/>
+            <></>
+          ) : (
+            <nav className={css.headerNav}>
+              <ul className={css.headerNavList}>
+                <li className={css.headerNavItem}>
+                  <Link href="/categories" className={css.headerNavItemPage}>
+                    Categories
+                  </Link>
+                </li>
+                <li className={css.headerNavItem}>
+                  <Link href="/add" className={css.headerNavItemPage}>
+                    Add recipes
+                  </Link>
+                </li>
+                <li className={css.headerNavItem}>
+                  <Link href="/my" className={css.headerNavItemPage}>
+                    My recipes
+                  </Link>
+                </li>
+                <li className={css.headerNavItem}>
+                  <Link href="/favorites" className={css.headerNavItemPage}>
+                    Favorites
+                  </Link>
+                </li>
+                <li className={css.headerNavItem}>
+                  <Link href="" className={css.headerNavItemPage}>
+                    Shopping list
+                  </Link>
+                </li>
+                <li className={css.headerNavItem}>
+                  <Link href="/recipes" className={css.headerNavItemPage}>
+                    <LuSearch className={css.headerSearchImg} />
+                  </Link>
+                </li>
+              </ul>
+            </nav>
+          )}
+          <div className={css.userBoxRegist}>
+            {user.name && (
+              <div className={css.user}>
+                <div className={css.test}>
+                  <Image
+                    src={user.avatarURL}
+                    alt={user.name}
+                    className={css.userImg}
+                    fill
+                    // width={44}
+                    // height={44}
+                  />
+                </div>
+                <p className={css.userName}>{user.name}</p>
               </div>
-              <p className={css.userName}>{user.name}</p>
+            )}
+          </div>
+          {!openBurger && (
+            <div className={css.boxTemeColor}>
+              <button type="button" className={css.boxBtnSun} onClick={changeTheme} />
             </div>
           )}
-        </div>
-        {!openBurger && (
-          <div className={css.boxTemeColor}>
-            <button type="button" className={css.boxBtnSun} onClick={changeTheme} />
-          </div>
-        )}
 
-        <div className={css.burgerBox}>
-          <button type="button" onClick={openBurgerFunction}>
-            <LuAlignLeft className={css.burgerBtn} />
-          </button>
-        </div>
-      </Container>
-    </header>
+          <div className={css.burgerBox}>
+            <button type="button" onClick={openBurgerFunction}>
+              <LuAlignLeft className={css.burgerBtn} />
+            </button>
+          </div>
+        </Container>
+      </header>
+    </>
   );
 };
 
