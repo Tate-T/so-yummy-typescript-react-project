@@ -61,6 +61,10 @@ const RegistrationPage = () => {
           password: data.password,
         }).unwrap();
         router.push("/");
+        localStorage.setItem('regTime', JSON.stringify({
+          time: new Date().getTime(),
+          isOpen: '0',
+        }));
         dispatch(
           setUser({
             user: {
