@@ -8,26 +8,35 @@ import Container from "@/shared/Container/Container";
 import { useGetRecipe } from "@/redux/apis/recipesApi";
 import { RecipeItem } from "@/entities/Recipe.type";
 import { useParams } from "next/navigation";
-
-const CustomCheckbox = () => {
+import { useAddShopingLIst } from "@/redux/apis/shipingListApi";
+import { useRemoveShopingLIst } from "@/redux/apis/shipingListApi";
+import { nanoid } from "@reduxjs/toolkit";
+const CustomCheckbox = ({ id, measure }: { id: string; measure: string }) => {
   const [checked, setChecked] = useState(false);
+  const [addShopingList] = useAddShopingLIst();
+  const [removeShopingList] = useRemoveShopingLIst();
+  function addShopingLIst(e: any) {
+    setChecked(!checked);
+    if (checked === false) {
+      addShopingList({ productId: id, measure: measure });
+      // console.log("Added to shopping list:", id, measure);
+    }
+    if (checked === true) {
+      removeShopingList({ productId: id, measure: measure });
+      // console.log("Removed from shopping list:", id, measure);
+    }
+  }
 
   return (
     <label className={css.wrapper}>
       <input
         type="checkbox"
         checked={checked}
-        onChange={() => setChecked(!checked)}
+        onChange={() => addShopingLIst(checked)}
         className={css.input}
       />
       <span className={css.box}>
-        <svg
-          // width="37"
-          // height="37"
-          viewBox="0 0 37 37"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
+        <svg viewBox="0 0 37 37" fill="none" xmlns="http://www.w3.org/2000/svg">
           <rect
             x="1"
             y="1"
@@ -61,7 +70,7 @@ export default function RecipeList() {
   const { data, error, isLoading } = useGetRecipe(id);
   const recipes: RecipeItem[] = data?.ingredients ?? [];
   const instructions = data?.instructions.split("\r\n");
-  console.log(instructions);
+  // console.log(instructions);
   // console.log(data);
   return (
     <section className={css.section}>
@@ -100,7 +109,7 @@ export default function RecipeList() {
                     <div className={css.boxGrama}>
                       <p className={css.txtGrama}>{recipe.measure}</p>
                     </div>
-                    <CustomCheckbox />
+                    <CustomCheckbox id={recipe._id} measure={recipe.measure} />
                   </div>
                 </li>
               ))}
@@ -113,7 +122,7 @@ export default function RecipeList() {
             <h2 className={css.title}>Recipe Preparation</h2>
             <ol className={css.list}>
               {instructions?.map((data) => {
-                return <li >{data}</li>;
+                return <li key={nanoid()}>{data}</li>;
               })}
             </ol>
           </div>

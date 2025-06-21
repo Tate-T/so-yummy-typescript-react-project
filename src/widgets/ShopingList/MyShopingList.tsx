@@ -1,9 +1,16 @@
+"use client";
 import style from "./page.module.scss";
+
 import Image from "next/image";
 import Container from "@/shared/Container/Container";
 import img from "../../../public/recipe/KAWAI.gif";
 import iks from "../../../public/recipe/X.png";
+import { usegetShopopingList } from "@/redux/apis/shipingListApi";
+import { useRemoveShopingLIst } from "@/redux/apis/shipingListApi";
+
 export default function ShopingList() {
+  const [removeShopingList] = useRemoveShopingLIst();
+  const { data, error } = usegetShopopingList();
   return (
     <section className={style.section}>
       <Container>
@@ -20,126 +27,36 @@ export default function ShopingList() {
           </div>
         </div>
         <ul className={style.listItem}>
-          <li className={style.item}>
-            <div className={style.info}>
-              <div className={style.imageWrapper}>
-                <Image className={style.imageItem} src={img} alt="awd" />
-              </div>
-              <span className={style.nameItem}>SaLMON</span>
-            </div>
+          {data?.shoppingList.map((data) => {
+            return (
+              <li className={style.item} key={data.productId}>
+                <div className={style.info}>
+                  <div className={style.imageWrapper}>
+                    <Image
+                      width={100}
+                      height={100}
+                      className={style.imageItem}
+                      src={data.thumb}
+                      alt={data.title}
+                    />
+                  </div>
+                  <span className={style.nameItem}>{data.title}</span>
+                </div>
 
-            <div className={style.right}>
-              <span className={style.quantity}>5awdw</span>
-              <button className={style.deleteBtn}>
-                <Image alt="awd" src={iks} />
-              </button>
-            </div>
-          </li>
-          <li className={style.item}>
-            <div className={style.info}>
-              <div className={style.imageWrapper}>
-                <Image className={style.imageItem} src={img} alt="awd" />
-              </div>
-              <span className={style.nameItem}>SaLMON</span>
-            </div>
-
-            <div className={style.right}>
-              <span className={style.quantity}>5awdw</span>
-              <button className={style.deleteBtn}>
-                <Image alt="awd" src={iks} />
-              </button>
-            </div>
-          </li>
-          <li className={style.item}>
-            <div className={style.info}>
-              <div className={style.imageWrapper}>
-                <Image className={style.imageItem} src={img} alt="awd" />
-              </div>
-              <span className={style.nameItem}>SaLMON</span>
-            </div>
-
-            <div className={style.right}>
-              <span className={style.quantity}>5awdw</span>
-              <button className={style.deleteBtn}>
-                <Image alt="awd" src={iks} />
-              </button>
-            </div>
-          </li>
-          <li className={style.item}>
-            <div className={style.info}>
-              <div className={style.imageWrapper}>
-                <Image className={style.imageItem} src={img} alt="awd" />
-              </div>
-              <span className={style.nameItem}>SaLMON</span>
-            </div>
-
-            <div className={style.right}>
-              <span className={style.quantity}>5awdw</span>
-              <button className={style.deleteBtn}>
-                <Image alt="awd" src={iks} />
-              </button>
-            </div>
-          </li>
-          <li className={style.item}>
-            <div className={style.info}>
-              <div className={style.imageWrapper}>
-                <Image className={style.imageItem} src={img} alt="awd" />
-              </div>
-              <span className={style.nameItem}>SaLMON</span>
-            </div>
-
-            <div className={style.right}>
-              <span className={style.quantity}>5awdw</span>
-              <button className={style.deleteBtn}>
-                <Image alt="awd" src={iks} />
-              </button>
-            </div>
-          </li>
-          <li className={style.item}>
-            <div className={style.info}>
-              <div className={style.imageWrapper}>
-                <Image className={style.imageItem} src={img} alt="awd" />
-              </div>
-              <span className={style.nameItem}>SaLMON</span>
-            </div>
-
-            <div className={style.right}>
-              <span className={style.quantity}>5awdw</span>
-              <button className={style.deleteBtn}>
-                <Image alt="awd" src={iks} />
-              </button>
-            </div>
-          </li>
-          <li className={style.item}>
-            <div className={style.info}>
-              <div className={style.imageWrapper}>
-                <Image className={style.imageItem} src={img} alt="awd" />
-              </div>
-              <span className={style.nameItem}>SaLMON</span>
-            </div>
-
-            <div className={style.right}>
-              <span className={style.quantity}>5awdw</span>
-              <button className={style.deleteBtn}>
-                <Image alt="awd" src={iks} />
-              </button>
-            </div>
-          </li>
-          <li className={style.item}>
-            <div className={style.info}>
-              <div className={style.imageWrapper}>
-                <Image className={style.imageItem} src={img} alt="awd" />
-              </div>
-              <span className={style.nameItem}>SaLMON</span>
-            </div>
-
-            <div className={style.right}>
-              <span className={style.quantity}>5awdw</span>
-              <button className={style.deleteBtn}>
-                <Image alt="awd" src={iks} />
-              </button>
-            </div>
-          </li>
+                <div className={style.right}>
+                  <span className={style.quantity}>{data.measure[0]}</span>
+                  <button
+                    onClick={() =>
+                      removeShopingList({ productId: data.productId, measure: data.measure[0] })
+                    }
+                    className={style.deleteBtn}
+                  >
+                    <Image alt="delete" src={iks} />
+                  </button>
+                </div>
+              </li>
+            );
+          })}
         </ul>
       </Container>
     </section>
