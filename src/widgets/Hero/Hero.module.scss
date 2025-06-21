@@ -6,7 +6,7 @@
   background-size: cover;
   padding-top: 132px;
 
-    @media screen and (min-width: 600px) {
+  @media screen and (min-width: 600px) {
     background-image: url("../../../public/hero/heroBgTablet.png");
     padding-top: 159px;
   }
@@ -128,6 +128,15 @@
 .heroSearchBtn {
   margin-left: -45px;
   @include roundedBtn(31.72px, 15.7px, var(--bg-secondary-color), 14px);
+  background-image: linear-gradient(to right, var(--accent-color) 50%, transparent 50%);
+  background-size: 200% 100%;
+  background-position: right bottom;
+  transition: background-position 0.3s ease-in-out, color 0.3s ease-in-out;
+
+  &:hover {
+    background-position: left bottom;
+    color: #fff;
+  }
 
   @media screen and (min-width: 768px) {
     @include roundedBtn(52px, 19.5px, var(--bg-secondary-color), 14px);
@@ -164,10 +173,10 @@
   bottom: 92px;
 
   @media screen and (min-width: 768px) {
-   padding: 12px;
-   width: 260px;
-   bottom: 39px; 
-   right: 7px;
+    padding: 12px;
+    width: 260px;
+    bottom: 39px;
+    right: 7px;
   }
 
   @media screen and (min-width: 1440px) {

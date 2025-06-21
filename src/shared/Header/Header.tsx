@@ -48,7 +48,7 @@ const openBurgerFunction = () : void => {
           <nav className={css.headerNav}>
             <ul className={css.headerNavList}>
               <li className={css.headerNavItem}>
-                <Link href="/categories" className={css.headerNavItemPage}>
+                <Link href="/categories" className={css.headerNavItemPage} data-text="Categories">
                   Categories
                 </Link>
               </li>

@@ -1,3 +1,5 @@
+@import "../../sass/utils/placeholders.scss";
+
 .socialsList {
   display: flex;
   gap: 18px;
@@ -9,6 +11,11 @@
 
 .socialsIcon {
   color: var(--accent-color);
+  @extend %transitionColor;
+
+  &:hover {
+    color: var(--bg-card-color);
+  }
   // color: transparent;
 
   :root[data-theme="dark"] & {
