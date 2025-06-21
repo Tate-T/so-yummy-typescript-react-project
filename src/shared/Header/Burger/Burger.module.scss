@@ -1,16 +1,17 @@
 .burgerMenu {
-  position: absolute;
-  left: 50%;
+  position: fixed;
+  // left: 50%;
+  left: 0;
+  right: 0;
   top: 0px;
-  transform: translate(-50%);
-  z-index: 999;
+  bottom: 0;
+  z-index: 9;
   padding-bottom: 18px;
-  width: 375px;
+  // width: 375px;
   background-color: rgb(235, 243, 212);
 
   background-image: url("../../../../public/burger/burgerImgMobile.png");
   background-repeat: no-repeat;
-  background-position: left;
 
   :root[data-theme="dark"] & {
     background-color: var(--bg-color);
@@ -18,7 +19,7 @@
 
   @media screen and (min-width: 768px) {
     background-image: url("../../../../public/burger/burgertabletImg.png");
-    width: 768px;
+    // width: 768px;
   }
   @media screen and (min-width: 1440px) {
     display: none;
@@ -47,8 +48,7 @@
 }
 
 .headerNavList {
-    
-    width: 124px;
+  width: 124px;
   margin-left: auto;
   margin-right: auto;
 }
@@ -60,7 +60,7 @@
 
 .headerNavItemPage {
   color: var(--text-color);
-  
+
   font-size: var(--text-xl-fs);
   font-weight: 500;
   line-height: 22.4px;
