@@ -81,7 +81,7 @@ export default () => {
                 instructions: recipe.instruction.split('\n'),
                 ingredients: newIngr,
                 time: recipe.cookTime,
-                fullimage: imgBin,
+                fullImage: imgBin ?? null,
             }).unwrap();
             toast.success('Recipe was created successfully!');
             const customIngreds = recipe.ingredients.map((ingre: { ingredient: string, ingredientId: string, count: number, type: string, setTypeOpen: boolean, setCluesOpen: boolean }) => ({

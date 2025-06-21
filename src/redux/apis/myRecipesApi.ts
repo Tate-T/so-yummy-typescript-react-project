@@ -25,10 +25,10 @@ export const ownRecipeApi = createApi({
         formData.append('title', newRecipe.title);
         formData.append('category', newRecipe.category);
         formData.append('description', newRecipe.description);
-        formData.append('instructions', newRecipe.instructions);
+        formData.append('instructions', JSON.stringify(newRecipe.instructions));
         formData.append('time', newRecipe.time);
         formData.append('ingredients', JSON.stringify(newRecipe.ingredients));
-        formData.append('fullImage', newRecipe?.fullimage);
+        if (newRecipe.fullImage) formData.append('fullImage', newRecipe.fullImage);
         return ({
           url: "own-recipes",
           method: "POST",
