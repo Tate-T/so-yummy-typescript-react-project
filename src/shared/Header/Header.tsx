@@ -1,4 +1,8 @@
 "use client";
+import { BsArrowRight } from "react-icons/bs";
+import { FiEdit2 } from "react-icons/fi";
+import { TfiClose } from "react-icons/tfi";
+
 import { useSelector } from "react-redux";
 
 import { LuAlignLeft } from "react-icons/lu";
@@ -16,6 +20,8 @@ import { useState } from "react";
 import Burger from "./Burger/Burger";
 const Header = () => {
   const [openBurger, setOpenBurger] = useState<true | false>(false);
+  const [openUser, setOpenUser] = useState<true | false>(false);
+  const [openLogOut, setOpenLogOut] = useState<true | false>(false);
   const user = useSelector(selectUser);
 
   const changeTheme = () => {
@@ -33,6 +39,24 @@ const Header = () => {
       setOpenBurger(true);
     } else {
       setOpenBurger(false);
+    }
+  };
+
+  const openUserFunction = (): void => {
+    if (!openUser) {
+      setOpenUser(true);
+    } else {
+      setOpenUser(false);
+    }
+  };
+
+  const openLogOutunction = (): void => {
+    if (!openLogOut) {
+      setOpenLogOut(true);
+      setOpenUser(false);
+    } else {
+      setOpenLogOut(false);
+      setOpenUser(true);
     }
   };
 
@@ -83,7 +107,7 @@ const Header = () => {
               </ul>
             </nav>
           )}
-          <div className={css.userBoxRegist}>
+          <div className={css.userBoxRegist} onClick={openUserFunction}>
             {user.name && (
               <div className={css.user}>
                 <div className={css.test}>
@@ -103,6 +127,40 @@ const Header = () => {
           {!openBurger && (
             <div className={css.boxTemeColor}>
               <button type="button" className={css.boxBtnSun} onClick={changeTheme} />
+            </div>
+          )}
+
+          {openUser && (
+            <div className={css.boxUser}>
+              <div className={css.boxUserName}>
+                <p className={css.textName}>Edit profile</p>
+                <FiEdit2 className={css.buttonRename} />
+              </div>
+              <div className={css.relativeIcon} onClick={openLogOutunction}>
+                <button type="button" className={css.btnLogOutR} >
+                  Log out
+                </button>
+                <BsArrowRight className={css.iconLogOut} />
+              </div>
+            </div>
+          )}
+
+          {openLogOut && (
+            <div className={css.logOutBox}>
+              <TfiClose className={css.iconCross} onClick={openLogOutunction}/>
+              <p className={css.textLogOut}>Are you sure you want to log out?</p>
+              <ul className={css.listButton}>
+                <li>
+                  <button type="button" className={css.btnLogOut} >
+                    Log out
+                  </button>
+                </li>
+                <li>
+                  <button type="button" className={css.btnCancel} onClick={openLogOutunction}>
+                    Cancel
+                  </button>
+                </li>
+              </ul>
             </div>
           )}
 
