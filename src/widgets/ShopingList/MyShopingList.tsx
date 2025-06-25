@@ -51,7 +51,7 @@ export default function ShopingList() {
                     }
                     className={style.deleteBtn}
                   >
-                    <Image alt="delete" src={iks} />
+                    <Image className={style.frest} alt="delete" src={iks} />
                   </button>
                 </div>
               </li>
