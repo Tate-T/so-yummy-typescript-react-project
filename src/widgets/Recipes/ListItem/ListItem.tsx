@@ -17,11 +17,11 @@ const CustomCheckbox = ({ id, measure }: { id: string; measure: string }) => {
   const [checked, setChecked] = useState(false);
   const [addShopingList] = useAddShopingLIst();
   const [removeShopingList] = useRemoveShopingLIst();
-  function addShopingLIst(e: any) {
+  function addShopingLIstRemove(e: any) {
     setChecked(!checked);
     if (checked === false) {
       addShopingList({ productId: id, measure: measure });
-      // console.log("Added to shopping list:", id, measure);
+      console.log("Added to shopping list:", id, measure);
     }
     if (checked === true) {
       removeShopingList({ productId: id, measure: measure });
@@ -34,7 +34,7 @@ const CustomCheckbox = ({ id, measure }: { id: string; measure: string }) => {
       <input
         type="checkbox"
         checked={checked}
-        onChange={() => addShopingLIst(checked)}
+        onChange={() => addShopingLIstRemove(checked)}
         className={css.input}
       />
       <span className={css.box}>
@@ -70,7 +70,7 @@ export default function RecipeList() {
   const id: string = params.id!.toString();
   // console.log(id);
   const { data, error, isLoading } = useGetRecipe(id);
-  const recipes: ingredient[] = data?.ingridients ?? [];
+  const recipes: ingredient[] = data?.ingredients ?? [];
   const instructions = data?.instructions.split("\r\n");
   // console.log(instructions);
   // console.log(data);
@@ -95,7 +95,7 @@ export default function RecipeList() {
           ) : (
             <ul className={css.recipes}>
               {recipes.map((recipe) => (
-                <li className={css.itemIngr} key={recipe.id}>
+                <li className={css.itemIngr} key={recipe._id}>
                   <div className={css.itemInfo}>
                     <Image
                       alt={recipe.title}
@@ -111,7 +111,7 @@ export default function RecipeList() {
                     <div className={css.boxGrama}>
                       <p className={css.txtGrama}>{recipe.measure}</p>
                     </div>
-                    <CustomCheckbox id={recipe.id} measure={recipe.measure} />
+                    <CustomCheckbox id={recipe._id} measure={recipe.measure} />
                   </div>
                 </li>
               ))}
