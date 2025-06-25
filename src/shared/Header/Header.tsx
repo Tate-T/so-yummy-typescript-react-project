@@ -1,7 +1,4 @@
 "use client";
-import { BsArrowRight } from "react-icons/bs";
-import { FiEdit2 } from "react-icons/fi";
-import { TfiClose } from "react-icons/tfi";
 
 import { useSelector } from "react-redux";
 
@@ -18,6 +15,9 @@ import Container from "../Container/Container";
 import { LuSearch } from "react-icons/lu";
 import { useState } from "react";
 import Burger from "./Burger/Burger";
+import LogOut from "./LogOut/LogOut";
+import User from "./User/User";
+
 const Header = () => {
   const [openBurger, setOpenBurger] = useState<true | false>(false);
   const [openUser, setOpenUser] = useState<true | false>(false);
@@ -130,39 +130,9 @@ const Header = () => {
             </div>
           )}
 
-          {openUser && (
-            <div className={css.boxUser}>
-              <div className={css.boxUserName}>
-                <p className={css.textName}>Edit profile</p>
-                <FiEdit2 className={css.buttonRename} />
-              </div>
-              <div className={css.relativeIcon} onClick={openLogOutunction}>
-                <button type="button" className={css.btnLogOutR} >
-                  Log out
-                </button>
-                <BsArrowRight className={css.iconLogOut} />
-              </div>
-            </div>
-          )}
+          {openUser && <User openLogOutunction={openLogOutunction} />}
 
-          {openLogOut && (
-            <div className={css.logOutBox}>
-              <TfiClose className={css.iconCross} onClick={openLogOutunction}/>
-              <p className={css.textLogOut}>Are you sure you want to log out?</p>
-              <ul className={css.listButton}>
-                <li>
-                  <button type="button" className={css.btnLogOut} >
-                    Log out
-                  </button>
-                </li>
-                <li>
-                  <button type="button" className={css.btnCancel} onClick={openLogOutunction}>
-                    Cancel
-                  </button>
-                </li>
-              </ul>
-            </div>
-          )}
+          {openLogOut && <LogOut openLogOutunction={openLogOutunction} />}
 
           <div className={css.burgerBox}>
             <button type="button" onClick={openBurgerFunction}>

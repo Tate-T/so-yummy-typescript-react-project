@@ -1,0 +1,66 @@
+.boxUser {
+    border: 1px solid rgb(139, 170, 54);
+    position: absolute;
+    z-index: 9;
+    padding-top: 18px;
+    padding-bottom: 18px;
+    width: 177px;
+    border-radius: 8px;
+    background: var(--bg-color);
+    right: 10%;
+    left: auto;
+    top: 55px;
+    // transform: translate(-85%);
+  }
+  
+  .boxUserName {
+    display: flex;
+    align-items: center;
+    margin-left: 18px;
+    margin-right: 18px;
+  }
+  
+  .textName {
+    color: var(--title-color);
+    font-size: var(--text-md-fs);
+    font-weight: 500;
+    line-height: 22.4px;
+  }
+  
+  .buttonRename {
+    font-size: 14px;
+    margin-left: auto;
+  }
+  
+  .btnLogOutR {
+    margin-top: 32px;
+    margin-left: 18px;
+    margin-right: 18px;
+    width: 141px;
+    height: 43px;
+    color: rgb(250, 250, 250);
+    font-size: var(--text-md-fs);
+    font-weight: 400;
+    line-height: 21px;
+  
+    background: rgb(139, 170, 54);
+    border-radius: 24px 44px;
+  }
+  
+  .relativeIcon {
+    position: relative;
+  }
+  
+  .iconLogOut {
+    position: absolute;
+    top: 43px;
+    z-index: 9;
+    left: auto;
+    right: 38px;
+    color: rgb(250, 250, 250);
+    font-size: 20px;
+    margin-left: 4px;
+  }
+  
+  
+  
