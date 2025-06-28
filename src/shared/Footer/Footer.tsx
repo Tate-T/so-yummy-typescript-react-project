@@ -59,7 +59,7 @@ const Footer = () => {
               </Link>
             </li>
             <li className={css.footerNavigationItem}>
-              <Link href="" className={css.footerNavigationPage}>
+              <Link href="/shoping-list" className={css.footerNavigationPage}>
                 Shopping list
               </Link>
             </li>
@@ -89,7 +89,7 @@ const Footer = () => {
         <Container>
           <ul className={css.footerEndList}>
             <li>
-              <p className={css.footerEndText}>© 2023 All Rights Reserved.</p>
+              <p className={css.footerEndText}>© 2025 All Rights Reserved.</p>
             </li>
             <li>
               <p className={css.footerEndText}>Terms of Service</p>

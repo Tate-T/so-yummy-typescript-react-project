@@ -50,7 +50,7 @@ const Burger = ({ openBurger }: { openBurger: () => void }) => {
               </Link>
             </li>
             <li className={css.headerNavItem}>
-              <Link href="" className={css.headerNavItemPage}>
+              <Link href="/shoping-list" className={css.headerNavItemPage}>
                 Shopping list
               </Link>
             </li>

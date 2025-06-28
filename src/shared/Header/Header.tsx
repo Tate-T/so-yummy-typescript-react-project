@@ -42,6 +42,16 @@ const Header = () => {
     }
   };
 
+const openModalOnKey = (event: KeyboardEvent): void => {
+  if (event.key === 'Escape') {
+    setOpenBurger(false);
+    setOpenUser(false);
+    setOpenLogOut(false);
+  }
+}
+
+  document.addEventListener('keydown', openModalOnKey);
+
   const openUserFunction = (): void => {
     if (!openUser) {
       setOpenUser(true);
@@ -95,7 +105,7 @@ const Header = () => {
                   </Link>
                 </li>
                 <li className={css.headerNavItem}>
-                  <Link href="" className={css.headerNavItemPage}>
+                  <Link href="/shoping-list" className={css.headerNavItemPage}>
                     Shopping list
                   </Link>
                 </li>
@@ -132,7 +142,7 @@ const Header = () => {
 
           {openUser && <User openLogOutunction={openLogOutunction} />}
 
-          {openLogOut && <LogOut openLogOutunction={openLogOutunction} />}
+          {openLogOut && <LogOut openLogOutunction={openLogOutunction}  />}
 
           <div className={css.burgerBox}>
             <button type="button" onClick={openBurgerFunction}>
