@@ -8,25 +8,50 @@ import { useParams } from "next/navigation";
 import clock from "../../../../public/recipe/clock.svg";
 import { RecipeItem } from "@/entities/Recipe.type";
 import { useToggleFavorite } from "@/redux/apis/favoriteApi";
+import { useState } from "react";
+import MotivationCard from "@/shared/motivationCard/page";
+import parhImg from "../../../../public/motivationImgs/motivationImg4.jpg";
+import parhImgTwo from "../../../../public/motivationImgs/motivationImg3.jpg";
 export default function RecipeHero() {
   const { id }: { id: string } = useParams();
   const data = useSelector(
     (state: RootState) =>
       state.recipes.queries[`getRecipe("${id}")`]?.data as RecipeItem | undefined,
   );
-
+  const [numToFaforites, setNumToFaforites] = useState(0);
   const [toggleFavorite] = useToggleFavorite();
-  // console.log(data);
   if (!data) {
     return <></>;
   }
+
+  function addNum(id: string) {
+    toggleFavorite(id);
+    setNumToFaforites((prev) => prev + 1);
+    console.log(numToFaforites);
+  }
+
   return (
     <section className={css.section}>
       <Container>
+        (
+        {numToFaforites === 1 && (
+          <MotivationCard
+            title="You have added the first recipe to your favorites!"
+            imgPath={parhImg}
+          />
+        )}
+        ) (
+        {numToFaforites === 10 && (
+          <MotivationCard
+            title="You have added 10 recipes to your favorites!"
+            imgPath={parhImgTwo}
+          />
+        )}
+        )
         <div className={css.recipeHeader}>
           <h1 className={css.title}>{data.title ? data.title : "yuy"}</h1>
           <p className={css.pidTitle}>{data!.description}</p>
-          <button onClick={() => id && toggleFavorite(id)} className={css.titleButton}>
+          <button onClick={() => id && addNum(id)} className={css.titleButton}>
             Add to favorite recipes
           </button>
           <div className={css.timeBox}>
