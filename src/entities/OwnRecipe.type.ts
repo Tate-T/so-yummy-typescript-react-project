@@ -24,7 +24,7 @@ export type typeOwnRecipeFull = {
     title: string,
     description: string,
     category: string,
-    cookTime: string, 
+    cook: string, 
     ingredients: {
         title: string,
         measure: string,

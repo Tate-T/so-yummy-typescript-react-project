@@ -31,7 +31,7 @@ export default () => {
     const [errors, setErrors] = useState<Record<string, string>>({});
     const [imgBin, setImgBin] = useState<File | null>(null);
     const categories: string[] = useMemo(() => catgs?.map(catg => catg.title) ?? [], [catgs]);
-    const ingredientsClues: {ttl: string, id: string}[] = useMemo(() => (clues?.ingredients?.map(ingredClue => ({ttl: ingredClue.ttl, id: ingredClue._id})) ?? []).sort((a, b) => a.ttl.localeCompare(b.ttl)), [clues]);
+    const ingredientsClues: {ttl: string, id: string, thb: string}[] = useMemo(() => (clues?.ingredients?.map(ingredClue => ({ttl: ingredClue.ttl, id: ingredClue._id, thb: ingredClue.thb})) ?? []).sort((a, b) => a.ttl.localeCompare(b.ttl)), [clues]);
     const times: number[] = Array.from({ length: 48 }, (_, i)=>(i+1)*5);
     const placeholderClue = useMemo(() => ingredientsClues[Math.floor(Math.random() * ingredientsClues.length)]?.ttl, [ingredientsClues]);
     const placeholderCount = useMemo(() => String(Math.floor(Math.random() * 10) + 1), []);
@@ -63,14 +63,14 @@ export default () => {
             setErrors({});
         }
     }, [recipe]);
-    console.log(errors);
+    console.log(recipe);
     useEffect(() => {
         if(recipe.img) setImgBin(base64ToFile(recipe.img, 'restored.jpg', 'image/jpeg'))
     }, []);
     const submitRecipe = async() => {
-        const newIngr = recipe.ingredients.map((ingre: { ingredient: string, ingredientId: string, count: number, type: string, setTypeOpen: boolean, setCluesOpen: boolean }) => ({
+        const newIngr = recipe.ingredients.map((ingre: { thumb: string, ingredient: string, ingredientId: string, count: number, type: string, setTypeOpen: boolean, setCluesOpen: boolean }) => ({
             id: ingre.ingredientId,
-            measure: `${ingre.count}${ingre.type}`
+            measure: `${ingre.count} ${ingre.type}`
         }));
         try{
             toast.info('Recipe was sent');
@@ -80,23 +80,24 @@ export default () => {
                 description: recipe.descr,
                 instructions: recipe.instruction.split('\n'),
                 ingredients: newIngr,
-                time: recipe.cookTime,
+                time: recipe.time,
                 fullImage: imgBin ?? null,
             }).unwrap();
             toast.success('Recipe was created successfully!');
-            const customIngreds = recipe.ingredients.map((ingre: { ingredient: string, ingredientId: string, count: number, type: string, setTypeOpen: boolean, setCluesOpen: boolean }) => ({
+            const customIngreds = recipe.ingredients.map((ingre: { thumb: string, ingredient: string, ingredientId: string, count: number, type: string, setTypeOpen: boolean, setCluesOpen: boolean }) => ({
                 title: ingre.ingredient,
-                measure: `${ingre.count}${ingre.type}`,
-                id: ingre.ingredientId,
+                measure: `${ingre.count} ${ingre.type}`,
+                thumb: ingre.thumb,
+                _id: ingre.ingredientId,
             }));
             dispatch(addNewOwnRecipe({
-                img: recipe.img,
+                preview: recipe.img,
                 title: recipe.title,
                 description: recipe.descr,
                 category: recipe.category,
-                cookTime: recipe.cookTime, 
+                time: recipe.time, 
                 ingredients: customIngreds,
-                instructions: recipe.instruction,
+                instructions: recipe.instruction.replaceAll('\n', '\r\n'),
                 id: res.id,
             }));
         } catch(err: any){
@@ -136,7 +137,7 @@ export default () => {
                 </div>
                 <div className={css.basicSelectInput}>
                     <p>Cooking time</p>
-                    <button className={css.selectBut} onClick={() => dispatch(toggleCookTimeOpen())}>{recipe.cookTime} min</button>
+                    <button className={css.selectBut} onClick={() => dispatch(toggleCookTimeOpen())}>{recipe.time} min</button>
                     {recipe.setCookTimeOpen && <div id="times" className={css.selectorScr}><ul className={css.selectors}>{times.map((time: number) => <li onClick={() => (dispatch(setCookTime(time)),dispatch(toggleCookTimeOpen()))} className={css.selector} key={time}>
                         {time} min
                     </li>)}</ul></div>}
@@ -155,11 +156,11 @@ export default () => {
             <ul className={css.ingredientsList}>{recipe.ingredients.map((ingredient, idx) => (<li className={css.ingredientItem} key={idx}>
                 <div className={css.ingredientInputCont}>
                     <div className={css.inputWrap}>
-                        <input placeholder={placeholderClue} className={`${css.ingredientInput} ${ingredient.ingredientId === '' ? css.errInp : ''}`} value={ingredient.ingredient} onChange={(e: React.ChangeEvent<HTMLInputElement>) => (dispatch(setIngredient({id: idx, data: e.target.value})),dispatch(setClueOpen({id: idx, data: true})),dispatch(setIngredientId({id: idx, data: ingredientsClues.find((ingredientClue: {ttl: string, id: string}) => ingredientClue.ttl.trim().toLowerCase() === e.target.value.trim().toLowerCase()) ? ingredientsClues.find((ingredientClue: {ttl: string, id: string}) => ingredientClue.ttl.trim().toLowerCase() === e.target.value.trim().toLowerCase())?.id : ''})))}/>
+                        <input placeholder={placeholderClue} className={`${css.ingredientInput} ${ingredient.ingredientId === '' ? css.errInp : ''}`} value={ingredient.ingredient} onChange={(e: React.ChangeEvent<HTMLInputElement>) => (dispatch(setIngredient({id: idx, data: e.target.value})),dispatch(setClueOpen({id: idx, data: true})),dispatch(setIngredientId({id: idx, dataId: ingredientsClues.find((ingredientClue: {ttl: string, id: string}) => ingredientClue.ttl.trim().toLowerCase() === e.target.value.trim().toLowerCase()) ? ingredientsClues.find((ingredientClue: {ttl: string, id: string}) => ingredientClue.ttl.trim().toLowerCase() === e.target.value.trim().toLowerCase())?.id : '', dataThb: ingredientsClues.find((ingredientClue: {ttl: string, id: string}) => ingredientClue.ttl.trim().toLowerCase() === e.target.value.trim().toLowerCase()) ? ingredientsClues.find((ingredientClue: {ttl: string, id: string}) => ingredientClue.ttl.trim().toLowerCase() === e.target.value.trim().toLowerCase())?.thb : ''})))}/>
                         {errors[`ingredients.${idx}.ingredientId`] && <div className={css.errIngr}>{errors[`ingredients.${idx}.ingredientId`]}</div>}
                     </div>
-                    <button onClick={() => (dispatch(setClueOpen({id: idx, data: !(ingredient.setCluesOpen)})), dispatch(setIngredientId({id: idx, data: ingredientsClues.find((ingredientClue: {ttl: string, id: string}) => ingredientClue.ttl.trim().toLowerCase() === ingredient.ingredient.trim().toLowerCase()) ? ingredientsClues.find((ingredientClue: {ttl: string, id: string}) => ingredientClue.ttl.trim().toLowerCase() === ingredient.ingredient.trim().toLowerCase())?.id : ''})))} className={css.openClues} />
-                    {(ingredient.setCluesOpen && ingredientsClues.filter((ingredientClue: {ttl: string, id: string}) => ingredientClue.ttl.trim().toLowerCase().includes(ingredient.ingredient.trim().toLowerCase())).length > 0) && <div className={css.cluesWrap}><ul className={css.clues}>{ingredientsClues.filter((ingredientClue: {ttl: string, id: string}) => ingredientClue.ttl.trim().toLowerCase().includes(ingredient.ingredient.trim().toLowerCase())).map((ingredientClue: {ttl: string, id: string}) => <li className={css.clue} onClick={() => (dispatch(setIngredient({id: idx, data: ingredientClue.ttl})), dispatch(setClueOpen({id: idx, data: false})), dispatch(setIngredientId({id: idx, data: ingredientClue.id})))} key={ingredientClue.id}>{ingredientClue.ttl}</li>)}</ul></div>}
+                    <button onClick={() => (dispatch(setClueOpen({id: idx, data: !(ingredient.setCluesOpen)})), dispatch(setIngredientId({id: idx, dataId: ingredientsClues.find((ingredientClue: {ttl: string, id: string}) => ingredientClue.ttl.trim().toLowerCase() === ingredient.ingredient.trim().toLowerCase()) ? ingredientsClues.find((ingredientClue: {ttl: string, id: string}) => ingredientClue.ttl.trim().toLowerCase() === ingredient.ingredient.trim().toLowerCase())?.id : '', dataThb: ingredientsClues.find((ingredientClue: {ttl: string, id: string}) => ingredientClue.ttl.trim().toLowerCase() === ingredient.ingredient.trim().toLowerCase()) ? ingredientsClues.find((ingredientClue: {ttl: string, id: string}) => ingredientClue.ttl.trim().toLowerCase() === ingredient.ingredient.trim().toLowerCase())?.thb : ''})))} className={css.openClues} />
+                    {(ingredient.setCluesOpen && ingredientsClues.filter((ingredientClue: {thb: string, ttl: string, id: string}) => ingredientClue.ttl.trim().toLowerCase().includes(ingredient.ingredient.trim().toLowerCase())).length > 0) && <div className={css.cluesWrap}><ul className={css.clues}>{ingredientsClues.filter((ingredientClue: {ttl: string, id: string}) => ingredientClue.ttl.trim().toLowerCase().includes(ingredient.ingredient.trim().toLowerCase())).map((ingredientClue: {thb: string, ttl: string, id: string}) => <li className={css.clue} onClick={() => (dispatch(setIngredient({id: idx, data: ingredientClue.ttl})), dispatch(setClueOpen({id: idx, data: false})), dispatch(setIngredientId({id: idx, dataId: ingredientClue.id, dataThb: ingredientClue.thb})))} key={ingredientClue.id}>{ingredientClue.ttl}</li>)}</ul></div>}
                 </div>
                 <div className={`${css.countCont} ${ingredient.count ? '' : css.errCount}`}>
                     <div className={css.inputWrap}>
