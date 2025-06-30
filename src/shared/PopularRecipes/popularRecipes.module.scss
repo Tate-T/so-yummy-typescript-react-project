@@ -26,7 +26,7 @@
 }
 .recipe{
     @include flexEl(11px);
-    @include input(319px, 98px, 0 15px, 0, 1px solid var(--recipe-border-color));
+    @include input(319px, 98px, 0, 0, 1px solid var(--recipe-border-color));
     @media screen and (max-width: 767px) {
         width: 100%;
         gap: 12px;

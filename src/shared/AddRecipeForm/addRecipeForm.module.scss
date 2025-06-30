@@ -134,7 +134,7 @@
   position: relative;
 }
 .ingredientInput {
-  @include input(398px, 59px, 16px 18px, var(--bg-select-input), 0, 6px);
+  @include input(398px, 59px, 16px 40px 16px 18px, var(--bg-select-input), 0, 6px);
   @include textStyle(var(--text-xl-fs), var(--text-secondary-color), -0.36px);
   border: 1px solid var(--border-big-input-color);
   &::placeholder {
@@ -333,6 +333,7 @@
   }
 }
 .errInp {
+  padding-right: 65px;
   @include errBg(center right 40px);
   @media screen and (max-width: 767px) {
     @include errBg(center right 35px);

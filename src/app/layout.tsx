@@ -38,6 +38,7 @@ export default function RootLayout({
           pauseOnHover
           theme="dark"
           transition={Bounce}
+          toastClassName='CustomToastStyles'
         />
       </body>
     </html>

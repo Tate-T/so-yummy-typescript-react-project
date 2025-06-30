@@ -2,7 +2,6 @@
 
 import React, { useState } from "react";
 import style from "./MotivationCard.module.scss";
-import backImg from "../../../public/motivationImgs/background.png";
 import { StaticImageData } from "next/image";
 
 interface MotivationCardProps {
@@ -13,11 +12,11 @@ interface MotivationCardProps {
 const MotivationCard: React.FC<MotivationCardProps> = ({ title, imgPath }) => {
   const [isVisible, setIsVisible] = useState(true);
   if (!isVisible) return null;
-  return (
+  return (<div className={style.motivationBackdrop} data-open-modal>
     <div
       className={style.motivationContainer}
       style={{
-        backgroundImage: `url(${imgPath})`,
+        backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),url(${imgPath})`,
         backgroundSize: "cover",
         backgroundPosition: "center",
       }}
@@ -25,7 +24,7 @@ const MotivationCard: React.FC<MotivationCardProps> = ({ title, imgPath }) => {
       <div
         className={style.motivationContent}
         style={{
-          backgroundImage: `url(${backImg})`,
+          backgroundImage: `url(motivationImgs/background.png)`,
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}
@@ -68,7 +67,7 @@ const MotivationCard: React.FC<MotivationCardProps> = ({ title, imgPath }) => {
         </button>
       </div>
     </div>
-  );
+  </div>);
 };
 
 export default MotivationCard;

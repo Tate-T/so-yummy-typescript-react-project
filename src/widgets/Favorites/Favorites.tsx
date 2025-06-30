@@ -15,7 +15,7 @@ export default ({}) => {
     const recipes: RecipeSmall[] = data?.recipes ?? [];
     return (<section className={css.favs}><Container>
         <h1 className={css.title}>Favorites</h1>
-        {isLoading ? <p>Loading...</p> : (data?.total === 0 ? <p>Nothing</p> :
+        {isLoading ? <p>Loading...</p> : (data?.total === 0 ? <p className={css.nothing}>You haven't saved any favorite recipes yet</p> :
         <><ul className={css.recipes}>{recipes?.map((recipe) => (
             <BigRecipeItem moreBlack={true} toggleFunc={toggleFavorite} setPage={setPage} key={recipe._id} src={recipe?.preview} title={recipe?.title} descr={recipe?.description} time={Number(recipe?.time)} id={recipe?._id} />
         ))}</ul>

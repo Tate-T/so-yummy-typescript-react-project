@@ -8,7 +8,7 @@ export default () => {
     const recipes: RecipeSmall[] = data?.recipes ?? [];
     return (<section>
         <h3 className={css.subtitle}>Popular recipe</h3>
-        {isLoading ? <p>Loading...</p> : <ul className={css.recipes}>{recipes.map((recipe: RecipeSmall) => <li key={recipe._id}><Link className={css.recipe} href="/add">
+        {isLoading ? <p>Loading...</p> : <ul className={css.recipes}>{recipes.map((recipe: RecipeSmall) => <li key={recipe._id}><Link className={css.recipe} href={`/recipes/${recipe._id}`}>
             <img src={recipe.preview} className={css.recipePhoto} alt='recipe photo'/>
             <div className={css.infoCont}>
                 <h4 className={css.recipeTitle}>{recipe.title}</h4>
