@@ -3,7 +3,7 @@ import css from "./ListItem.module.scss";
 import Image from "next/image";
 import photHeader from "../../../../public/recipe/salat.png";
 import photoTest from "../../../../public/recipe/image.png";
-import { useState } from "react";
+import { useState, Dispatch, SetStateAction } from "react";
 import Container from "@/shared/Container/Container";
 import { useGetRecipe } from "@/redux/apis/recipesApi";
 import { RecipeItem } from "@/entities/Recipe.type";
@@ -12,10 +12,18 @@ import { useAddShopingLIst } from "@/redux/apis/shipingListApi";
 import { useRemoveShopingLIst } from "@/redux/apis/shipingListApi";
 import { nanoid } from "@reduxjs/toolkit";
 import { ingredient } from "@/entities/Ingridient.type";
-import MotivationCard from "@/shared/motivationCard/page";
+import MotivationCard from "@/shared/MotivationCard/MotivationCard";
 import parthImg from "../../../../public/motivationImgs/motivationImg3.jpg";
 // let numToShopList = "firawdst";
-const CustomCheckbox = ({ id, measure, setshop }: { id: string; measure: string }) => {
+const CustomCheckbox = ({
+  id,
+  measure,
+  setshop,
+}: {
+  id: string;
+  measure: string;
+  setshop: Dispatch<SetStateAction<number>>;
+}) => {
   const [checked, setChecked] = useState(false);
   const [addShopingList] = useAddShopingLIst();
   const [removeShopingList] = useRemoveShopingLIst();
@@ -77,7 +85,7 @@ export default function RecipeList() {
   const [numToShopList, setNumToShopList] = useState(0);
   // console.log(id);
   const { data, error, isLoading } = useGetRecipe(id);
-  const recipes: ingredient[] = data?.ingredients ?? [];
+  const recipes: ingredient[] = data?.ingridients ?? [];
   const instructions = data?.instructions.split("\r\n");
   // console.log(instructions);
   // console.log(data);
@@ -105,7 +113,7 @@ export default function RecipeList() {
           ) : (
             <ul className={css.recipes}>
               {recipes.map((recipe) => (
-                <li className={css.itemIngr} key={recipe._id}>
+                <li className={css.itemIngr} key={recipe.id}>
                   <div className={css.itemInfo}>
                     <Image
                       alt={recipe.title}
@@ -122,7 +130,7 @@ export default function RecipeList() {
                       <p className={css.txtGrama}>{recipe.measure}</p>
                     </div>
                     <CustomCheckbox
-                      id={recipe._id}
+                      id={recipe.id}
                       measure={recipe.measure}
                       setshop={setNumToShopList}
                     />

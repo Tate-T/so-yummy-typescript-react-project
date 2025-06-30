@@ -1,12 +1,13 @@
 "use client";
 
 import React, { useState } from "react";
-import style from "./page.module.scss";
+import style from "./MotivationCard.module.scss";
 import backImg from "../../../public/motivationImgs/background.png";
+import { StaticImageData } from "next/image";
 
 interface MotivationCardProps {
   title: string;
-  imgPath: string;
+  imgPath: StaticImageData | string;
 }
 
 const MotivationCard: React.FC<MotivationCardProps> = ({ title, imgPath }) => {
@@ -16,7 +17,7 @@ const MotivationCard: React.FC<MotivationCardProps> = ({ title, imgPath }) => {
     <div
       className={style.motivationContainer}
       style={{
-        backgroundImage: `url(${imgPath.src})`,
+        backgroundImage: `url(${imgPath})`,
         backgroundSize: "cover",
         backgroundPosition: "center",
       }}
@@ -24,7 +25,7 @@ const MotivationCard: React.FC<MotivationCardProps> = ({ title, imgPath }) => {
       <div
         className={style.motivationContent}
         style={{
-          backgroundImage: `url(${backImg.src})`,
+          backgroundImage: `url(${backImg})`,
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}

@@ -9,7 +9,7 @@ import clock from "../../../../public/recipe/clock.svg";
 import { RecipeItem } from "@/entities/Recipe.type";
 import { useToggleFavorite } from "@/redux/apis/favoriteApi";
 import { useState } from "react";
-import MotivationCard from "@/shared/motivationCard/page";
+import MotivationCard from "@/shared/MotivationCard/MotivationCard";
 import parhImg from "../../../../public/motivationImgs/motivationImg4.jpg";
 import parhImgTwo from "../../../../public/motivationImgs/motivationImg3.jpg";
 export default function RecipeHero() {
@@ -33,21 +33,20 @@ export default function RecipeHero() {
   return (
     <section className={css.section}>
       <Container>
-        (
         {numToFaforites === 1 && (
           <MotivationCard
             title="You have added the first recipe to your favorites!"
             imgPath={parhImg}
           />
         )}
-        ) (
+
         {numToFaforites === 10 && (
           <MotivationCard
             title="You have added 10 recipes to your favorites!"
             imgPath={parhImgTwo}
           />
         )}
-        )
+
         <div className={css.recipeHeader}>
           <h1 className={css.title}>{data.title ? data.title : "yuy"}</h1>
           <p className={css.pidTitle}>{data!.description}</p>

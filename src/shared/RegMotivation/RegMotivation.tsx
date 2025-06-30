@@ -1,5 +1,5 @@
 'use client';
-import MotivationCard from "../motivationCard/page";
+import MotivationCard from "../MotivationCard/MotivationCard";
 
 export default () => {
     const regTime: {

@@ -6,31 +6,30 @@ import { FaTwitter } from "react-icons/fa";
 import { FaInstagram } from "react-icons/fa";
 import Link from "next/link";
 
-const Socials = ({size} : {size: number}) => {
+const Socials = ({ size }: { size: number }) => {
   return (
     <>
       <ul className={css.socialsList}>
-        <li >
-          <Link href="" className={css.socialsPage}>
-            <FaFacebook className={css.socialsIcon} size={size}/>
+        <li>
+          <Link href="https://www.facebook.com/" className={css.socialsPage}>
+            <FaFacebook className={css.socialsIcon} size={size} />
           </Link>
         </li>
-        <li >
-          <Link href="" className={css.socialsPage}>
-          <FaYoutube className={css.socialsIcon} size={size}/>
+        <li>
+          <Link href="https://www.youtube.com" className={css.socialsPage}>
+            <FaYoutube className={css.socialsIcon} size={size} />
           </Link>
         </li>
-        <li >
-        <Link href="" className={css.socialsPage}>
-          <FaTwitter className={css.socialsIcon} size={size}/>
+        <li>
+          <Link href="https://x.com/" className={css.socialsPage}>
+            <FaTwitter className={css.socialsIcon} size={size} />
           </Link>
         </li>
-        <li >
-        <Link href="" className={css.socialsPage}>
-          <FaInstagram className={css.socialsIcon} size={size}/>
+        <li>
+          <Link href="https://www.instagram.com" className={css.socialsPage}>
+            <FaInstagram className={css.socialsIcon} size={size} />
           </Link>
         </li>
-
       </ul>
     </>
   );
