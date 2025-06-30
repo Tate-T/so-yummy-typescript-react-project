@@ -88,7 +88,7 @@ export default function RecipeList() {
   const recipes: ingredient[] = data?.ingredients ?? [];
   const instructions = data?.instructions.split("\r\n");
   // console.log(instructions);
-  // console.log(data);
+  console.log(data);
   return (
     <section className={css.section}>
       <Container>
@@ -130,7 +130,7 @@ export default function RecipeList() {
                       <p className={css.txtGrama}>{recipe.measure}</p>
                     </div>
                     <CustomCheckbox
-                      id={recipe.id}
+                      id={recipe._id}
                       measure={recipe.measure}
                       setshop={setNumToShopList}
                     />
