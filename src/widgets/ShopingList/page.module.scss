@@ -1,3 +1,5 @@
+@use "../../sass/utils/mixins.scss" as *;
+
 .section {
   margin-top: 164px;
   margin-bottom: 195px;
@@ -298,4 +300,11 @@
   height: 1px;
   stroke-width: 1px;
   stroke: var(--Gray-5, #e0e0e0);
+}
+
+.noItemsText {
+  @include textStyle(24px, --input-color, -0.48px, 500);
+  opacity: 0.5;
+  text-align: center;
+  margin-top: 150px;
 }
