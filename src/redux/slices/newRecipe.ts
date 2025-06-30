@@ -21,6 +21,7 @@ const init = {
     setCookTimeOpen: false,
     ingredients: [initIngrid],
     instruction: '',
+    isNew: true,
 }
 
 const newRecipeSlice = createSlice({
@@ -43,10 +44,11 @@ const newRecipeSlice = createSlice({
         toggleCategoryOpen(state) { state.setCategoryOpen = !(state.setCategoryOpen) },
         toggleCookTimeOpen(state) { state.setCookTimeOpen = !(state.setCookTimeOpen) },
         setInstructions(state, action) { state.instruction = action.payload; },
+        offIsNew(state) { state.isNew = false },
         delAll(state) { return init; }
     },
 })
 
 export const newRecipeReducer = newRecipeSlice.reducer;
-export const { delAll, setIngredientId, setImg, setInstructions, setTitle, setDescr, setCategory, setCookTime, addIngredient, removeIngredient, setIngredient, setCount, setType, toggleTypeOpen, toggleCategoryOpen, toggleCookTimeOpen, setClueOpen } = newRecipeSlice.actions;
+export const { offIsNew, delAll, setIngredientId, setImg, setInstructions, setTitle, setDescr, setCategory, setCookTime, addIngredient, removeIngredient, setIngredient, setCount, setType, toggleTypeOpen, toggleCategoryOpen, toggleCookTimeOpen, setClueOpen } = newRecipeSlice.actions;
 export const selectNewRecipe = (state: RootState) => state.newRecipe;

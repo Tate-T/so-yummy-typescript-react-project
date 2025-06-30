@@ -1,4 +1,4 @@
-import { ingredient } from "./Ingridient.type";
+import { ingredient } from "./Ingredient.type";
 
 export type RecipeSmall = {
   _id: string;
@@ -26,7 +26,7 @@ export type RecipeItem = {
   category: string;
   description: string;
   instructions: string;
-  ingridients: ingredient[];
+  ingredients: ingredient[];
   time: string;
   preview: string;
   popularity: number;

@@ -18,7 +18,7 @@ const Burger = ({ openBurger }: { openBurger: () => void }) => {
     }
   };
   return (
-    <div className={css.burgerMenu}>
+    <div className={css.burgerMenu} data-open-modal>
       <Container>
         <div className={css.boxIcon}>
           <Link href="/" className={css.headerLogo}>

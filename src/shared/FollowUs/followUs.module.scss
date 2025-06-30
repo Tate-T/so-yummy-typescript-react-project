@@ -5,6 +5,12 @@
     @media screen and (max-width: 1439px) {
         display: none;
     }
+    & svg:hover {
+        color: var(--title-color);
+        :root[data-theme="dark"] & {
+            color: var(--accent-color);
+        }
+    }
 }
 .subtitle{
     @include textStyle(var(--subtitle-md-fs), var(--text-color), -0.24px);

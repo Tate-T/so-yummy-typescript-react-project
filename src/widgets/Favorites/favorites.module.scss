@@ -1,3 +1,5 @@
+@import "@/sass/utils/mixins.scss";
+
 .favs *{
     box-sizing: border-box;
     transition: all .3s;
@@ -10,6 +12,12 @@
     @media screen and (max-width: 767px) {
         padding: 114px 0 100px;
     }
+}
+.nothing{
+    @include textStyle(24px, --input-color, -0.48px, 500);
+    opacity: 0.5;
+    text-align: center;
+    margin-top: 150px;
 }
 .title{
     color: var(--title-color);

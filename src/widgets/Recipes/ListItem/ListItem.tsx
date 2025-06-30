@@ -11,7 +11,7 @@ import { useParams } from "next/navigation";
 import { useAddShopingLIst } from "@/redux/apis/shipingListApi";
 import { useRemoveShopingLIst } from "@/redux/apis/shipingListApi";
 import { nanoid } from "@reduxjs/toolkit";
-import { ingredient } from "@/entities/Ingridient.type";
+import { ingredient } from "@/entities/Ingredient.type";
 import MotivationCard from "@/shared/MotivationCard/MotivationCard";
 import parthImg from "../../../../public/motivationImgs/motivationImg3.jpg";
 // let numToShopList = "firawdst";
@@ -85,7 +85,7 @@ export default function RecipeList() {
   const [numToShopList, setNumToShopList] = useState(0);
   // console.log(id);
   const { data, error, isLoading } = useGetRecipe(id);
-  const recipes: ingredient[] = data?.ingridients ?? [];
+  const recipes: ingredient[] = data?.ingredients ?? [];
   const instructions = data?.instructions.split("\r\n");
   // console.log(instructions);
   // console.log(data);
@@ -112,8 +112,8 @@ export default function RecipeList() {
             <p>Nothing found</p>
           ) : (
             <ul className={css.recipes}>
-              {recipes.map((recipe) => (
-                <li className={css.itemIngr} key={recipe.id}>
+              {recipes.map((recipe, idx) => (
+                <li className={css.itemIngr} key={idx}>
                   <div className={css.itemInfo}>
                     <Image
                       alt={recipe.title}

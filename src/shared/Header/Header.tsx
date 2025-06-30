@@ -23,13 +23,15 @@ const Header = () => {
   const [openUser, setOpenUser] = useState<true | false>(false);
   const [openLogOut, setOpenLogOut] = useState<true | false>(false);
   const user = useSelector(selectUser);
+  const html = document.querySelector("html")! as HTMLHtmlElement;
+  html.setAttribute("data-theme", localStorage.getItem('theme') ?? 'light');
 
   const changeTheme = () => {
-    const html = document.querySelector("html")! as HTMLHtmlElement;
-
     if (html.getAttribute("data-theme") !== "dark") {
+      localStorage.setItem('theme', 'dark');
       html.setAttribute("data-theme", "dark");
     } else {
+      localStorage.setItem('theme', 'light');
       html.setAttribute("data-theme", "light");
     }
   };
@@ -42,15 +44,15 @@ const Header = () => {
     }
   };
 
-const openModalOnKey = (event: KeyboardEvent): void => {
-  if (event.key === 'Escape') {
-    setOpenBurger(false);
-    setOpenUser(false);
-    setOpenLogOut(false);
-  }
-}
+  const openModalOnKey = (event: KeyboardEvent): void => {
+    if (event.key === "Escape") {
+      setOpenBurger(false);
+      setOpenUser(false);
+      setOpenLogOut(false);
+    }
+  };
 
-  document.addEventListener('keydown', openModalOnKey);
+  document.addEventListener("keydown", openModalOnKey);
 
   const openUserFunction = (): void => {
     if (!openUser) {
@@ -135,14 +137,14 @@ const openModalOnKey = (event: KeyboardEvent): void => {
             )}
           </div>
           {!openBurger && (
-            <div className={css.boxTemeColor}>
-              <button type="button" className={css.boxBtnSun} onClick={changeTheme} />
+            <div className={css.boxTemeColor} onClick={changeTheme}>
+              <button type="button" className={css.boxBtnSun} />
             </div>
           )}
 
           {openUser && <User openLogOutunction={openLogOutunction} />}
 
-          {openLogOut && <LogOut openLogOutunction={openLogOutunction}  />}
+          {openLogOut && <LogOut openLogOutunction={openLogOutunction} />}
 
           <div className={css.burgerBox}>
             <button type="button" onClick={openBurgerFunction}>
