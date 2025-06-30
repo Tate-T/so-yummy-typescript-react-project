@@ -10,6 +10,7 @@ import RecipeCard from "@/shared/RecipeCard/RecipeCard";
 import BasketImg from "@/../public/recipes/basket.webp";
 import Image from "next/image";
 import { useSearchParams, usePathname, useRouter } from "next/navigation";
+import { toast } from "react-toastify";
 
 const items = ["Title", "Ingredients"];
 
@@ -38,7 +39,16 @@ const Recipes = () => {
 
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
-    if (inputRef.current) setInputQuery(inputRef.current.value);
+    if (inputRef.current) {
+      const regex: RegExp = new RegExp("[A-Za-z]");
+      const value = inputRef.current.value;
+      if (regex.test(value)) {
+        setInputQuery(value);
+      } else {
+        if (value === "") return;
+        toast.error("Invalid query. Use only latin letters");
+      }
+    }
   };
   return (
     <section className={css.search}>

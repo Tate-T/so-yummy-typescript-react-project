@@ -45,7 +45,7 @@ const Hero = () => {
                 <span className={css.heroCategoriesTextSpan}>Delicious and healthy</span> way to
                 enjoy a variety of fresh ingredients in one satisfying meal
               </p>
-              <Link href={""} className={css.heroCategoriesLink}>
+              <Link href="/recipes" className={css.heroCategoriesLink}>
                 See recipes
                 <Image className={css.heroIcon} src={HeroRightArrow} alt="right arrow" />
               </Link>
