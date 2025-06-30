@@ -1,7 +1,8 @@
 import { CategoriesMainResponse, RecipeItem, Recipes, SearchParams } from "@/entities/Recipe.type";
 import { baseQueryWithAuth } from "@/features/auth/auth";
 import { createApi } from "@reduxjs/toolkit/query/react";
-import type { BaseQueryFn, FetchArgs, FetchBaseQueryError } from "@reduxjs/toolkit/query";
+import type { BaseQueryFn, FetchArgs, FetchBaseQueryError, RootState } from "@reduxjs/toolkit/query";
+import { selectMyRecipsById } from "../slices/ownRecipesSave";
 
 const baseQueryWithStorage: BaseQueryFn<string | FetchArgs, unknown, FetchBaseQueryError> = async (
   args,
@@ -9,11 +10,10 @@ const baseQueryWithStorage: BaseQueryFn<string | FetchArgs, unknown, FetchBaseQu
   extraOptions,
 ) => {
   let result = await baseQueryWithAuth(args, api, extraOptions);
-
   if (result.error && result.error.status === 404) {
     // api.getState("ownRecipes").filter((recipe) => recipe._id === args.)
-
-    console.log(api.getState());
+    const state = api.getState() as RootState;
+    return {data: selectMyRecipsById(state, args.split('/')[3])};
   }
   return result;
 };
