@@ -12,16 +12,22 @@ import { useAddShopingLIst } from "@/redux/apis/shipingListApi";
 import { useRemoveShopingLIst } from "@/redux/apis/shipingListApi";
 import { nanoid } from "@reduxjs/toolkit";
 import { ingredient } from "@/entities/Ingridient.type";
-
-const CustomCheckbox = ({ id, measure }: { id: string; measure: string }) => {
+import MotivationCard from "@/shared/motivationCard/page";
+import parthImg from "../../../../public/motivationImgs/motivationImg3.jpg";
+// let numToShopList = "firawdst";
+const CustomCheckbox = ({ id, measure, setshop }: { id: string; measure: string }) => {
   const [checked, setChecked] = useState(false);
   const [addShopingList] = useAddShopingLIst();
   const [removeShopingList] = useRemoveShopingLIst();
+
   function addShopingLIstRemove(e: any) {
     setChecked(!checked);
     if (checked === false) {
       addShopingList({ productId: id, measure: measure });
-      console.log("Added to shopping list:", id, measure);
+      setshop((prev) => prev + 1);
+      // numToShopList = "first";
+      // console.log(numToShopList);
+      // console.log("Added to shopping list:", id, measure);
     }
     if (checked === true) {
       removeShopingList({ productId: id, measure: measure });
@@ -68,6 +74,7 @@ const CustomCheckbox = ({ id, measure }: { id: string; measure: string }) => {
 export default function RecipeList() {
   const params = useParams();
   const id: string = params.id!.toString();
+  const [numToShopList, setNumToShopList] = useState(0);
   // console.log(id);
   const { data, error, isLoading } = useGetRecipe(id);
   const recipes: ingredient[] = data?.ingredients ?? [];
@@ -77,6 +84,9 @@ export default function RecipeList() {
   return (
     <section className={css.section}>
       <Container>
+        {numToShopList === 1 && (
+          <MotivationCard title="You have created your first shopping list!" imgPath={parthImg} />
+        )}
         <div className={css.greeBox}>
           <div className={css.greeBoxList}>
             <div>
@@ -111,7 +121,11 @@ export default function RecipeList() {
                     <div className={css.boxGrama}>
                       <p className={css.txtGrama}>{recipe.measure}</p>
                     </div>
-                    <CustomCheckbox id={recipe._id} measure={recipe.measure} />
+                    <CustomCheckbox
+                      id={recipe._id}
+                      measure={recipe.measure}
+                      setshop={setNumToShopList}
+                    />
                   </div>
                 </li>
               ))}
