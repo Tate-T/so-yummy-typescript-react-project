@@ -35,7 +35,7 @@ const CustomCheckbox = ({
       setshop((prev) => prev + 1);
       // numToShopList = "first";
       // console.log(numToShopList);
-      console.log("Added to shopping list:", id, measure);
+      // console.log("Added to shopping list:", id, measure);
     }
     if (checked === true) {
       removeShopingList({ productId: id, measure: measure });
