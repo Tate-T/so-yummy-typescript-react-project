@@ -1,5 +1,15 @@
+.userInfoOverlay {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 9;
+  // background-color: rgba(0, 0, 0, 0.5);
+}
+
 .bagUserInfo {
-  z-index: 11;
+  z-index: 9;
   // border: 1px solid green;
   position: absolute;
   left: 50%;

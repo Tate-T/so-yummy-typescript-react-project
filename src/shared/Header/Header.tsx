@@ -24,14 +24,14 @@ const Header = () => {
   const [openLogOut, setOpenLogOut] = useState<true | false>(false);
   const user = useSelector(selectUser);
   const html = document.querySelector("html")! as HTMLHtmlElement;
-  html.setAttribute("data-theme", localStorage.getItem('theme') ?? 'light');
+  html.setAttribute("data-theme", localStorage.getItem("theme") ?? "light");
 
   const changeTheme = () => {
     if (html.getAttribute("data-theme") !== "dark") {
-      localStorage.setItem('theme', 'dark');
+      localStorage.setItem("theme", "dark");
       html.setAttribute("data-theme", "dark");
     } else {
-      localStorage.setItem('theme', 'light');
+      localStorage.setItem("theme", "light");
       html.setAttribute("data-theme", "light");
     }
   };
@@ -112,7 +112,7 @@ const Header = () => {
                   </Link>
                 </li>
                 <li className={css.headerNavItem}>
-                  <Link href="/recipes" className={css.headerNavItemPage}>
+                  <Link href="/recipes" className={css.headerNavItemPage} data-search-icon>
                     <LuSearch className={css.headerSearchImg} />
                   </Link>
                 </li>
@@ -144,8 +144,6 @@ const Header = () => {
 
           {openUser && <User openLogOutunction={openLogOutunction} />}
 
-          {openLogOut && <LogOut openLogOutunction={openLogOutunction} />}
-
           <div className={css.burgerBox}>
             <button type="button" onClick={openBurgerFunction}>
               <LuAlignLeft className={css.burgerBtn} />
@@ -153,6 +151,7 @@ const Header = () => {
           </div>
         </Container>
       </header>
+      {openLogOut && <LogOut openLogOutunction={openLogOutunction} />}
     </>
   );
 };
