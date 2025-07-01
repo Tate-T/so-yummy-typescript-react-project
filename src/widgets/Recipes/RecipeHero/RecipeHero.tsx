@@ -36,14 +36,14 @@ export default function RecipeHero() {
         {numToFaforites === 1 && (
           <MotivationCard
             title="You have added the first recipe to your favorites!"
-            imgPath={parhImg}
+            imgPath={"/motivationImgs/motivationImg4.jpg"}
           />
         )}
 
         {numToFaforites === 10 && (
           <MotivationCard
             title="You have added 10 recipes to your favorites!"
-            imgPath={parhImgTwo}
+            imgPath={"/motivationImgs/motivationImg3.jpg"}
           />
         )}
 
