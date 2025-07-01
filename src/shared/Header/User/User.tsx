@@ -7,7 +7,7 @@ import { useState } from "react";
 import UserInfo from "../UserInfo/UserInfo";
 
 const User = ({ openLogOutunction }: { openLogOutunction: () => void }) => {
-  const [openUserInfo, setOpenUserInfo] = useState<true | false>(false);
+  const [openUserInfo, setOpenUserInfo] = useState<boolean>(false);
   const openUserInfoFunction = (): void => {
     if (!openUserInfo) {
       setOpenUserInfo(true);

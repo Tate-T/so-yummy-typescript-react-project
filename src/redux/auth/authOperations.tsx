@@ -1,8 +1,17 @@
 import { fetchBaseQuery } from "@reduxjs/toolkit/query";
 import { createApi } from "@reduxjs/toolkit/query/react";
 
+interface AuthInit {
+  user: {
+    name: string;
+    email: string;
+    avatarURL: string;
+    accessToken: string;
+  };
+}
+
 export const authApi = createApi({
-  reducerPath: "auth",
+  reducerPath: "authApi",
   baseQuery: fetchBaseQuery({
     baseUrl: "https://so-yumi.p.goit.global/api/users",
   }),
@@ -21,7 +30,21 @@ export const authApi = createApi({
         body: userData,
       }),
     }),
+    logout: builder.mutation({
+      queryFn: (_arg, queryApi, _extraOptions, baseQuery) => {
+        const state = queryApi.getState() as { user: AuthInit };
+        const token = state.user.user.accessToken;
+
+        return baseQuery({
+          url: "/logout",
+          method: "POST",
+          headers: {
+            Authorization: token?.trim() ?? "",
+          },
+        });
+      },
+    }),
   }),
 });
 
-export const { useSignupMutation, useSigninMutation } = authApi;
+export const { useSignupMutation, useSigninMutation, useLogoutMutation } = authApi;
