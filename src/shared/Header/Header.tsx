@@ -19,9 +19,9 @@ import LogOut from "./LogOut/LogOut";
 import User from "./User/User";
 
 const Header = () => {
-  const [openBurger, setOpenBurger] = useState<true | false>(false);
-  const [openUser, setOpenUser] = useState<true | false>(false);
-  const [openLogOut, setOpenLogOut] = useState<true | false>(false);
+  const [openBurger, setOpenBurger] = useState<boolean>(false);
+  const [openUser, setOpenUser] = useState<boolean>(false);
+  const [openLogOut, setOpenLogOut] = useState<boolean>(false);
   const user = useSelector(selectUser);
   const html = document.querySelector("html")! as HTMLHtmlElement;
   html.setAttribute("data-theme", localStorage.getItem("theme") ?? "light");
@@ -142,8 +142,6 @@ const Header = () => {
             </div>
           )}
 
-          {openUser && <User openLogOutunction={openLogOutunction} />}
-
           <div className={css.burgerBox}>
             <button type="button" onClick={openBurgerFunction}>
               <LuAlignLeft className={css.burgerBtn} />
@@ -152,6 +150,7 @@ const Header = () => {
         </Container>
       </header>
       {openLogOut && <LogOut openLogOutunction={openLogOutunction} />}
+      {openUser && <User openLogOutunction={openLogOutunction} />}
     </>
   );
 };

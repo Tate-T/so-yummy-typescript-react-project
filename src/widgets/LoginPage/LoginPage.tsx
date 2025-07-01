@@ -7,6 +7,7 @@ import { FormEvent, useState } from "react";
 import { useRouter } from "next/navigation";
 import saveRefreshToken from "@/features/auth/saveRefreshToken";
 import AuthPage from "@/shared/AuthPage/AuthPage";
+import { toast, Bounce } from "react-toastify";
 
 const FormSchema = z.object({
   email: z.string().email(),
@@ -61,6 +62,7 @@ const LoginPage = () => {
         router.push("/");
       } catch (err) {
         console.log(err);
+        toast.error("Invalid credentials");
       }
     }
   };

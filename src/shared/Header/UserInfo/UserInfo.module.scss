@@ -1,90 +1,173 @@
+@use "../../../sass/utils/mixins.scss" as *;
+
+@keyframes fadeInOverlay {
+  to {
+    opacity: 1;
+  }
+}
+
 .userInfoOverlay {
   position: fixed;
   top: 0;
   right: 0;
   bottom: 0;
   left: 0;
-  z-index: 9;
-  // background-color: rgba(0, 0, 0, 0.5);
+  z-index: 10;
+  background-color: rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  animation: fadeInOverlay 250ms ease forwards;
 }
 
 .bagUserInfo {
-  z-index: 9;
+  z-index: 11;
   // border: 1px solid green;
   position: absolute;
   left: 50%;
   top: 50%;
-  transform: translate(-50%);
+  transform: translate(-50%, -50%);
 }
 
 .modalUserInfo {
   margin-left: auto;
   margin-right: auto;
-
   border-radius: 30px;
   box-shadow: 0px 4px 48px 0px rgba(0, 0, 0, 0.1);
   background: var(--bg-color);
-
   width: 500px;
-  padding-top: 24px;
-  padding-bottom: 60px;
+  padding: 60px 50px;
 }
 
 .iconClose {
   color: var(--text-color);
-
-  margin-left: 452px;
+  position: absolute;
+  top: 24px;
+  right: 24px;
 }
 
 .boxUserImg {
   margin-left: auto;
   margin-right: auto;
-
   position: relative;
   width: 103px;
-  margin-top: 12px;
+  // margin-top: 12px;
   margin-bottom: 52px;
 }
 
-.userInfoFile {
+.test {
   width: 103px;
   height: 103px;
-  border-radius: 50%;
-  background: rgb(217, 217, 217);
+  background-color: #d9d9d9;
+  border-radius: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  // position: absolute;
+  // top: 0;
+  // left: 0;
+
+  & > svg {
+    width: 47px;
+    height: 47px;
+    color: #c4c4c4;
+  }
 }
 
-.plus {
+.userInfoFile {
+  border-radius: 50%;
+  background: rgb(217, 217, 217);
+  cursor: pointer;
+  @include posAbs(0, 0, 123px, 123px);
+  z-index: 2;
+  opacity: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.plusBox {
   position: absolute;
-  left: auto;
-  right: 13px;
-  width: 18px;
-  bottom: 0px;
-  height: 18px;
-  //   padding: 3px;
-  color: rgb(236, 236, 236);
+  right: 10px;
+  bottom: -2px;
+  padding: 3px;
   background: rgb(139, 170, 54);
   border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  & > svg {
+    width: 18px;
+    height: 18px;
+    color: #fafafa;
+  }
 }
 
 .boxNameUser {
   position: relative;
-  margin-left: 50px;
-  margin-right: 50px;
 }
 
 .iconUser {
   position: absolute;
+  top: 17.5px;
+  left: 19px;
+  width: 24px;
+  height: 24px;
+  color: #23262a;
+  opacity: 0.8;
+
+  &Error {
+    color: #e74a3b;
+  }
 }
 
 .iconRename {
   position: absolute;
-  right: 13px;
+  top: 20px;
+  right: 18px;
+  width: 20px;
+  height: 20px;
+  color: #23262a;
+  opacity: 0.8;
 }
 
 .inputNameUser {
-  width: 400px;
+  width: 100%;
   height: 59px;
-  border: 1px solid rgba(250, 250, 250, 0.5);
+  border: 1px solid #b9babc;
   background: transparent;
   border-radius: 6px;
+  padding: 16px 37px 16px 51px;
+  color: #23262a;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: -0.36px;
+  opacity: 0.8;
+
+  &Error {
+    border: 1px solid #e74a3b;
+    position: relative;
+    width: 100%;
+  }
+}
+
+.btnSubmitUser {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 6px;
+  background-color: var(--accent-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fafafa;
+  text-align: center;
+  font-family: Poppins;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 18px;
+  width: 100%;
+  margin-top: 32px;
+  padding: 21px 0;
 }
