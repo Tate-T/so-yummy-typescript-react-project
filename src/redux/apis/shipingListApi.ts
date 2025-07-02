@@ -18,6 +18,13 @@ const baseQueryWithStorage: BaseQueryFn<string | FetchArgs, unknown, FetchBaseQu
   return result;
 };
 
+type Item = {
+  productId: string;
+  title: string;
+  thumb: string;
+  measure: string[];
+};
+
 export const shopingLists = createApi({
   reducerPath: "Shopinglist",
   baseQuery: baseQueryWithStorage,
@@ -25,14 +32,7 @@ export const shopingLists = createApi({
   endpoints: (builder) => ({
     getShopopingList: builder.query<
       {
-        shoppingList: [
-          {
-            productId: string;
-            title: string;
-            thumb: string;
-            measure: string[];
-          },
-        ];
+        shoppingList: Item[];
       },
       void
     >({
