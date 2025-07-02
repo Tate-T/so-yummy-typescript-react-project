@@ -189,6 +189,10 @@ export default () => {
             onChange={(evt: React.ChangeEvent<HTMLInputElement>) => {
               const file = evt.target.files?.[0];
               if (!file) return;
+              if (file.size > 1024*1024) {
+                toast.error('File too big! (need <1MB)');
+                return;
+              }
               const reader = new FileReader();
               reader.onload = (e: ProgressEvent<FileReader>) =>
                 dispatch(setImg(e.target?.result ?? ""));
