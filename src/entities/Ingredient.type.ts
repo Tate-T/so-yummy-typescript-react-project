@@ -4,5 +4,5 @@ export type ingredient = {
   type: string;
   thumb: string;
   measure: string;
-  id: string;
+  _id: string;
 };

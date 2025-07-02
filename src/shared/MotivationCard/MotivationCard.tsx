@@ -3,7 +3,6 @@
 import React, { useState } from "react";
 import style from "./MotivationCard.module.scss";
 import { StaticImageData } from "next/image";
-
 interface MotivationCardProps {
   title: string;
   imgPath: StaticImageData | string;
@@ -24,7 +23,7 @@ const MotivationCard: React.FC<MotivationCardProps> = ({ title, imgPath }) => {
       <div
         className={style.motivationContent}
         style={{
-          backgroundImage: `url(motivationImgs/background.png)`,
+          // backgroundImage: `url(motivationImgs/background.png)`,
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}

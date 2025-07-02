@@ -93,7 +93,7 @@ export default function RecipeList() {
     <section className={css.section}>
       <Container>
         {numToShopList === 1 && (
-          <MotivationCard title="You have created your first shopping list!" imgPath={parthImg} />
+          <MotivationCard title="You have created your first shopping list!" imgPath={"/motivationImgs/motivationImg1.jpg"} />
         )}
         <div className={css.greeBox}>
           <div className={css.greeBoxList}>
@@ -130,7 +130,7 @@ export default function RecipeList() {
                       <p className={css.txtGrama}>{recipe.measure}</p>
                     </div>
                     <CustomCheckbox
-                      id={recipe.id}
+                      id={recipe._id}
                       measure={recipe.measure}
                       setshop={setNumToShopList}
                     />
