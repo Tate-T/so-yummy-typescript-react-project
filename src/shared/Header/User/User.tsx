@@ -23,12 +23,12 @@ const User = ({ openLogOutunction }: { openLogOutunction: () => void }) => {
           <p className={css.textName}>Edit profile</p>
           <FiEdit2 className={css.buttonRename} onClick={openUserInfoFunction} />
         </div>
-        <div className={css.relativeIcon} onClick={openLogOutunction}>
-          <button type="button" className={css.btnLogOutR}>
-            Log out
-          </button>
+        {/* <div className={css.relativeIcon} onClick={openLogOutunction}> */}
+        <button type="button" className={css.btnLogOutR} onClick={openLogOutunction}>
+          Log out
           <BsArrowRight className={css.iconLogOut} />
-        </div>
+        </button>
+        {/* </div> */}
       </div>
     </>
   );

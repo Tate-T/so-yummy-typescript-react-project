@@ -1,66 +1,89 @@
+@use "../../../sass/utils/mixins.scss";
+
 .boxUser {
-    // border: 1px solid rgb(139, 170, 54);
-    position: absolute;
-    z-index: 9;
-    padding-top: 18px;
-    padding-bottom: 18px;
+  border: 1px solid #8baa36;
+  position: absolute;
+  z-index: 9;
+  padding: 18px;
+  width: 161px;
+  border-radius: 8px;
+  background: var(--bg-color);
+  right: 26%;
+  // left: auto;
+  top: 78px;
+
+  @media screen and (min-width: 768px) {
     width: 177px;
     border-radius: 8px;
     background: var(--bg-color);
-    right: 15%;
+    right: 20%;
     left: auto;
     top: 78px;
-    // transform: translate(-85%);
   }
-  
-  .boxUserName {
-    display: flex;
-    align-items: center;
-    margin-left: 18px;
-    margin-right: 18px;
+
+  @media screen and (min-width: 1440px) {
+    right: 17%;
   }
-  
-  .textName {
-    color: var(--title-color);
-    font-size: var(--text-md-fs);
-    font-weight: 500;
-    line-height: 22.4px;
+
+  // @media screen and (min-width: 845px) {
+  //   right: 23%;
+  // }
+
+
+  // transform: translate(-85%);
+}
+
+.boxUserName {
+  display: flex;
+  align-items: center;
+  // margin-left: 18px;
+  // margin-right: 18px;
+}
+
+.textName {
+  color: var(--title-color);
+  font-size: var(--text-md-fs);
+  font-weight: 500;
+  line-height: 22.4px;
+}
+
+.buttonRename {
+  font-size: 14px;
+  margin-left: auto;
+}
+
+.btnLogOutR {
+  margin-top: 28px;
+  width: 125px;
+  padding: 12px 24px;
+  background: #8baa36;
+  color: #fafafa;
+  font-family: Poppins;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: normal;
+  border-radius: 100px;
+  border-bottom-left-radius: 300px;
+  border-top-right-radius: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+
+  & > svg {
+    width: 18px;
+    height: 18px;
   }
-  
-  .buttonRename {
-    font-size: 14px;
-    margin-left: auto;
-  }
-  
-  .btnLogOutR {
-    margin-top: 32px;
-    margin-left: 18px;
-    margin-right: 18px;
+
+  @media screen and (min-width: 768px) {
     width: 141px;
-    height: 43px;
+    // height: 43px;
     color: rgb(250, 250, 250);
     font-size: var(--text-md-fs);
     font-weight: 400;
     line-height: 21px;
-  
     background: rgb(139, 170, 54);
-    border-radius: 24px 44px;
+    margin-top: 32px;
+    padding: 12px 32px;
   }
-  
-  .relativeIcon {
-    position: relative;
-  }
-  
-  .iconLogOut {
-    position: absolute;
-    top: 43px;
-    z-index: 9;
-    left: auto;
-    right: 38px;
-    color: rgb(250, 250, 250);
-    font-size: 20px;
-    margin-left: 4px;
-  }
-  
-  
-  
+}
