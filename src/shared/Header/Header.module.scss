@@ -135,6 +135,10 @@
   font-weight: 600;
   line-height: 170%;
   text-shadow: 3px 3px 9px var(--bg-color);
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  width: 90px;
 }
 
 .boxTemeColor {

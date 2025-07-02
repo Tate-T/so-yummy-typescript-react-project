@@ -17,9 +17,11 @@ import { useState } from "react";
 import Burger from "./Burger/Burger";
 import LogOut from "./LogOut/LogOut";
 import User from "./User/User";
+import FocusElement from "./FocusElement/FocusElement";
 
 const Header = () => {
   const [openBurger, setOpenBurger] = useState<boolean>(false);
+  const [isFocused, setIsFocused] = useState<boolean>(false);
   const [openUser, setOpenUser] = useState<boolean>(false);
   const [openLogOut, setOpenLogOut] = useState<boolean>(false);
   const user = useSelector(selectUser);
@@ -121,19 +123,32 @@ const Header = () => {
           )}
           <div className={css.userBoxRegist} onClick={openUserFunction}>
             {user.name && (
-              <div className={css.user}>
-                <div className={css.test}>
-                  <Image
-                    src={user.avatarURL}
-                    alt={user.name}
-                    className={css.userImg}
-                    fill
-                    // width={44}
-                    // height={44}
-                  />
+              <>
+                <div className={css.user}>
+                  <div className={css.test}>
+                    <Image
+                      src={user.avatarURL}
+                      alt={user.name}
+                      className={css.userImg}
+                      fill
+                      // width={44}
+                      // height={44}
+                    />
+                  </div>
+                  <p
+                    className={css.userName}
+                    onMouseEnter={() => {
+                      setIsFocused(true);
+                    }}
+                    onMouseLeave={() => {
+                      setIsFocused(false);
+                    }}
+                  >
+                    {user.name}
+                  </p>
                 </div>
-                <p className={css.userName}>{user.name}</p>
-              </div>
+                {isFocused && <FocusElement username={user.name} />}
+              </>
             )}
           </div>
           {!openBurger && (
