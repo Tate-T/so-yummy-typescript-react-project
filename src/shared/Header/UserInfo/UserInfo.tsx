@@ -29,7 +29,7 @@ const UserInfo = ({ openUserInfo }: { openUserInfo: () => void }) => {
   // const dispatch = useDispatch();
   const [username, setUsername] = useState<string>(user.name);
 
-  const handleSubmit = async (e: FormEvent<HTMLFormElement>): void => {
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>): Promise<void> => {
     e.preventDefault();
     if (!(e.target instanceof HTMLFormElement)) return;
 

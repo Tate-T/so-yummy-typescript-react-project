@@ -130,7 +130,7 @@ export default function RecipeList() {
                       <p className={css.txtGrama}>{recipe.measure}</p>
                     </div>
                     <CustomCheckbox
-                      id={recipe._id}
+                      id={recipe.id}
                       measure={recipe.measure}
                       setshop={setNumToShopList}
                     />
