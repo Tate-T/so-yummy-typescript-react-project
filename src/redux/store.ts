@@ -14,6 +14,7 @@ import { newRecipeReducer } from "./slices/newRecipe";
 import { ownRecipesReducer } from "./slices/ownRecipesSave";
 import { ingredientsApi } from "./apis/ingridientsApi";
 import { shopingLists } from "./apis/shipingListApi";
+import { subscribeApi } from "./apis/subscribeApi";
 const persistConfig = {
   key: "root",
   storage,
@@ -36,6 +37,7 @@ export const store = configureStore({
     [recipesApi.reducerPath]: recipesApi.reducer,
     [ingredientsApi.reducerPath]: ingredientsApi.reducer,
     [shopingLists.reducerPath]: shopingLists.reducer,
+    [subscribeApi.reducerPath]: subscribeApi.reducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({
@@ -50,6 +52,7 @@ export const store = configureStore({
       .concat(recipesApi.middleware)
       .concat(ingredientsApi.middleware)
       .concat(shopingLists.middleware)
+      .concat(subscribeApi.middleware)
 });
 
 export type RootState = ReturnType<typeof store.getState>;
