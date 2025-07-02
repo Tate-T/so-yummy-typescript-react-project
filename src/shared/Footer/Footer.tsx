@@ -1,3 +1,5 @@
+'use client';
+
 import Link from "next/link";
 import css from "./Footer.module.scss";
 import Logo from "../../../public/footer/footerLogo.svg";
@@ -5,7 +7,12 @@ import Image from "next/image";
 import Container from "../Container/Container";
 import Socials from "../Socials/Socials";
 import { RxEnvelopeClosed } from "react-icons/rx";
+import { useSubscribe } from "@/redux/apis/subscribeApi";
+import { toast } from "react-toastify";
+import { z } from "zod/v4";
 const Footer = () => {
+  const [subscribe] = useSubscribe();
+  const emailSchema = z.string().email("Invalid email address");
   return (
     <>
       <footer className={css.footer}>
@@ -65,14 +72,23 @@ const Footer = () => {
             </li>
           </ul>
 
-          <form className={css.footerForm}>
+          <form className={css.footerForm} onSubmit={(e: React.FormEvent<HTMLFormElement>) => {
+              e.preventDefault();
+              const emailData = emailSchema.safeParse(e.currentTarget.emailInput.value)
+              if (emailData.success) {
+                subscribe(emailData.data);
+                toast.success("You subscribed succesfully!");
+              } else {
+                toast.error("Invalid email address");
+              }
+            }}>
             <h2 className={css.footerFormTitle}>Subscribe to our Newsletter</h2>
             <p className={css.footerFormText}>
               Subscribe up to our newsletter. Be in touch with latest news and special offers, etc.
             </p>
             <div className={css.inputBox}>
               <RxEnvelopeClosed className={css.inputIcon} />
-              <input placeholder={` Enter your email address`} className={css.footerFormInput} />
+              <input name="emailInput" placeholder={`Enter your email address`} pattern="^[\w.-]+@([\w-]+\.)+[\w-]{2,4}$" className={css.footerFormInput} required />
             </div>
             <button type="submit" className={css.footerFormBtn} data-theme="dark">
               Subscribe
