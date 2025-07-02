@@ -13,7 +13,7 @@ import MotivationCard from "@/shared/MotivationCard/MotivationCard";
 
 export default function RecipeHero() {
   const { id }: { id: string } = useParams();
-  const { data: dataFav } = useGetFavorite(1); // отримуємо список улюблених
+  const { data: dataFav } = useGetFavorite(1); 
   const favoriteTotal = dataFav?.total || 0;
 
   const data = useSelector(
