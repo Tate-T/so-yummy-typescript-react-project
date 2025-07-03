@@ -29,7 +29,6 @@
   //   right: 23%;
   // }
 
-
   // transform: translate(-85%);
 }
 
@@ -50,6 +49,12 @@
 .buttonRename {
   font-size: 14px;
   margin-left: auto;
+  transition-duration: 250ms;
+  transition-delay: 50ms;
+  transition-timing-function: ease-in-out;
+  &:hover {
+    color: var(--accent-color);
+  }
 }
 
 .btnLogOutR {
