@@ -1,10 +1,7 @@
 "use client";
 import { FormEvent, useState } from "react";
 import { z } from "zod";
-import {
-  useSigninMutation,
-  useSignupMutation,
-} from "@/redux/auth/authOperations";
+import { useSigninMutation, useSignupMutation } from "@/redux/auth/authOperations";
 import { useRouter } from "next/navigation";
 import { useDispatch } from "react-redux";
 import { setUser } from "@/redux/slices/authSlice";
@@ -14,10 +11,7 @@ import AuthPage from "@/shared/AuthPage/AuthPage";
 const FormSchema = z.object({
   name: z.string().min(2, "Name too short"),
   email: z.string().email(),
-  password: z
-    .string()
-    .min(5, "Password too short")
-    .max(21, "Password too long"),
+  password: z.string().min(5, "Password too short").max(21, "Password too long"),
 });
 
 type FormFields = z.infer<typeof FormSchema>;
@@ -27,9 +21,7 @@ const RegistrationPage = () => {
   const dispatch = useDispatch();
   const [registr] = useSignupMutation();
   const [login] = useSigninMutation();
-  const [errors, setErrors] = useState<
-    Partial<Record<keyof FormFields, string>>
-  >({});
+  const [errors, setErrors] = useState<Partial<Record<keyof FormFields, string>>>({});
 
   const handleSubmit = async (evt: FormEvent<HTMLFormElement>) => {
     evt.preventDefault();
@@ -60,33 +52,30 @@ const RegistrationPage = () => {
           email: data.email,
           password: data.password,
         }).unwrap();
-        router.push("/");
-        localStorage.setItem('regTime', JSON.stringify({
-          time: new Date().getTime(),
-          isOpen: '0',
-        }));
+        localStorage.setItem(
+          "regTime",
+          JSON.stringify({
+            time: new Date().getTime(),
+            isOpen: "0",
+          }),
+        );
         dispatch(
           setUser({
             user: {
               ...response.user,
               accessToken: response.accessToken,
             },
-          })
+          }),
         );
         saveRefreshToken(response.refreshToken);
+        router.push("/");
       } catch (err) {
         console.log(err);
       }
     }
   };
 
-  return (
-    <AuthPage
-      isRegistration={true}
-      handleSubmit={handleSubmit}
-      errors={errors}
-    />
-  );
+  return <AuthPage isRegistration={true} handleSubmit={handleSubmit} errors={errors} />;
 };
 
 export default RegistrationPage;
