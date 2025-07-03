@@ -25,7 +25,7 @@ const UserInfo = ({ openUserInfo }: { openUserInfo: () => void }) => {
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [imgPreview, setImgPreview] = useState<string>(user.avatarURL);
   const usernameInputRef = useRef(null);
-  const [changeData] = useChangeDataMutation();
+  const [changeData, { isLoading }] = useChangeDataMutation();
   // const dispatch = useDispatch();
   const [username, setUsername] = useState<string>(user.name);
 
@@ -81,6 +81,10 @@ const UserInfo = ({ openUserInfo }: { openUserInfo: () => void }) => {
               onChange={(evt: React.ChangeEvent<HTMLInputElement>) => {
                 const file = evt.target.files?.[0];
                 if (!file) return;
+                if (Number((file.size / (1024 * 1024)).toFixed(2)) > 1) {
+                  toast.error("Too large file");
+                  return;
+                }
                 const reader = new FileReader();
                 reader.onload = (e: ProgressEvent<FileReader>) =>
                   // dispatch(setImg(e.target?.result ?? ""));
@@ -128,7 +132,7 @@ const UserInfo = ({ openUserInfo }: { openUserInfo: () => void }) => {
             {/* <Image src={ErrorSvg} alt="errorSvg" className={css.iconRename} /> */}
           </div>
 
-          <button type="submit" className={css.btnSubmitUser}>
+          <button type="submit" className={css.btnSubmitUser} disabled={isLoading}>
             Save changes
           </button>
         </form>
