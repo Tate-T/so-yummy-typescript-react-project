@@ -6,6 +6,7 @@
   background-position: center 50vh;
   padding-top: 87px;
   padding-bottom: 30px;
+  background-color: #FAFAFA;
 
   @media screen and (max-height: 1000px) {
     overflow: scroll;
@@ -74,7 +75,7 @@
 }
 
 .authTitle {
-  color: var(--bg-color);
+  color: #FAFAFA;
   font-size: var(--subtitle-md-fs);
   font-weight: 600;
   line-height: 28px;
@@ -109,8 +110,8 @@
   padding: 12px 14px 12px 40px;
   height: 45px;
   background-color: transparent;
-  border: 1px solid var(--bg-color);
-  color: var(--bg-color);
+  border: 1px solid #FAFAFA;
+  color: #FAFAFA;
   font-size: var(--text-md-fs);
   font-weight: 400;
   line-height: normal;
@@ -128,11 +129,11 @@
 
   &:-webkit-autofill {
     -webkit-box-shadow: 0 0 0px 1000px var(--bg-login-color) inset;
-    -webkit-text-fill-color: var(--bg-color);
+    -webkit-text-fill-color: #FAFAFA;
   }
 
   &::placeholder {
-    color: var(--bg-color);
+    color: #FAFAFA;
     font-size: var(--text-md-fs);
     font-weight: 400;
     line-height: normal;
@@ -264,7 +265,7 @@
   background-color: var(--accent-color);
   padding: 14px 0;
   border-radius: 6px;
-  color: var(--bg-color);
+  color: #FAFAFA;
   text-align: center;
   font-size: var(--text-lg-fs);
   font-weight: 400;
@@ -281,7 +282,7 @@
 .authLink {
   display: block;
   margin-top: 18px;
-  color: var(--bg-color);
+  color: #FAFAFA;
   font-size: var(--text-md-fs);
   font-weight: 400;
   line-height: normal;
