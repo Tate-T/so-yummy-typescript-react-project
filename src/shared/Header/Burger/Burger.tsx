@@ -8,12 +8,15 @@ import { LuSearch } from "react-icons/lu";
 import { TfiClose } from "react-icons/tfi";
 
 const Burger = ({ openBurger }: { openBurger: () => void }) => {
-  const changeTheme = () => {
-    const html = document.querySelector("html")! as HTMLHtmlElement;
+  const html = document.querySelector("html")! as HTMLHtmlElement;
+  html.setAttribute("data-theme", localStorage.getItem("theme") ?? "light");
 
+  const changeTheme = () => {
     if (html.getAttribute("data-theme") !== "dark") {
+      localStorage.setItem("theme", "dark");
       html.setAttribute("data-theme", "dark");
     } else {
+      localStorage.setItem("theme", "light");
       html.setAttribute("data-theme", "light");
     }
   };
