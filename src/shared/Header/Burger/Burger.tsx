@@ -66,8 +66,8 @@ const Burger = ({ openBurger }: { openBurger: () => void }) => {
           </ul>
         </nav>
 
-        <div className={css.boxTemeColor}>
-          <button type="button" className={css.boxBtnSun} onClick={changeTheme} />
+        <div className={css.boxTemeColor} onClick={changeTheme}>
+          <button type="button" className={css.boxBtnSun} />
         </div>
       </Container>
     </div>
